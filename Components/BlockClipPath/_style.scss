@@ -1,0 +1,34 @@
+flynt-component[name='BlockClipPath'] {
+    &[data-status='collapse'] {
+      margin-block-start: calc((-1 * var(--component-spacing)) + (var(--percentage-distance) * var(--component-spacing) ) / 100);
+    }
+
+    &[data-status='expand'] {
+      margin-block-start: calc((var(--percentage-distance) * var(--component-spacing) ) / 100);
+
+      &[data-theme] {
+        margin-block-start: 0;
+        padding-block-start: calc((var(--percentage-distance) * var(--component-spacing) ) / 100);
+      }
+    }
+
+    &[data-theme][data-status='collapse'] + .componentSpacing {
+      &[data-theme] {
+        margin-block-start: 0;
+        padding-block-start: 0;
+      }
+    }
+
+    &[data-theme][data-status='expand'] + .componentSpacing {
+      &[data-theme] {
+        margin-block-start: calc(-1 * var(--component-spacing));
+        padding-block-start: 0;
+      }
+    }
+
+    .clip-path-container {
+        background-color: $av-light-blue;
+        block-size: 200px;
+        clip-path: polygon(0 74%, 100% 100%, 100% 0, 0 0);
+    }
+}

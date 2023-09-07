@@ -1,0 +1,22 @@
+<flynt-component name="GridBulletedLists" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container" data-flow="layout">
+    {% if preContentHtml %}
+      <div data-size="wide" data-align="{{ titleAlignment }}" data-text-align="{{ titleAlignment }}">
+        {{ preContentHtml|e('wp_kses_post') }}
+      </div>
+    {% endif %}
+    <ul class="grid" {{ options.card ? 'data-card="true"' }} {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+      {% for item in items %}
+        {% if item.image or item.contentHtml %}
+          <li class="diamond">
+              {% if item.contentHtml %}
+                <div class="content {{ options.card ? 'boxPadding' }}">
+                  {{ item.contentHtml|e('wp_kses_post') }}
+                </div>
+              {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</flynt-component>

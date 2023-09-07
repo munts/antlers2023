@@ -1,0 +1,20 @@
+<flynt-component load:on="idle" load:on:media="(min-width: 1024px)" name="NavigationMain">
+  <nav aria-label="{{ labels.ariaLabel|e }}">
+    <div class="container">
+      <div class="av-menu">
+        {% if menu %}
+          {% include 'Partials/_hamburger.twig' with { 'labels': labels } only %}
+        {% endif %}
+      </div>
+      <div class="av-logo">
+        {% include 'Partials/_logo.twig' with { 'logo': logo, 'site': site } only %}
+      </div>
+      <div class="av-check-availability">
+        <a class="button" href="https://reservations.antlersvail.com/99843?_gl=1*1n4uezv*_ga*MTkzNzI3MzE5OC4xNjkzOTM5NTAx*_ga_TNS6V7P5JG*MTY5MzkzOTUwMS4xLjEuMTY5MzkzOTUxMi40OS4wLjA." target="_blank">Check Availability</a>
+      </div>
+    </div>
+    {% if menu %}
+      {% include 'Partials/_menu.twig' with { 'items': menu.items } only %}
+    {% endif %}
+  </nav>
+</flynt-component>

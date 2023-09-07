@@ -1,0 +1,77 @@
+flynt-component[name='GridBulletedLists'] {
+    .grid {
+      --grid-columns: 1;
+      display: grid;
+      gap: none;
+      grid-template-columns: repeat(var(--grid-columns), minmax(300px, 1fr));
+      list-style: none;
+      padding: 0;
+  
+      &[data-max-columns='1'] {
+        @media (min-width: $breakpoint-tablet) {
+          margin-inline: auto;
+          max-inline-size: calc(100% / 2 - var(--flow-space));
+        }
+      }
+  
+      &[data-max-columns='2'],
+      &[data-max-columns='3'],
+      &[data-max-columns='4'] {
+        @media (min-width: $breakpoint-tablet) {
+          --grid-columns: 2;
+        }
+  
+        // @media (min-width: $breakpoint-tablet-horizontal) {
+        //   max-inline-size: max-content;
+        // }
+      }
+  
+      &[data-max-columns='3'] {
+        @media (min-width: $breakpoint-tablet-horizontal) {
+          --grid-columns: 3;
+        }
+      }
+  
+      &[data-max-columns='4'] {
+        @media (min-width: $breakpoint-tablet-horizontal) {
+          --grid-columns: 4;
+        }
+      }
+
+      &[data-card='true']{
+        --column-gap: var(--flow-space);
+  
+        .content {
+          margin-block-start: 0;
+        }
+      }
+    }
+
+    .item {
+      ul {
+        list-style-position: outside;
+        list-style-type: initial;
+        padding-inline-start: 0;
+
+        li {
+          margin-inline-start: 3em;
+        }
+      }
+    }
+
+    .content::before {
+        background: $av-gold; /* Set color for the bullet */
+        block-size: 15px; /* Height of the bullet */
+        content: " ";
+        inline-size: 15px;
+        margin-block-start: 16px;
+        margin-inline-start: -2rem;
+        position: absolute; /* Positioning the bullet as absolute. It will relative to the li item */  
+        transform: rotate(45deg); /* Rotating the rectangle */
+    }
+
+    .content {
+        font-size: 1.5rem;
+        margin-inline-start: 2rem;
+    }
+  }

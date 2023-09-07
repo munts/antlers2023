@@ -1,0 +1,77 @@
+flynt-component[name='NavigationMain'] {
+  --navigation-height: 120px;
+  block-size: var(--navigation-height);
+  display: none;
+  font-size: var(--font-size-body-small);
+
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    display: block;
+  }
+
+  &[data-status='menuIsOpen'] {
+    .menu {
+      transform: translateX(13%);
+      visibility: visible;
+    }
+  }
+
+  nav {
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 999;
+  }
+
+  .navigation {
+    background-color: var(--color-background);
+    block-size: var(--navigation-height);
+    border-block-end: solid 2px var(--color-border);
+    inset-block-start: 0;
+    inset-inline: 0;
+
+    .admin-bar & {
+      inset-block-start: var(--wp-admin--admin-bar--height);
+    }
+  }
+
+  .container {
+    background-color: var(--color-background);
+    block-size: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-inline-size: 80%;
+    // padding-block: 0 24px;
+    padding-inline: var(--container-spacing);
+  }
+
+  .av-menu {
+    padding-block: 24px;
+  }
+
+  .av-check-availability {
+    padding-block: 24px;
+  }
+
+  .menu {
+    backface-visibility: hidden;
+    background-color: var(--color-menu-background);
+    color: var(--color-menu-text);
+    // block-size: calc(100% - var(--navigation-height));
+    inline-size: 100%;
+    inset-block-start: var(--navigation-height);
+    inset-inline-start: 0;
+    list-style: none;
+    margin: 0;
+    overflow-y: visible;
+    // padding: var(--component-spacing) var(--container-spacing);
+    position: fixed;
+    transform: translateY(-100%);
+    //transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1), visibility 0.45s;
+    visibility: hidden;
+    will-change: transform;
+    z-index: 98;
+}
+
+  @import 'Partials/logo';
+  @import 'Partials/hamburger';
+  @import 'Partials/menu';
+}

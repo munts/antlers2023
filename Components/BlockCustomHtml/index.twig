@@ -1,0 +1,7 @@
+<div class="flyntComponent componentSpacing {{ options.theme }} blockCustomHtml" is="flynt-block-custom-html">
+  <div id="{{ blockName|replace({" " : "", "'" : ""}) }}" class="container centerMaxWidthContainer anchor">
+    <div class="content content--{{ textAlignment }} centerContentMaxWidth--{{ textWidth }}">
+      {{ contentHtml }}
+    </div>
+  </div>
+</div>
