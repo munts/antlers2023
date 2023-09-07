@@ -19,7 +19,9 @@
 
   .item {
     color: currentColor;
+    /* stylelint-disable */
     float: left;
+    /* stylelint-enable */
 
     &:hover,
     &:focus-within {
