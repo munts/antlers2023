@@ -17,8 +17,7 @@
                       width="{{ 768 }}"
                       height="{{ (768 / 3 * 2)|round }}"
                       data-src="{{ item.image.src }}"
-                      alt="{{ item.image.alt|e }}"
-                    >
+                      alt="{{ item.image.alt|e }}">
                   {% else %}
                     <img class="figure-image lazyload"
                     src="{{ item.image.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
@@ -39,8 +38,10 @@
                 </figure>
               {% endif %}
               {% if item.contentHtml %}
-                <div class="content {{ options.card ? 'boxPadding' }}">
-                  {{ item.contentHtml|e('wp_kses_post') }}
+                <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
+                  <div class="amenity">
+                    {{ item.contentHtml|striptags }}
+                  </div>
                 </div>
               {% endif %}
           </li>

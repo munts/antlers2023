@@ -94,6 +94,13 @@ function getACFLayout()
                         'type' => 'true_false',
                         'default_value' => 0,
                         'ui' => 1
+                    ],
+                    [
+                        'label' => __('Amenities Grid', 'flynt'),
+                        'name' => 'amenities',
+                        'type' => 'true_false',
+                        'default_value' => 0,
+                        'ui' => 1
                     ]
                 ]
             ]
