@@ -15,7 +15,7 @@ add_filter('Flynt/addComponentData?name=SliderFeaturedPosts', function ($data) {
         'options' => array_merge($translatableOptions, $data['options']),
     ];
     $data['taxonomies'] = $data['taxonomies'] ?? [];
-    $postsPerPage = $data['options']['maxPosts'] ?? 3;
+    $postsPerPage = $data['options']['maxPosts'] ?? 2;
     // $data['right'] = [
     //     'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/next.jpg'),
     //     'alt' => 'next'
@@ -84,7 +84,7 @@ function getACFLayout()
                         'label' => __('Max Posts', 'flynt'),
                         'name' => 'maxPosts',
                         'type' => 'number',
-                        'default_value' => 3,
+                        'default_value' => 2,
                         'min' => 1,
                         'step' => 1
                     ]
