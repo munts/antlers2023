@@ -34,7 +34,7 @@
     &-item {
       block-size: 0;
       overflow: hidden;
-      padding-block-end: (2/3) * 100%;
+      padding-block-end: calc(2 / 3) * 100%;
 
       @media (min-width: $breakpoint-tablet-horizontal) {
         block-size: 467px;

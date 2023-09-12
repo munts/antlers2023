@@ -1,6 +1,11 @@
 flynt-component[name='NavigationFooterColumns'] {
   + flynt-component[name='NavigationFooter'] .container {
+    background-color: $av-dark-blue;
     padding-block-start: 0;
+  }
+
+  .containerTwo {
+    background-color: $av-dark-blue;
   }
 
   @import 'Partials/menu';

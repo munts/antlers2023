@@ -63,6 +63,15 @@ function getACFLayout()
                             'width' => 60
                         ],
                     ],
+                    [
+                        'label' => __('Url', 'flynt'),
+                        'name' => 'url',
+                        'type' => 'text',
+                        'required' => 0,
+                        'wrapper' => [
+                            'width' => 60
+                        ],
+                    ],
                 ]
             ],
             [

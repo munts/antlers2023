@@ -16,6 +16,11 @@ add_action('init', function () {
 add_filter('Flynt/addComponentData?name=NavigationFooterColumns', function ($data) {
     $data['menu'] = Timber::get_menu('navigation_footer_columns') ?? Timber::get_pages_menu();
 
+    $data['footerLogo'] = [
+        'src' => Asset::requireUrl('Components/NavigationFooterColumns/Assets/Navy-Antlers-50th-Logo.jpg'),
+        // 'alt' => 'Care Free Spirit graphic'
+    ];
+
     $componentManager = ComponentManager::getInstance();
     $componentPathFull = $componentManager->getComponentDirPath('NavigationFooterColumns');
     $componentPath = str_replace(trailingslashit(get_template_directory()), '', $componentPathFull);

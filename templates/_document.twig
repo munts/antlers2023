@@ -28,6 +28,11 @@
             {% endblock %}
           {% endif %}
         </main>
+        <div class="footerColumns">
+          {% block footerColumns %}
+            {{ renderComponent('NavigationFooterColumns') }}
+          {% endblock %}
+        </div>
         <footer class="mainFooter">
           {% block footer %}
             {{ renderComponent('NavigationFooter') }}

@@ -1,4 +1,4 @@
-<ul class="menu">
+<ul class="menu" style="display:block;">
   {% for item in items %}
     <li class="item">
       <h3 class="title paragraph">
@@ -10,7 +10,7 @@
           {{ item.title|e }}
         {% endif %}
       </h3>
-      {% if item.children %}
+      {# {% if item.children %}
         <ul class="menu-children">
           {% for child in item.children %}
             <li class="item">
@@ -20,7 +20,7 @@
             </li>
           {% endfor %}
         </ul>
-      {% endif %}
+      {% endif %} #}
     </li>
   {% endfor %}
 

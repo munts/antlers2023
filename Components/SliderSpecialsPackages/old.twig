@@ -1,0 +1,58 @@
+<flynt-component name="SliderSpecialsPackages" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <script type="application/json">{{ jsonData|json_encode }}</script>
+  <div data-slider class="slider swiper-container">
+    <div class="swiper-wrapper">
+      {% for special in specials %}
+      {% set notFirstSlide = loop.index > 1 %}
+          <a href="{{ special.link }}" class="content-link" title="{{ special.title }}">
+            <div class="swiper-slide elevation-3">
+              <picture class="picture">
+                <source {{ notFirstSlide ? 'data-' }}srcset="
+                  {{ special.thumbnail.src | resizeDynamic(768, 640, 'center') }} 768w"
+                data-aspectratio="{{ 768 / 640 }}"
+                media="(min-width: 768px)"
+                sizes="100vw">
+                {# {% set mobileImage = slide.images.imageMobile ? slide.images.imageMobile : slide.images.imageDesktop %} #}
+                <img class="content-image lazyload"
+                        src="{{ special.thumbnail.src|resizeDynamic(424, 283) }}"
+                        srcset="{{ placeholderImage(3, 2) }}"
+                        data-srcset="
+                          {{ special.thumbnail.src|resizeDynamic(1920, 1280) }} 1920w,
+                          {{ special.thumbnail.src|resizeDynamic(1320, 880) }} 1320w,
+                          {{ special.thumbnail.src|resizeDynamic(1280, 853) }} 1280w,
+                          {{ special.thumbnail.src|resizeDynamic(1050, 700) }} 1050w,
+                          {{ special.thumbnail.src|resizeDynamic(768, 640) }} 768w,
+                          {{ special.thumbnail.src|resizeDynamic(600, 400) }} 600w,
+                          {{ special.thumbnail.src|resizeDynamic(424, 283) }} 424w,
+                          {{ special.thumbnail.src|resizeDynamic(312, 208) }} 312w"
+                        data-sizes="auto"
+                        alt="{{ special.thumbnail.alt|e }}">
+              </picture>
+              </a>
+              <div class="content-inner boxPadding alignCenter">
+                <a href="{{ special.link }}" class="content-link slider-title" title="{{ special.title }}">
+                  <h3 class="content-title featured">{{ special.title }}</h3>
+                </a>
+                <p class="content-excerpt">{{ special.preview.read_more(false).length(18) }}</p>
+              </div>
+              <div class="memberCta">
+                <a href="{{ special.website_url }}" class="button button--orange content-readMore" aria-hidden="true" tabindex="-1" target="_blank">{{ labels.readMore }}</a>
+              </div>
+          </div>
+    {% endfor %}
+    </div>
+  </div>
+  {% if specials|length > 1 %}
+      <div data-slider-pagination class="slider-pagination"></div>
+      <button data-slider-button="prev" type="button" class="slider-button slider-button--prev">
+        {# <i data-feather="arrow-left"></i> #}
+        {# <i class="far fa-chevron-circle-left"></i> #}
+        <img src="{{ left.src }}" style="max-width:40px">
+      </button>
+      <button data-slider-button="next" type="button" class="slider-button slider-button--next">
+        {# <i data-feather="arrow-right"></i> #}
+        {# <i class="far fa-chevron-right"></i> #}
+        <img src="{{ right.src }}" style="max-width:40px">
+      </button>
+    {% endif %}
+</div>

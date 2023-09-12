@@ -22,7 +22,7 @@
 
 [data-theme='dark'] {
   --color-accent: hsla(79, 100%, 60%, 1);
-  --color-background: hsla(212, 100%, 15%, 1);
+  --color-background: $av-dark-blue;
   --color-background-secondary: hsl(228, 56%, 98%, 0.06);
   --color-border-secondary: hsl(0, 0%, 90%, 0.68);
   --color-text: hsla(0, 0%, 100%, 1);
@@ -52,6 +52,9 @@
 $av-dark-blue: #0e364F;
 $av-light-blue: #e2ecf1;
 $av-gold: #decc62;
+
+$specials-max-width: 580px;
+$container-padding-mobile: 15px;
 
 $breakpoint-mobile-horizontal: 480px;
 $breakpoint-tablet: 768px;
