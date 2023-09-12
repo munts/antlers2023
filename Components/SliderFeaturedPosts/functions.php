@@ -1,44 +1,48 @@
 <?php
 
-namespace Flynt\Components\SliderSpecialsPackages;
+namespace Flynt\Components\SliderFeaturedPosts;
 
 use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 use Flynt\Utils\Asset;
 
-add_filter('Flynt/addComponentData?name=SliderSpecialsPackages', function ($data) {
+const POST_TYPE = 'post';
+
+add_filter('Flynt/addComponentData?name=SliderFeaturedPosts', function ($data) {
     $translatableOptions = Options::getTranslatable('SliderOptions');
     $data['jsonData'] = [
         'options' => array_merge($translatableOptions, $data['options']),
     ];
+    $data['taxonomies'] = $data['taxonomies'] ?? [];
+    $postsPerPage = $data['options']['maxPosts'] ?? 3;
     // $data['right'] = [
-    //     'src' => Asset::requireUrl('Components/SliderSpecialsPackages/Assets/next.jpg'),
+    //     'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/next.jpg'),
     //     'alt' => 'next'
     // ];
     // $data['left'] = [
-    //     'src' => Asset::requireUrl('Components/SliderSpecialsPackages/Assets/prev.jpg'),
+    //     'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/prev.jpg'),
     //     'alt' => 'prev'
     // ];
 
-    $data['specials'] = Timber::get_posts([
+    $posts = Timber::get_posts([
         'post_status' => 'publish',
-        'post_type' => 'specials-packages',
-        // 'tax_query' => array(
-        //     array(
-        //         'taxonomy' => 'category', // Taxonomy, in my case I need default post categories
-        //         'field'    => 'slug',
-        //         'terms'    => $data['options']['categoryToUse'], // Your category slug (I have a category 'interior')
-        //     )),
-        'posts_per_page' => -1,
+        'post_type' => POST_TYPE,
+        'cat' => join(',', array_map(function ($taxonomy) {
+            return $taxonomy->term_id;
+        }, $data['taxonomies'])),
+        'posts_per_page' => $postsPerPage + 1,
         'ignore_sticky_posts' => 1,
-        //'post__not_in' => array(get_the_ID())
     ]);
+
+    $data['posts'] = array_slice(array_filter($posts->to_array(), function ($post) {
+        return $post->ID !== get_the_ID();
+    }), 0, $postsPerPage);
 
     // $data['cta'] = post.get_field('website_url');
     // $data['cta'] = get_fields('group_624495962114e', 'website_url');
 
-    $data['postTypeArchiveLink'] = get_post_type_archive_link('specials');
+    $data['postTypeArchiveLink'] = get_post_type_archive_link('posts');
 
     return $data;
 });
@@ -46,8 +50,8 @@ add_filter('Flynt/addComponentData?name=SliderSpecialsPackages', function ($data
 function getACFLayout()
 {
     return [
-        'name' => 'SliderSpecialsPackages',
-        'label' => 'Specials: Slider',
+        'name' => 'SliderFeaturedPosts',
+        'label' => 'Featured Posts: Slider',
         'sub_fields' => [
             [
                 'label' => __('Content', 'flynt'),
@@ -68,6 +72,23 @@ function getACFLayout()
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0
+            ],
+            [
+                'label' => '',
+                'name' => 'options',
+                'type' => 'group',
+                'layout' => 'row',
+                'sub_fields' => [
+                    FieldVariables\getTheme(),
+                    [
+                        'label' => __('Max Posts', 'flynt'),
+                        'name' => 'maxPosts',
+                        'type' => 'number',
+                        'default_value' => 3,
+                        'min' => 1,
+                        'step' => 1
+                    ]
+                ]
             ],
             [
                 'label' => 'Category to Use',

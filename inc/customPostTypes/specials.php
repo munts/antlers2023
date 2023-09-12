@@ -57,5 +57,5 @@ add_action('init', function () {
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
     ];
-    register_post_type('specials', $args);
+    register_post_type('specials-packages', $args);
 });
