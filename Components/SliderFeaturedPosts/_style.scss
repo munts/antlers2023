@@ -1,18 +1,19 @@
 flynt-component[name='SliderFeaturedPosts'] {
   .specials-intro {
-    inline-size: 100%;
-
+    @media (min-width: 320px) {
+      inline-size: 100%;
+    }
     @media (min-width: $breakpoint-tablet) {
       inline-size: 50%;
     }
   }
 
   .container-specials {
-    inline-size: 100%;
-
+    @media (min-width: 320px) {
+      inline-size: 100%;
+    }
     @media (min-width: $breakpoint-tablet) {
       inline-size: 50%;
-      max-inline-size: 1150px;
     }
   }
 
@@ -231,8 +232,17 @@ flynt-component[name='SliderFeaturedPosts'] {
     }
   }
 
-  display: flex;
-  flex-direction: row;
-  inline-size: 100%;
-  padding: 0 60px
+  @media (min-width: 320px) {
+    display: block;
+    inline-size: 100%;
+    padding: 0 60px
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: row;
+    inline-size: 100%;
+    padding: 0 60px
+  }
+
 }

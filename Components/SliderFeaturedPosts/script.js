@@ -28,17 +28,17 @@ function initSlider (refs, data) {
     },
     loop: true,
     centeredSlides: false,
-    slidesPerView: 2,
+    slidesPerView: 1,
     // slidesPerGroupSkip: 2,
     grabCursor: true,
     keyboard: {
       enabled: true
     },
-    // breakpoints: {
-    //   769: {
-    //     slidesPerView: 2,
-    //   },
-    // },
+    breakpoints: {
+      769: {
+        slidesPerView: 2,
+      },
+    },
     pagination: {
       el: refs.pagination,
       clickable: true
