@@ -36,8 +36,8 @@ function initSlider (refs, data) {
     },
     breakpoints: {
       769: {
-        slidesPerView: 2,
-      },
+        slidesPerView: 2
+      }
     },
     pagination: {
       el: refs.pagination,
