@@ -1,4 +1,4 @@
-<flynt-component name="SliderFeaturedPosts" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} style="display:flex;flex-direction:row;padding:0 60px">
+<flynt-component name="SliderFeaturedPosts" load:on="visible" class="featured-post-slider componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} >
     <div class="specials-intro">
     {% if preContentHtml %}
         <div data-size="medium" data-align="center" data-text-align="center" style="padding: 0 30px;">
@@ -7,7 +7,7 @@
     {% endif %}
     </div>
     <script type="application/json">{{ jsonData|json_encode }}</script>
-    <div class="container-speials" data-size="full" data-flow="layout" style="width:100%;">
+    <div class="container-specials" data-size="full" data-flow="layout">
         <div data-ref="slider" data-slider class="slider swiper-container">
             <div class="swiper-wrapper">
             {% for post in posts %}

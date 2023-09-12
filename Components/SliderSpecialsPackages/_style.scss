@@ -1,6 +1,24 @@
 flynt-component[name='SliderSpecialsPackages'] {
+  .featured-post-slider {
+    display: flex;
+    flex-direction: row;
+    padding: 0 60px
+  }
+  
   .specials-intro {
-    min-inline-size: 50%;
+    inline-size: 100%;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-inline-size: 50%;
+    }
+  }
+
+  .container-specials {
+    inline-size: 100%;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-inline-size: 50%;
+    }
   }
 
   .slider {

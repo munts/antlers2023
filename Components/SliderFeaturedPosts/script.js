@@ -27,8 +27,8 @@ function initSlider (refs, data) {
       prevEl: refs.prev
     },
     loop: true,
-    slidesPerView: 2,
     centeredSlides: false,
+    slidesPerView: 2,
     // slidesPerGroupSkip: 2,
     grabCursor: true,
     keyboard: {
