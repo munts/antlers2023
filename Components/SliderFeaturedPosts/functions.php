@@ -16,14 +16,14 @@ add_filter('Flynt/addComponentData?name=SliderFeaturedPosts', function ($data) {
     ];
     $data['taxonomies'] = $data['taxonomies'] ?? [];
     $postsPerPage = $data['options']['maxPosts'] ?? 2;
-    // $data['right'] = [
-    //     'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/next.jpg'),
-    //     'alt' => 'next'
-    // ];
-    // $data['left'] = [
-    //     'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/prev.jpg'),
-    //     'alt' => 'prev'
-    // ];
+    $data['right'] = [
+        'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/next.jpg'),
+        'alt' => 'next'
+    ];
+    $data['left'] = [
+        'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/prev.jpg'),
+        'alt' => 'prev'
+    ];
 
     $posts = Timber::get_posts([
         'post_status' => 'publish',

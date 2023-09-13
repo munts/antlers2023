@@ -81,16 +81,23 @@ flynt-component[name='SliderFeaturedPosts'] {
 
     &-button {
       align-items: center;
-      block-size: 48px;
+      block-size: 40px;
+      border-radius: 50%;
       color: var(--color-background);
       cursor: pointer;
       display: none;
-      inline-size: 48px;
+      inline-size: 40px;
       inset-block-start: 50%;
       justify-content: center;
       position: absolute;
       transform: translateY(-50%);
+      transition: opacity 0.2s ease, background-color 0.2s ease;
       z-index: 10;
+
+      &.swiper-button-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
 
       &::before {
         background-color: var(--color-accent);
@@ -102,15 +109,6 @@ flynt-component[name='SliderFeaturedPosts'] {
         inset-inline-start: 0;
         position: absolute;
         transition: opacity 0.2s ease;
-      }
-
-      @media (min-width: $breakpoint-tablet) {
-        display: flex;
-      }
-
-      &.swiper-button-disabled {
-        opacity: 0.5;
-        pointer-events: none;
       }
 
       &--prev {
@@ -126,14 +124,10 @@ flynt-component[name='SliderFeaturedPosts'] {
           margin-inline-start: calc(0.25em + 2px);
           transform: rotate(-45deg);
         }
-
-        @media (min-width: $breakpoint-desktop) {
-          // inset-inline-end: 45px;
-        }
       }
 
       &--next {
-        inset-inline-end: 50px;
+        inset-inline-end: 15px;
 
         &::after {
           block-size: 0.75em;
@@ -145,91 +139,53 @@ flynt-component[name='SliderFeaturedPosts'] {
           transform: rotate(45deg);
         }
 
+        @media (min-width: $breakpoint-tablet) {
+          &:hover,
+          &:focus {
+            background-color: #fff;
+          }
+        }
+
+        @media (min-width: $breakpoint-tablet-horizontal) {
+          inset-inline-end: 45px;
+        }
+
         @media (min-width: $breakpoint-desktop) {
           inset-inline-end: 32px;
         }
-      }
-    }
-
-    &-button {
-      align-items: center;
-      block-size: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      inline-size: 40px;
-      inset-block-start: 50%;
-      justify-content: center;
-      position: absolute;
-      transform: translateY(-50%);
-      transition: opacity 0.2s ease, background-color 0.2s ease;
-      z-index: 10;
-
-      &.swiper-button-disabled {
-        opacity: 0.5;
-        pointer-events: none;
       }
 
       @media (min-width: $breakpoint-tablet) {
         display: flex;
       }
-
-      .feather {
-        block-size: auto;
-        color: $color-background;
-        inline-size: 80%;
-        inset-block-start: 0;
-      }
-
-      &--prev {
-        // inset-inline-start: 15px;
-
-        @media (min-width: $breakpoint-desktop) {
-          // inset-inline-end: 45px;
-        }
-      }
-
-      &--next {
-          inset-inline-end: 15px;
-
-        @media (min-width: $breakpoint-tablet-horizontal) {
-          inset-inline-end: 45px;
-        }
-      }
-
-      @media (min-width: $breakpoint-tablet) {
-        &:hover,
-        &:focus {
-          background-color: #fff;
-        }
-      }
     }
 
-    &-pagination {
-      margin-block-start: 1rem;
-      min-block-size: 27px;
-      text-align: center;
+    // &-pagination {
+    //   margin-block-start: 1rem;
+    //   min-block-size: 27px;
+    //   text-align: center;
 
-      .swiper-pagination-bullet {
-        background-color: var(--color-accent);
-        block-size: 8px;
-        inline-size: 8px;
-        opacity: 0.2;
-        transition: width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.3s ease;
+    //   .swiper-pagination-bullet {
+    //     background-color: var(--color-accent);
+    //     block-size: 8px;
+    //     inline-size: 8px;
+    //     opacity: 0.2;
+    //     transition: width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.3s ease;
 
-        &-active {
-          block-size: 8px;
-          border-radius: 4px;
-          inline-size: 8px;
-          inline-size: 20px;
-          opacity: 1;
-        }
+    //     &-active {
+    //       block-size: 8px;
+    //       border-radius: 4px;
+    //       inline-size: 8px;
+    //       inline-size: 20px;
+    //       opacity: 1;
+    //     }
 
-        &:hover,
-        &:focus {
-          opacity: 1;
-        }
-      }
-    }
+    //     &:hover,
+    //     &:focus {
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
   }
 
   @media (min-width: 320px) {
@@ -244,5 +200,4 @@ flynt-component[name='SliderFeaturedPosts'] {
     inline-size: 100%;
     padding: 0 60px
   }
-
 }
