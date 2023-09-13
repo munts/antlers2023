@@ -28,6 +28,10 @@ flynt-component[name='SliderImages'] {
     overflow: hidden;
     position: relative;
 
+    @media (max-width: $breakpoint-tablet) {
+      margin-block-start: 30px;
+    }
+
     &:not(.swiper-initialized) {
       .swiper-wrapper .swiper-slide:not(:first-child) {
         display: none;

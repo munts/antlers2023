@@ -35,7 +35,7 @@ function initSlider (refs, data) {
       enabled: true
     },
     breakpoints: {
-      769: {
+      980: {
         slidesPerView: 2
       }
     },
