@@ -81,17 +81,17 @@ flynt-component[name='SliderFeaturedPosts'] {
 
     &-button {
       align-items: center;
-      block-size: 40px;
-      border-radius: 50%;
-      color: var(--color-background);
+      //block-size: 40px;
+      //border-radius: 50%;
+      //color: var(--color-background);
       cursor: pointer;
       display: none;
-      inline-size: 40px;
+      //inline-size: 40px;
       inset-block-start: 50%;
       justify-content: center;
       position: absolute;
       transform: translateY(-50%);
-      transition: opacity 0.2s ease, background-color 0.2s ease;
+      //transition: opacity 0.2s ease, background-color 0.2s ease;
       z-index: 10;
 
       &.swiper-button-disabled {
@@ -100,26 +100,31 @@ flynt-component[name='SliderFeaturedPosts'] {
       }
 
       &::before {
-        background-color: var(--color-accent);
+        //background-color: var(--color-accent);
         block-size: 100%;
-        border-radius: 50%;
-        content: '';
+        //border-radius: 50%;
+        //content: '';
         inline-size: 100%;
         inset-block-start: 0;
         inset-inline-start: 0;
         position: absolute;
-        transition: opacity 0.2s ease;
+        //transition: opacity 0.2s ease;
       }
 
       &--prev {
+        border-color: transparent transparent transparent $av-gold;
+        border-style: solid;
+        border-width: 40px 0 40px 40px;
         inset-inline-start: auto;
-        margin-inline-start: -45px;
+        margin-block-start: 0;
+        margin-inline-start: -30px;
+        transform: rotate(-180deg);
 
         &::after {
           block-size: 0.75em;
-          border-block-start: 2px solid currentColor;
-          border-inline-start: 2px solid currentColor;
-          content: '';
+          //border-block-start: 2px solid currentColor;
+          //border-inline-start: 2px solid currentColor;
+          //content: '';
           inline-size: 0.75em;
           margin-inline-start: calc(0.25em + 2px);
           transform: rotate(-45deg);
@@ -127,13 +132,17 @@ flynt-component[name='SliderFeaturedPosts'] {
       }
 
       &--next {
+        background-color: transparent;
+        border-color: transparent transparent transparent $av-gold;
+        border-style: solid;
+        border-width: 40px 0 40px 40px;
         inset-inline-end: 15px;
 
         &::after {
           block-size: 0.75em;
-          border-block-start: 2px solid currentColor;
-          border-inline-end: 2px solid currentColor;
-          content: '';
+          //border-block-start: 2px solid currentColor;
+          //border-inline-end: 2px solid currentColor;
+          //content: '';
           inline-size: 0.75em;
           margin-inline-end: calc(0.25em - 2px);
           transform: rotate(45deg);
