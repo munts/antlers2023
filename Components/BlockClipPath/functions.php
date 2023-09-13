@@ -17,6 +17,36 @@ function getACFLayout()
         'label' => __('Block: ClipPath', 'flynt'),
         'sub_fields' => [
             [
+                'label' => __('Content', 'flynt'),
+                'name' => 'contentTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0,
+            ],
+            [
+                'label' => __('Heading', 'flynt'),
+                'name' => 'heading',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Text', 'flynt'),
+                'name' => 'contentHtml',
+                'type' => 'wysiwyg',
+                'delay' => 0,
+                'media_upload' => 0,
+                'required' => 1,
+            ],
+            [
+                'label' => __('Call to Action Label', 'flynt'),
+                'name' => 'ctaLabel',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Call to Action Url', 'flynt'),
+                'name' => 'ctaUrl',
+                'type' => 'text',
+            ],
+            [
                 'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',
                 'type' => 'tab',
