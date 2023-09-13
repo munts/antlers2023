@@ -4,10 +4,10 @@
       <h3 class="title paragraph">
         {% if item.url|trim != '#' %}
           <a class="link" href="{{ item.url|e('esc_url') }}" {{ item.target == '_blank' ? 'target="_blank" rel="nofollow noreferrer noopener"' }}>
-            {{ item.title|e }}
+            {{ item.title }}
           </a>
         {% else %}
-          {{ item.title|e }}
+          {{ item.title }}
         {% endif %}
       </h3>
       {# {% if item.children %}

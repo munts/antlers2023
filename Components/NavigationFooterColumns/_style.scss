@@ -6,6 +6,9 @@ flynt-component[name='NavigationFooterColumns'] {
 
   .containerTwo {
     background-color: $av-dark-blue;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-around;
   }
 
   @import 'Partials/menu';
