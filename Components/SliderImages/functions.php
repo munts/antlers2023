@@ -34,6 +34,12 @@ function getACFLayout()
                 'media_upload' => 0,
             ],
             [
+                'label' => __('Learn More Url', 'flynt'),
+                'instructions' => __('relative path of the page the learn more button links to.', 'flynt'),
+                'name' => 'url',
+                'type' => 'text',
+            ],
+            [
                 'label' => __('Images', 'flynt'),
                 'instructions' => __('Image-Format: JPG, PNG, WebP.', 'flynt'),
                 'name' => 'images',
