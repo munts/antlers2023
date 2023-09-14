@@ -52,7 +52,7 @@ function getACFLayout()
                 'type' => 'wysiwyg',
                 'delay' => 0,
                 'media_upload' => 0,
-                'required' => 1,
+                'required' => 0,
             ],
         ]
     ];
