@@ -34,6 +34,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\GridPostsLatest\getACFLayout(),
                     Components\ListComponents\getACFLayout(),
                     Components\SliderImages\getACFLayout(),
+                    Components\SliderTestimonials\getACFLayout(),
                     Components\SliderImagesCentered\getACFLayout(),
                     Components\SliderSpecialsPackages\getACFLayout(),
                     Components\SliderFeaturedPosts\getACFLayout(),
