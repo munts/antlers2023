@@ -46,7 +46,8 @@
     will-change: color;
 
     &:hover {
-      color: var(--color-accent);
+      color: var(--color-background);
+      text-decoration: underline;
     }
 }
 
