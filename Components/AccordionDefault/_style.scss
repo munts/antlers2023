@@ -84,6 +84,11 @@ flynt-component[name='AccordionDefault'] {
         position: absolute; /* Positioning the bullet as absolute. It will relative to the li item */  
       }
     }
+
+    a {
+      color: $av-dark-blue;
+      text-decoration: none;
+    }
   }
 
   [aria-expanded=true] {
