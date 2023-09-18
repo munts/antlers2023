@@ -1,23 +1,46 @@
 <flynt-component name="AccordionDefault" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
   <div class="container">
     {% if preContentHtml %}
-      <div data-size="medium" data-align="center">
+      <div data-size="full" data-align="center">
         {{ preContentHtml|e('wp_kses_post')}}
       </div>
     {% endif %}
-    <div data-size="medium" data-align="center">
+    <div data-size="full" data-align="center">
       <ul class="items">
         {% for panel in accordionPanels %}
-          <li class="item">
+          <li class="item boxPadding">
             <h3 class="h5">
               <button data-refs="trigger" class="trigger" type="button" aria-expanded="false" aria-controls="content-{{ uuid ~ '-' ~ loop.index }}">
                 {{ panel.title|e }}
               </button>
             </h3>
             <div class="content" aria-hidden="true" id="content-{{ uuid ~ '-' ~ loop.index }}">
-              <div class="content-inner">
-                {{ panel.contentHtml|e('wp_kses_post') }}
-              </div>
+            <div class="panel-container" style="display:flex; flex-direction:row;">
+              <figure class="figure" data-size="full" data-align="center" style="flex-grow: 1;">
+                {# {% if panel.image.post_mime_type == 'panel.image/svg+xml'%}
+                  <img class="figure-panel.image-svg lazyload"
+                    src="{{ placeholderpanel.image(768, (768 / panel.image.aspect)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                    width="{{ 768 }}"
+                    height="{{ (768 / panel.image.aspect)|round }}"
+                    data-src="{{ panel.image.src }}"
+                    alt="{{ panel.image.alt|e }}">
+                {% else %} #}
+                {# {{panel.image.src}} #}
+                  <img class="figure-panel.image lazyload"
+                    src="{{ panel.image.src }}" style="max-width:400px;"
+                    alt="{{ panel.image.alt|e }}">
+                {# {% endif %} #}
+                {# {% if panel.image.caption %}
+                  <figcaption>{{ panel.image.caption|e }}</figcaption>
+                {% endif %} #}
+              </figure>
+                <div class="content-inner" style="flex-grow: 1;">
+                  {{ panel.contentHtml|e('wp_kses_post') }}
+                  <div class="cta-container">
+                    <a class="button--more-info" href="{{panel.url}}">More Info</a>
+                  </div>
+                </div>
+            </div>
             </div>
           </li>
         {% endfor %}

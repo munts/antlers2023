@@ -5,7 +5,9 @@ flynt-component[name='AccordionDefault'] {
   }
 
   .item {
+    background-color: $av-light-blue;
     display: block;
+    margin-block-end: 10px;
     padding-block-end: var(--flow-space);
 
     &:not(:first-child) {
@@ -17,8 +19,18 @@ flynt-component[name='AccordionDefault'] {
     }
   }
 
+  h2 {
+    color: $av-dark-blue;
+  }
+
+  .h5 {
+    color: $av-dark-blue;
+    font-size: 2rem;
+  }
+
   .trigger {
-    --icon-size: 16px;
+    --icon-size: 18px;
+    color: $av-dark-blue;
     cursor: pointer;
     inline-size: 100%;
     margin: 0;
@@ -27,7 +39,8 @@ flynt-component[name='AccordionDefault'] {
 
     &::before,
     &::after {
-      background-color: var(--color-accent);
+      //background-color: var(--color-accent);
+      background-color: $av-dark-blue;
       block-size: 2px;
       content: '';
       inline-size: var(--icon-size);
@@ -52,6 +65,10 @@ flynt-component[name='AccordionDefault'] {
     &-inner {
       margin-block-start: var(--flow-space);
     }
+  }
+
+  .units {
+    columns: 2;
   }
 
   [aria-expanded=true] {
