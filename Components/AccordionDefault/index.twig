@@ -8,13 +8,13 @@
     <div data-size="full" data-align="center">
       <ul class="items">
         {% for panel in accordionPanels %}
-          <li class="item boxPadding">
-            <h3 class="h5">
-              <button data-refs="trigger" class="trigger" type="button" aria-expanded="false" aria-controls="content-{{ uuid ~ '-' ~ loop.index }}">
-                {{ panel.title|e }}
-              </button>
-            </h3>
-            <div class="content" aria-hidden="true" id="content-{{ uuid ~ '-' ~ loop.index }}">
+          <li class="item">
+              <h3 class="h5">
+                <button data-refs="trigger" class="trigger" type="button" aria-expanded="false" aria-controls="content-{{ uuid ~ '-' ~ loop.index }}" style="padding: 15px 0 0 15px;">
+                  {{ panel.title|e }}
+                </button>
+              </h3>
+            <div class="content boxPadding" aria-hidden="true" id="content-{{ uuid ~ '-' ~ loop.index }}">
             <div class="panel-container" style="display:flex; flex-direction:row;">
               <figure class="figure" data-size="full" data-align="center" style="flex-grow: 1;">
                 {# {% if panel.image.post_mime_type == 'panel.image/svg+xml'%}

@@ -10,9 +10,9 @@ flynt-component[name='AccordionDefault'] {
     margin-block-end: 10px;
     padding-block-end: var(--flow-space);
 
-    &:not(:first-child) {
-      padding-block-start: var(--flow-space);
-    }
+    // &:not(:first-child) {
+    //   padding-block-start: var(--flow-space);
+    // }
 
     + .item {
       border-block-start: 2px solid var(--color-border);
@@ -45,7 +45,7 @@ flynt-component[name='AccordionDefault'] {
       content: '';
       inline-size: var(--icon-size);
       inset-block-start: calc(50% - 1.5px);
-      inset-inline-end: 0;
+      inset-inline-end: 15px;
       position: absolute;
       transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
       will-change: transform;
@@ -60,7 +60,8 @@ flynt-component[name='AccordionDefault'] {
   .content {
     display: none;
     margin: 0;
-    padding: 0;
+    padding-block: var(--box-spacing);
+    padding-inline: var(--box-spacing);
 
     &-inner {
       margin-block-start: var(--flow-space);
@@ -99,6 +100,8 @@ flynt-component[name='AccordionDefault'] {
     &::after {
       transform: rotate(-45deg);
     }
+
+    box-shadow: 0 5px 3px -3px #00000030;
   }
 
   [aria-hidden=false] {
