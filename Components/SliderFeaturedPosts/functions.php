@@ -11,9 +11,9 @@ const POST_TYPE = 'post';
 
 add_filter('Flynt/addComponentData?name=SliderFeaturedPosts', function ($data) {
     $translatableOptions = Options::getTranslatable('SliderOptions');
-    $data['jsonData'] = [
-        'options' => array_merge($translatableOptions, $data['options']),
-    ];
+    // $data['jsonData'] = [
+    //     'options' => array_merge($translatableOptions, $data['options']),
+    // ];
     $data['taxonomies'] = $data['taxonomies'] ?? [];
     $postsPerPage = $data['options']['maxPosts'] ?? 2;
     $data['right'] = [
