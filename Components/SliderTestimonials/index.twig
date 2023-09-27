@@ -1,7 +1,7 @@
-<flynt-component name="SliderTestimonials" load:on="visible">
+<flynt-component name="SliderTestimonials" load:on="visible" class="{{ spacingOptions.spacing ? 'componentSpacingNone' : 'componentSpacing' }}" {{ themeOptions.theme ? 'data-theme="' ~ themeOptions.theme ~ '"' }}>
   <script type="application/json">{{ jsonData|json_encode }}</script>
   <div data-ref="slider" data-slider class="slider swiper-container">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper container">
       {% for slide in slides %}
         <div data-refs="sliderItems" class="swiper-slide">
           {% if slide.contentHtml %}

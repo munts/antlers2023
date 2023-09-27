@@ -19,9 +19,9 @@ flynt-component[name='SliderTestimonials'] {
       }
     }
   
-    .slider {
-      background-color: $av-light-blue;
-    }
+    // .slider {
+    //   background-color: $av-light-blue;
+    // }
   
     // .swiper-wrapper {
     //   clip-path: polygon(0 74%, 100% 100%, 100% 0, 0 0);
@@ -145,7 +145,8 @@ flynt-component[name='SliderTestimonials'] {
     .container {
       block-size: var(--slider-height);
       display: flex;
-      margin-inline: 0;
+      margin-inline-end: auto;
+      margin-inline-start: auto;
   
       &::before {
         block-size: 100%;
@@ -181,9 +182,9 @@ flynt-component[name='SliderTestimonials'] {
       padding: 0;
       position: relative;
   
-      @media (min-width: $breakpoint-tablet) {
-        padding: var(--container-spacing) calc(var(--container-spacing) + var(--slider-button-size)) calc(var(--container-spacing) + 30px);
-      }
+    //   @media (min-width: $breakpoint-tablet) {
+    //     padding: var(--container-spacing) calc(var(--container-spacing) + var(--slider-button-size)) calc(var(--container-spacing) + 30px);
+    //   }
   
       @media (min-width: $breakpoint-tablet-horizontal) {
         //padding-block-end: var(--container-spacing);

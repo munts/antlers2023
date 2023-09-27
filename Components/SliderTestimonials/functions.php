@@ -4,6 +4,7 @@ namespace Flynt\Components\SliderTestimonials;
 
 use Flynt\Utils\Options;
 use Flynt\Utils\Asset;
+use Flynt\FieldVariables;
 
 add_filter('Flynt/addComponentData?name=SliderTestimonials', function ($data) {
     $data['sliderOptions'] = Options::getTranslatable('SliderOptions');
@@ -55,6 +56,47 @@ function getACFLayout()
                         'label' => __('Author', 'flynt'),
                         'name' => 'author',
                         'type' => 'text',
+                    ],
+                ]
+            ],
+            [
+                'label' => __('Theme', 'flynt'),
+                'name' => 'themeTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0
+            ],
+            [
+                'label' => '',
+                'name' => 'themeOptions',
+                'type' => 'group',
+                'layout' => 'row',
+                'sub_fields' => [
+                    FieldVariables\getTheme(),
+                    FieldVariables\getSize(),
+                    FieldVariables\getAlignment(),
+                    FieldVariables\getTextAlignment()
+                ]
+            ],
+            [
+                'label' => __('Spacing', 'flynt'),
+                'name' => 'spacingTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0
+            ],
+            [
+                'label' => '',
+                'name' => 'spacingOptions',
+                'type' => 'group',
+                'layout' => 'row',
+                'sub_fields' => [
+                    [
+                        'label' => __('Disable Vertical Spacing', 'flynt'),
+                        'name' => 'spacing',
+                        'type' => 'true_false',
+                        'default_value' => 0,
+                        'ui' => 1
                     ],
                 ]
             ],
