@@ -37,7 +37,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\SliderTestimonials\getACFLayout(),
                     //Components\SliderImagesCentered\getACFLayout(),
                     Components\SliderSpecialsPackages\getACFLayout(),
-                    //Components\SliderFeaturedPosts\getACFLayout(),
+                    Components\SliderFeaturedPosts\getACFLayout(),
                     //Components\ReusableComponent\getACFLayout(),
                 ],
             ],
