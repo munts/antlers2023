@@ -13,6 +13,7 @@
             {% for post in posts %}
                 <div class="slider-item swiper-slide {{- loop.index == 1 ? ' swiper-slide-active' -}}">
                 <figure class="figure">
+                {% if (post.thumbnail) %}
                     <img class="figure-image lazyload"
                     src="{{ post.thumbnail.src|resizeDynamic(870, 580) }}"
                     srcset="{{ placeholderImage(870, 580, 'rgba(125, 125, 125, 0.1)') }}"
@@ -25,6 +26,9 @@
                         {{ post.thumbnail.src|resizeDynamic(375, 246) }} 375w"
                     data-sizes="auto"
                     alt="{{ post.thumbnail.alt|e }}">
+                    {% else %}
+                        <img src="/wp-content/themes/antlers2023/Components/SliderFeaturedPosts/Assets/filler.png" style="max-height:291px;">
+                    {% endif %}
                     <h4 style="padding: 15px 30px;">{{post.title}}</h4>
                     <div class="specials-content">{{post.content|truncate(20, '...', false)}}</div>
                 </figure>

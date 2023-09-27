@@ -24,6 +24,10 @@ add_filter('Flynt/addComponentData?name=SliderFeaturedPosts', function ($data) {
         'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/prev.jpg'),
         //'alt' => 'prev'
     ];
+    $data['filler'] = [
+        'src' => Asset::requireUrl('Components/SliderFeaturedPosts/Assets/filler.png'),
+        //'alt' => 'prev'
+    ];
 
     $posts = Timber::get_posts([
         'post_status' => 'publish',
