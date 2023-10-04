@@ -66,6 +66,7 @@ function getACFLayout()
                 'layout' => 'row',
                 'sub_fields' => [
                     FieldVariables\getTheme(),
+                    FieldVariables\removeComponentSpacing(),
                     [
                         'label' => __('Max Columns', 'flynt'),
                         'name' => 'maxColumns',

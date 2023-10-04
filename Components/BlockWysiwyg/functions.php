@@ -41,7 +41,8 @@ function getACFLayout()
                     FieldVariables\getTheme(),
                     FieldVariables\getSize(),
                     FieldVariables\getAlignment(),
-                    FieldVariables\getTextAlignment()
+                    FieldVariables\getTextAlignment(),
+                    FieldVariables\removeComponentSpacing()
                 ]
             ]
         ]

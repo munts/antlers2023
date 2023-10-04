@@ -1,4 +1,4 @@
-<flynt-component name="GridBulletedLists" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+<flynt-component name="GridBulletedLists" class="{{ options.spacing == 'no' ? "componentSpacing" : "componentSpacingNone" }}" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
   <div class="container" data-flow="layout">
     {% if preContentHtml %}
       <div data-size="wide" data-align="{{ titleAlignment }}" data-text-align="{{ titleAlignment }}">

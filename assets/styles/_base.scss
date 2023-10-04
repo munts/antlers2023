@@ -472,6 +472,15 @@ flynt-component {
   }
 }
 
+.componentSpacingNone {
+  // margin: var(--component-spacing) 0;
+
+  &[data-theme] {
+    margin: 0;
+    padding: 15px 0;
+  }
+}
+
 .wp-block-post-content > .alignfull {
   margin-inline: auto;
   max-inline-size: var(--content-max-width-full) !important;

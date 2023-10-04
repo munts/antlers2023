@@ -1,4 +1,4 @@
-<flynt-component name="BlockClipPath">
+<flynt-component name="BlockClipPath" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} data-status="{{ status }}" style="--percentage-distance: {{ options.percentageDistance }};">
     <div class="clip-path-container"></div>
     <div class="container">
         <div class="tag-line-container">

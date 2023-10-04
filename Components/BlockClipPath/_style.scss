@@ -1,46 +1,50 @@
 flynt-component[name='BlockClipPath'] {
-    // &[data-status='collapse'] {
-    //   margin-block-start: calc((-1 * var(--component-spacing)) + (var(--percentage-distance) * var(--component-spacing) ) / 100);
-    // }
+  &[data-status='collapse'] {
+    margin-block-start: calc((-1 * var(--component-spacing)) + (var(--percentage-distance) * var(--component-spacing) ) / 100);
+  }
 
-    // &[data-status='expand'] {
-    //   margin-block-start: calc((var(--percentage-distance) * var(--component-spacing) ) / 100);
+  &[data-status='expand'] {
+    margin-block-start: calc((var(--percentage-distance) * var(--component-spacing) ) / 100);
 
-    //   &[data-theme] {
-    //     margin-block-start: 0;
-    //     padding-block-start: calc((var(--percentage-distance) * var(--component-spacing) ) / 100);
-    //   }
-    // }
+    &[data-theme] {
+      margin-block-start: 0;
+      padding-block-start: calc((var(--percentage-distance) * var(--component-spacing) ) / 100);
+    }
+  }
 
-    // &[data-theme][data-status='collapse'] + .componentSpacing {
-    //   &[data-theme] {
-    //     margin-block-start: 0;
-    //     padding-block-start: 0;
-    //   }
-    // }
+  &[data-theme][data-status='collapse'] + .componentSpacing {
+    &[data-theme] {
+      margin-block-start: 0;
+      padding-block-start: 0;
+    }
+  }
 
-    // &[data-theme][data-status='expand'] + .componentSpacing {
-    //   &[data-theme] {
-    //     margin-block-start: calc(-1 * var(--component-spacing));
-    //     padding-block-start: 0;
-    //   }
-    // }
+  &[data-theme][data-status='expand'] + .componentSpacing {
+    &[data-theme] {
+      margin-block-start: calc(-1 * var(--component-spacing));
+      padding-block-start: 0;
+    }
+  }
 
     background-color: $av-light-blue;
 
     .clip-path-container {
       background-color: $av-light-blue;
-      block-size: 300px;
-      clip-path: polygon(0 73%, 0% 100%, 100% 100%);
+      // block-size: 300px;
+      block-size: 100px;
+      // clip-path: polygon(0 73%, 0% 100%, 100% 100%);
+      clip-path: polygon(0 0%, 0% 100%, 100% 100%);
       inline-size: 100%;
-      inset-block-start: -299px;
+      // inset-block-start: -299px;
+      inset-block-start: -99px;
       position: relative;
       z-index: 9;
     }
   
     .tag-line-container {
       //background-color: $av-light-blue;
-      block-size: 250px;
+      // block-size: 250px;
+      block-size: 125px;
       color: $av-dark-blue;
       // clip-path: polygon(0 73%, 0% 100%, 100% 100%);
       inline-size: 100%;

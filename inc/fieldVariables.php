@@ -87,3 +87,22 @@ function getTextAlignment($args = [])
         'default_value' => $options['default']
     ];
 }
+function removeComponentSpacing($args = [])
+{
+    $options = wp_parse_args($args, [
+        'label' => __('Remove the Default Top & Bottom padding', 'flynt'),
+        'name' => 'spacing',
+        'default' => 'no'
+    ]);
+
+    return [
+        'label' => $options['label'],
+        'name' => $options['name'],
+        'type' => 'button_group',
+        'choices' => [
+            'no' => sprintf('No', __('No', 'flynt')),
+            'yes' => sprintf('Yes', __('Yes', 'flynt'))
+        ],
+        'default_value' => $options['default']
+    ];
+}
