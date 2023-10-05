@@ -4,7 +4,7 @@
 {# <h5 style="margin-top:160px;">Post = {{post.meta.pageComponents|join(', ')}}</h5> #}
   {% set componentsArray = post.meta.pageComponents|join(', ')%}
   {% if not function('is_front_page') %}
-    {% if 'heroImageText' and 'heroSlider' not in componentsArray %}
+    {% if 'heroImageText' or 'heroSlider' not in componentsArray %}
       <img src="/wp-content/uploads/2023/09/hero-photo.jpg" style="max-height:600px;">
     {% endif %}
   {% endif %}
