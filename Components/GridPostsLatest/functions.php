@@ -30,7 +30,8 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
             }, $data['taxonomies'])),
             'posts_per_page' => $postsPerPage + 1,
             'ignore_sticky_posts' => 1,
-            'orderby' => 'rand'
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
         ]);
     } else {
         $posts = Timber::get_posts([

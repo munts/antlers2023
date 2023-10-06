@@ -45,7 +45,7 @@
         {% endfor %}
       </ul>
       {% elseif layoutType == 'links' %}
-      <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+      <ul class="units" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
           <li class="links" data-theme="reset">
             <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
