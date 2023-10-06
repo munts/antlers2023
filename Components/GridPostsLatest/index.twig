@@ -30,20 +30,23 @@
                 </figure>
               {% endif %}
               <div class="content boxPadding">
+              {% set max_length = 100 %}
                 <h2 class="h5">{{ post.title }}</h2>
-                <p>{{ post.excerpt.read_more(false) }}</p>
+                <p>{{ post.excerpt|slice(0, max_length)}}...</p>
               </div>
               <footer class="footer">
-                <small class="readingTime">{{ labels.readingTime|replace({'%d': post.content|readingtime}) }}</small>
+                {# <small class="readingTime">{{ labels.readingTime|replace({'%d': post.content|readingtime}) }}</small> #}
                 <span class="button button--text">{{ labels.readMore }}</span>
               </footer>
             </a>
           </li>
         {% endfor %}
       </ul>
+      {% if queriedPost == 'post' %}
       <div data-size="medium" data-align="center" data-text-align="center">
         <a href="{{ postTypeArchiveLink|e('esc_url') }}" class="button button--text">{{ labels.allPosts }}</a>
       </div>
     </div>
+    {% endif %}
   </flynt-component>
 {% endif %}

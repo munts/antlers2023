@@ -31,6 +31,10 @@ add_action('after_setup_theme', function () {
     load_theme_textdomain('flynt', get_template_directory() . '/languages');
 });
 
+add_action('init', function () {
+    register_taxonomy_for_object_type( 'category', 'page' );
+});
+
 // Allow SVG
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
     global $wp_version;

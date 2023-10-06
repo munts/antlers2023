@@ -6,22 +6,43 @@ use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-const POST_TYPE = 'post';
+// const POST_TYPE = 'post';
 
 add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
+    if (isset($data['queriedPost'])) {
+        $postType = $data['queriedPost'];
+    } else {
+        $postType = 'post';
+    }
+
     $data['taxonomies'] = $data['taxonomies'] ?? [];
     $data['options']['maxColumns'] = 3;
     $postsPerPage = $data['options']['maxPosts'] ?? 3;
 
+    if ($postType = 'page') {
     $posts = Timber::get_posts([
         'post_status' => 'publish',
-        'post_type' => POST_TYPE,
+        'post_type' => $postType,
         'cat' => join(',', array_map(function ($taxonomy) {
             return $taxonomy->term_id;
         }, $data['taxonomies'])),
         'posts_per_page' => $postsPerPage + 1,
         'ignore_sticky_posts' => 1,
+        'orderby' => 'rand'
     ]);
+    }
+    else {
+        $posts = Timber::get_posts([
+            'post_status' => 'publish',
+            'post_type' => $postType,
+            'cat' => join(',', array_map(function ($taxonomy) {
+                return $taxonomy->term_id;
+            }, $data['taxonomies'])),
+            'posts_per_page' => $postsPerPage + 1,
+            'ignore_sticky_posts' => 1
+        ]);
+
+    }
 
     $data['posts'] = array_slice(array_filter($posts->to_array(), function ($post) {
         return $post->ID !== get_the_ID();
@@ -53,6 +74,15 @@ function getACFLayout()
                 'tabs' => 'visual,text',
                 'media_upload' => 0,
                 'delay' => 0,
+            ],
+            [
+                'name' => 'queriedPost',
+                'label' => __('Select the post to use here', 'flynt'),
+                'type' => 'button_group',
+                'choices' => [
+                    'post' => 'Posts',
+                    'page' => 'Pages',
+                ]
             ],
             [
                 'label' => __('Categories', 'flynt'),
