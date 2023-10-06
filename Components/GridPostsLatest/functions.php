@@ -15,23 +15,24 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
         $postType = 'post';
     }
 
+    $data['layoutType'] = $data['layout'];
+
     $data['taxonomies'] = $data['taxonomies'] ?? [];
     $data['options']['maxColumns'] = 3;
     $postsPerPage = $data['options']['maxPosts'] ?? 3;
 
     if ($postType = 'page') {
-    $posts = Timber::get_posts([
-        'post_status' => 'publish',
-        'post_type' => $postType,
-        'cat' => join(',', array_map(function ($taxonomy) {
-            return $taxonomy->term_id;
-        }, $data['taxonomies'])),
-        'posts_per_page' => $postsPerPage + 1,
-        'ignore_sticky_posts' => 1,
-        'orderby' => 'rand'
-    ]);
-    }
-    else {
+        $posts = Timber::get_posts([
+            'post_status' => 'publish',
+            'post_type' => $postType,
+            'cat' => join(',', array_map(function ($taxonomy) {
+                return $taxonomy->term_id;
+            }, $data['taxonomies'])),
+            'posts_per_page' => $postsPerPage + 1,
+            'ignore_sticky_posts' => 1,
+            'orderby' => 'rand'
+        ]);
+    } else {
         $posts = Timber::get_posts([
             'post_status' => 'publish',
             'post_type' => $postType,
@@ -41,7 +42,6 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
             'posts_per_page' => $postsPerPage + 1,
             'ignore_sticky_posts' => 1
         ]);
-
     }
 
     $data['posts'] = array_slice(array_filter($posts->to_array(), function ($post) {
@@ -82,6 +82,15 @@ function getACFLayout()
                 'choices' => [
                     'post' => 'Posts',
                     'page' => 'Pages',
+                ]
+            ],
+            [
+                'name' => 'layout',
+                'label' => __('Show in Cards or Links', 'flynt'),
+                'type' => 'button_group',
+                'choices' => [
+                    'links' => 'Links',
+                    'cards' => 'Cards',
                 ]
             ],
             [

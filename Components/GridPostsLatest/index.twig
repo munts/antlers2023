@@ -6,6 +6,8 @@
           {{ preContentHtml|e('wp_kses_post') }}
         </div>
       {% endif %}
+
+      {% if layoutType == 'card' %}
       <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
           <li class="post boxBorder" data-theme="reset">
@@ -42,6 +44,17 @@
           </li>
         {% endfor %}
       </ul>
+      {% elseif layoutType == 'links' %}
+      <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+        {% for post in posts %}
+          <li class="links" data-theme="reset">
+            <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
+             {{post.title}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
       {% if queriedPost == 'post' %}
       <div data-size="medium" data-align="center" data-text-align="center">
         <a href="{{ postTypeArchiveLink|e('esc_url') }}" class="button button--text">{{ labels.allPosts }}</a>
