@@ -57,4 +57,30 @@ add_action('Flynt/afterRegisterComponents', function () {
             ],
         ],
     ]);
+    // ACFComposer::registerFieldGroup([
+    //     'name' => 'blockClipPath',
+    //     'title' => 'Page Clip Path Component',
+    //     'style' => 'seamless',
+    //     'fields' => [
+    //         [
+    //             'name' => 'blockClipPath',
+    //             'label' => __('Fixed ClipPath Image', 'flynt'),
+    //             'type' => 'group',
+    //             'sub_fields' => [
+    //                 Components\BlockClipPath\getACFLayout()
+    //             ]
+    //         ],
+    //     ],
+    //     'location' => [
+    //         array(
+    //             array(
+    //                 'param' => 'post_type',
+    //                 'operator' => '==',
+    //                 'value' => 'page'
+    //             )
+    //         )
+    //     ],
+    //     'menu_order' => 10,
+    //     'position' => 'normal'
+    // ]);
 });
