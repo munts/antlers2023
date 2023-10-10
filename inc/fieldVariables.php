@@ -27,7 +27,7 @@ function getTheme($default = '')
 }
 
 
-function getSize($default = 'medium')
+function getSize($default = 'full')
 {
     return [
         'label' => __('Size', 'flynt'),
@@ -92,7 +92,7 @@ function removeComponentSpacing($args = [])
     $options = wp_parse_args($args, [
         'label' => __('Remove the Default Top & Bottom padding', 'flynt'),
         'name' => 'spacing',
-        'default' => 'no'
+        'default' => 'yes'
     ]);
 
     return [
