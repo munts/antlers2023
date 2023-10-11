@@ -13,6 +13,9 @@
                 <a href="{{ctaURL}}" class="button">{{ctaLabel}}</a>
             </div>
             {% endif %}
+            <div class="breadcrumb">
+            {% if fn('yoast_breadcrumb') %}{% endif %}
+            </div>
         </div>
     </div>
 </flynt-component>
