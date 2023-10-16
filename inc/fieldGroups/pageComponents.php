@@ -33,7 +33,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\GridBulletedLists\getACFLayout(),
                     Components\GridPostsLatest\getACFLayout(),
                     //Components\ListComponents\getACFLayout(),
-                    //Components\SliderImages\getACFLayout(),
+                    Components\SliderImages\getACFLayout(),
                     Components\SliderTestimonials\getACFLayout(),
                     //Components\SliderImagesCentered\getACFLayout(),
                     Components\SliderSpecialsPackages\getACFLayout(),

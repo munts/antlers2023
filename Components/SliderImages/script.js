@@ -19,7 +19,6 @@ function initSlider (refs, data) {
     modules: [Autoplay, A11y, Navigation],
     a11y: options.a11y,
     roundLengths: true,
-    loop: true,
     navigation: {
       nextEl: refs.next,
       prevEl: refs.prev

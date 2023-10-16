@@ -34,12 +34,6 @@ function getACFLayout()
                 'media_upload' => 0,
             ],
             [
-                'label' => __('Learn More Url', 'flynt'),
-                'instructions' => __('relative path of the page the learn more button links to.', 'flynt'),
-                'name' => 'url',
-                'type' => 'text',
-            ],
-            [
                 'label' => __('Images', 'flynt'),
                 'instructions' => __('Image-Format: JPG, PNG, WebP.', 'flynt'),
                 'name' => 'images',
@@ -55,15 +49,6 @@ function getACFLayout()
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0
-            ],
-            [
-                'label' => __('Gallery Position', 'flynt'),
-                'name' => 'imagePosition',
-                'type' => 'button_group',
-                'choices' => [
-                    'left' => sprintf('<i class=\'dashicons dashicons-align-left\' title=\'%1$s\'></i>', __('Image on the left', 'flynt')),
-                    'right' => sprintf('<i class=\'dashicons dashicons-align-right\' title=\'%1$s\'></i>', __('Image on the right', 'flynt'))
-                ]
             ],
             [
                 'label' => '',
