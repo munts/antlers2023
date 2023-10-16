@@ -3,9 +3,10 @@
 {% block content %}
   <article>
     <section class="wp-block-post-content has-global-padding is-layout-constrained" style="margin:60px auto;">
-    
+    {% set subHeading = post.get_field('position') %}
     <div class="container centerMaxWidthStaffContainer" style="margin:120px auto 30px;max-width:600px;">
     <h1>{{post.title}}</h1>
+    <h5>{{subHeading}}</h5>
         <img class="content-image lazyload"
                 src="{{ post.thumbnail.src|resizeDynamic(424, 424) }}"
                 srcset="{{ placeholderImage(3, 3) }}"
