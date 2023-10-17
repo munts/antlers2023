@@ -1,5 +1,8 @@
 {% if posts|length > 0 %}
   <flynt-component name="GridPostsLatest" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  {# {{queriedPost}}
+  {{layoutType}}
+  {{posts|join('|', ' ')}} #}
     <div class="container" data-flow="layout">
       {% if preContentHtml %}
         <div data-size="medium" data-align="center" data-text-align="center">
@@ -7,7 +10,7 @@
         </div>
       {% endif %}
 
-      {% if layoutType == 'card' %}
+      {% if layoutType == 'cards' %}
       <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
           <li class="post boxBorder" data-theme="reset">
@@ -20,11 +23,11 @@
                     height="{{ (768 / 3 * 2)|round }}"
                     srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
                     data-srcset="
-                      {{ post.thumbnail.src|resizeDynamic(1920, (1920 / 3 * 2)|round, 'center') }} 1920w,
+                      {# {{ post.thumbnail.src|resizeDynamic(1920, (1920 / 3 * 2)|round, 'center') }} 1920w,
                       {{ post.thumbnail.src|resizeDynamic(1600, (1600 / 3 * 2)|round, 'center') }} 1600w,
                       {{ post.thumbnail.src|resizeDynamic(1440, (1440 / 3 * 2)|round, 'center') }} 1440w,
                       {{ post.thumbnail.src|resizeDynamic(1366, (1366 / 3 * 2)|round, 'center') }} 1366w,
-                      {{ post.thumbnail.src|resizeDynamic(1024, (1024 / 3 * 2)|round, 'center') }} 1024w,
+                      {{ post.thumbnail.src|resizeDynamic(1024, (1024 / 3 * 2)|round, 'center') }} 1024w, #}
                       {{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
                       {{ post.thumbnail.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
                     data-sizes="auto"
@@ -34,7 +37,7 @@
               <div class="content boxPadding">
               {% set max_length = 100 %}
                 <h2 class="h5">{{ post.title }}</h2>
-                <p>{{ post.excerpt|slice(0, max_length)}}...</p>
+                <p>{{ post.content|slice(0, max_length)}}...</p>
               </div>
               <footer class="footer">
                 {# <small class="readingTime">{{ labels.readingTime|replace({'%d': post.content|readingtime}) }}</small> #}

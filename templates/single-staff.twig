@@ -4,10 +4,11 @@
   <article>
     <section class="wp-block-post-content has-global-padding is-layout-constrained" style="margin:60px auto;">
     {% set subHeading = post.get_field('position') %}
-    <div class="container centerMaxWidthStaffContainer" style="margin:120px auto 30px;max-width:600px;">
-    <h1>{{post.title}}</h1>
-    <h5>{{subHeading}}</h5>
-        <img class="content-image lazyload"
+    <div class="container centerMaxWidthStaffContainer" style="margin:120px auto 30px;">
+        <div class="staff-img-container" style="max-width:600px;margin:0 auto;text-align:center;">
+        <h1 style="margin-bottom:0;padding-bottom:0;">{{post.title}}</h1>
+        <h5 style="margin-top:0;padding-top:0;">{{subHeading}}</h5>
+            <img class="content-image lazyload"
                 src="{{ post.thumbnail.src|resizeDynamic(424, 424) }}"
                 srcset="{{ placeholderImage(3, 3) }}"
                 data-srcset="
@@ -16,10 +17,15 @@
                 {{ post.thumbnail.src|resizeDynamic(312, 312) }} 312w"
                 data-sizes="auto"
                 alt="{{ post.thumbnail.alt|e }}">
+        </div>
+        {% if component %}
+                {% for component in post.meta('pageComponents') %}
+                    {{ renderComponent(component) }}
+                {% endfor %}
+                {% else %}
+                {{ post.content }}
+        {% endif %}
     </div>
-         {% for component in post.meta('pageComponents') %}
-            {{ renderComponent(component) }}
-          {% endfor %}
     </section>
     {# <footer>
       {{ renderComponent('BlockPostFooter', { post: post }) }}
