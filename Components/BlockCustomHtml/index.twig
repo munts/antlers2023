@@ -1,6 +1,6 @@
-<div class="flyntComponent componentSpacing {{ options.theme }} blockCustomHtml" is="flynt-block-custom-html">
+<div class="{{ options.spacing == 'no' ? "componentSpacing" : "componentSpacingNone" }}" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} blockCustomHtml" is="flynt-block-custom-html">
   <div id="{{ blockName|replace({" " : "", "'" : ""}) }}" class="container centerMaxWidthContainer anchor">
-    <div class="content content--{{ textAlignment }} centerContentMaxWidth--{{ textWidth }}">
+    <div class="content" data-size="{{ options.size }}" data-align="{{ options.align }}" data-text-align="{{ options.textAlign }}">
       {{ contentHtml }}
     </div>
   </div>

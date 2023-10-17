@@ -18,31 +18,6 @@ function getACFLayout()
                 'endpoint' => 0,
             ],
             [
-                'label' => __('Text Alignment', 'flynt'),
-                'name' => 'textAlignment',
-                'type' => 'button_group',
-                'choices' => [
-                    'textLeft' => '<i class=\'dashicons dashicons-editor-alignleft\' title=\'Align text left\'></i>',
-                    'textCenter' => '<i class=\'dashicons dashicons-editor-aligncenter\' title=\'Align text center\'></i>'
-                ]
-            ],
-            [
-                'label' => __('Text Width', 'flynt'),
-                'name' => 'textWidth',
-                'type' => 'button_group',
-                'choices' => [
-                    'textNormal' => 'Normal',
-                    'textWide' => 'Wide',
-                    'textExtraWide' => 'Extra Wide'
-                ]
-            ],
-            // [
-            //     'label' => __('Block Name', 'flynt'),
-            //     'name' => 'blockName',
-            //     'type' => 'text',
-            //     'required' => 0,
-            // ],
-            [
                 'label' => __('Content', 'flynt'),
                 'name' => 'contentHtml',
                 'type' => 'wysiwyg',
@@ -63,7 +38,11 @@ function getACFLayout()
                 'type' => 'group',
                 'layout' => 'row',
                 'sub_fields' => [
-                    FieldVariables\getTheme()
+                    FieldVariables\getTheme(),
+                    FieldVariables\getSize(),
+                    FieldVariables\getAlignment(),
+                    FieldVariables\getTextAlignment(),
+                    FieldVariables\removeComponentSpacing()
                 ]
             ]
         ]
