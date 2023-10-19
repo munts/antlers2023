@@ -10,13 +10,15 @@ flynt-component[name='NavigationMain'] {
 
   &[data-status='menuIsOpen'] {
     .menu {
-      transform: translateX(13%);
+      // transform: translateX(13%);
+      transform: translateX(0%);
       visibility: visible;
     }
   }
 
   nav {
-    background-color: var(--color-background);
+    // background-color: var(--color-background);
+    background-color: #fff;
     position: relative;
     z-index: 999;
   }
@@ -38,7 +40,8 @@ flynt-component[name='NavigationMain'] {
     block-size: 100%;
     display: flex;
     justify-content: space-between;
-    max-inline-size: 80%;
+    // max-inline-size: 80%;
+    max-inline-size: 100%;
     // padding-block: 0 24px;
     padding-inline: var(--container-spacing);
   }
@@ -53,11 +56,12 @@ flynt-component[name='NavigationMain'] {
 
   .menu {
     backface-visibility: hidden;
-    background-color: var(--color-menu-background);
+    // background-color: var(--color-menu-background);
+    background-color: #fff;
     color: var(--color-menu-text);
     // block-size: calc(100% - var(--navigation-height));
     inline-size: 100%;
-    inset-block-start: var(--navigation-height);
+    // inset-block-start: var(--navigation-height);
     inset-inline-start: 0;
     list-style: none;
     margin: 0;

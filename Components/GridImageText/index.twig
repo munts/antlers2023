@@ -8,6 +8,9 @@
     <ul class="grid" {{ options.card ? 'data-card="true"' }} {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
       {% for item in items %}
         {% if item.image or item.contentHtml %}
+        {% if item.url %}
+          <a href="{{item.url}}">
+        {% endif %}
           <li class="item {{- options.card ? ' boxBorder' -}}">
               {% if item.image %}
                 <figure class="figure">
@@ -45,6 +48,9 @@
                 </div>
               {% endif %}
           </li>
+          {% if item.url %}
+            </a>
+          {% endif %}
         {% endif %}
       {% endfor %}
     </ul>

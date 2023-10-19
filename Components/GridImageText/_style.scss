@@ -70,6 +70,11 @@ flynt-component[name='GridImageText'] {
     }
   }
 
+  a {
+    color: $av-dark-blue;
+    text-decoration: none;
+  }
+
   .item {
     ul {
       list-style-position: outside;

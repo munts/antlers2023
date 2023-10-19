@@ -40,7 +40,7 @@ add_action('init', function () {
     ];
     $args = [
         'label'                 => __('Specials', 'flynt'),
-        'description'           => __('Specials Custom Post Type for specials and packages', 'flynt'),
+        'description'           => __('', 'flynt'),
         'labels'                => $labels,
         'supports'              => ['title', 'editor', 'revisions', 'thumbnail'],
         'taxonomies'            => ['category', 'post_tag'],
