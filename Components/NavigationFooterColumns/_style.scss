@@ -11,5 +11,11 @@ flynt-component[name='NavigationFooterColumns'] {
     justify-content:space-around;
   }
 
+  @media (min-width: $breakpoint-tablet) {
+    .right-menu {
+      columns: 2;
+    }
+  }
+
   @import 'Partials/menu';
 }
