@@ -77,7 +77,7 @@ Options::addTranslatable('NavigationFooterColumns', [
         'tabs' => 'visual,text',
         'media_upload' => 0,
         'delay' => 0,
-        'default_value' => '<h2>' . __('Find out more about', 'flynt') . '</h2>',
+        //'default_value' => '<h2>' . __('Find out more about', 'flynt') . '</h2>',
     ],
     [
         'label' => __('Social Platforms – Title', 'flynt'),
