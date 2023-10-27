@@ -1,4 +1,8 @@
 flynt-component[name='GridPostsArchive'] {
+  li {
+    max-block-size: 600px;
+  }
+  
   .posts {
     --grid-columns: 1;
     display: grid;
@@ -34,10 +38,39 @@ flynt-component[name='GridPostsArchive'] {
       text-decoration: none;
     }
 
+    .hex-figure {
+      clip-path: polygon(50% 0%, 100% 18%, 100% 83%, 50% 100%, 0 83%, 0 18%);
+      //filter: grayscale(0.20);
+      filter: brightness(50%);
+    }
+
+    .hex-figure-image-svg {
+      aspect-ratio: 2 / 3;
+    }
+
     .content {
-      color: var(--color-text);
-      flex-grow: 1;
-      margin-block-start: 0;
+      align-items: center;
+      block-size: 330px;
+      color: var(--color-background);
+      display: flex;
+      flex-direction: column;
+      inline-size: 100%;
+      inset-block-start: -85%;
+      inset-inline-start: 0;
+      justify-content: center;
+      padding: var(--container-spacing);
+      position: relative;
+
+      &-hex {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.1em;
+      }
+    }
+    
+    .white {
+      color: var(--color-background);
+      margin-inline-start: 30px;
     }
 
     .footer {

@@ -44,6 +44,18 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
             'orderby' => 'menu_order',
             'order' => 'ASC'
         ]);
+    } elseif ($postType === 'specials-packages') {
+        $posts = Timber::get_posts([
+            'post_status' => 'publish',
+            'post_type' => 'specials-packages',
+            // 'cat' => join(',', array_map(function ($taxonomy) {
+            //     return $taxonomy->term_id;
+            // }, $data['taxonomies'])),
+            'posts_per_page' => $postsPerPage + 1,
+            'ignore_sticky_posts' => 1,
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
+        ]);
     } else {
         $posts = Timber::get_posts([
             'post_status' => 'publish',
@@ -95,6 +107,7 @@ function getACFLayout()
                     'post' => 'Posts',
                     'page' => 'Pages',
                     'staff' => 'Staff',
+                    'specials-packages' => 'Specials',
                 ]
             ],
             [
@@ -104,6 +117,7 @@ function getACFLayout()
                 'choices' => [
                     'links' => 'Links',
                     'cards' => 'Cards',
+                    'hexagons' => 'Hexagons',
                 ]
             ],
             [

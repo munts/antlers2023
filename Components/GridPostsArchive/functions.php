@@ -16,7 +16,9 @@ add_filter('Flynt/addComponentData?name=GridPostsArchive', function ($data) {
         'taxonomy' => $taxonomy,
         'hide_empty' => true,
     ]);
+
     $queriedObject = get_queried_object();
+    $data['type'] = $postType;
     if (count($terms) > 1) {
         $data['terms'] = array_map(function ($term) use ($queriedObject) {
             $timberTerm = Timber::get_term($term);

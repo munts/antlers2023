@@ -41,6 +41,51 @@
           </li>
         {% endfor %}
       </ul>
+      {% elseif layoutType == 'hexagons' %}
+      <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+        {% for post in posts %}
+          <li class="post boxBorder-none" data-theme="reset">
+            <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
+              {% if post.thumbnail %}
+                <figure class="hex-figure">
+                 {% if post.thumbnail.post_mime_type == 'image/svg+xml'%}
+                    <img class="hex-figure-image-svg lazyload"
+                     src="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                      width="{{ 768 }}"
+                      height="{{ (768 / 3 * 2)|round }}"
+                      data-src="{{ post.thumbnail.src }}"
+                      alt="{{ post.thumbnail.alt|e }}">
+                  {% else %}
+                        <img class="figure-image lazyload"
+                        src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
+                        width="{{ 768 }}"
+                        height="{{ (768 / 2 * 3)|round }}"
+                        srcset="{{ placeholderImage(768, (768 / 2 * 3)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                        data-srcset="
+                        {# {{ post.image.src|resizeDynamic(1920, (1920 / 2 * 3)|round, 'center') }} 1920w,
+                        {{ post.image.src|resizeDynamic(1600, (1600 / 2 * 3)|round, 'center') }} 1600w,
+                        {{ post.image.src|resizeDynamic(1440, (1440 / 2 * 3)|round, 'center') }} 1440w,
+                        {{ post.image.src|resizeDynamic(1366, (1366 / 2 * 3)|round, 'center') }} 1366w, #}
+                        {{ post.thumbnail.src|resizeDynamic(1024, (1024 / 2 * 3)|round, 'center') }} 1024w,
+                        {{ post.thumbnail.src|resizeDynamic(768, (768 / 2 * 3)|round, 'center') }} 768w,
+                        {{ post.thumbnail.src|resizeDynamic(640, (640 / 2 * 3)|round, 'center') }} 640w"
+                        data-sizes="auto"
+                        alt="{{ post.thumbnail.alt|e }}">
+                  {% endif %}
+                  </figure>
+              {% endif %}
+              {% set max_length = 100 %}
+                {% if post.contentHtml %}
+                <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
+                    <h3>{{item.title}}</h3>
+                    <div class="content-hex">{{ post.contentHtml|striptags }}</div>
+                    <a class="button--underline white" href="{{post.ctaUrl}}">Learn More</a>
+                </div>
+            {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
       {% elseif layoutType == 'links' %}
       <ul class="units" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
