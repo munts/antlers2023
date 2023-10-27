@@ -19,7 +19,7 @@ function getTheme($default = '')
         'choices' => [
             '' => __('(none)', 'flynt'),
             'light' => __('Light', 'flynt'),
-            'dark' => __('Dark', 'flynt'),
+            //'dark' => __('Dark', 'flynt'),
             'fade' => __('Fade to white', 'flynt'),
         ],
         'default_value' => $default,
