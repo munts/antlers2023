@@ -10,7 +10,7 @@ flynt-component[name='SliderTestimonials'] {
     overflow: hidden;
   
     @media (min-width: $breakpoint-tablet) {
-      --slider-height: 340px;
+      --slider-height: 420px;
     }
   
     .slider:not(.swiper-initialized) {
@@ -22,11 +22,7 @@ flynt-component[name='SliderTestimonials'] {
     // .slider {
     //   background-color: $av-light-blue;
     // }
-  
-    // .swiper-wrapper {
-    //   clip-path: polygon(0 74%, 100% 100%, 100% 0, 0 0);
-    // }
-  
+
     .slider {
       display: flex;
       inline-size: 100%;
@@ -159,12 +155,14 @@ flynt-component[name='SliderTestimonials'] {
     }
   
     .container-two {
+        align-content: center;
         align-items: center;
         block-size: 100%;
         display: flex;
         justify-content: center;
         margin-inline-end: auto;
         margin-inline-start: auto;
+        inline-size: 80%;
         max-inline-size: 1440px;
         padding-inline: 0;
         position: relative;
@@ -173,7 +171,6 @@ flynt-component[name='SliderTestimonials'] {
   
     .content {
       color: $av-dark-blue;
-      font-size: 1.75rem;
       font-style: italic;
       margin-block-start: 0;
       margin-inline-end: auto;
@@ -181,15 +178,20 @@ flynt-component[name='SliderTestimonials'] {
       // padding: var(--container-spacing) var(--container-spacing) calc(var(--container-spacing) + var(--slider-pagination-height));
       padding: 0;
       position: relative;
-  
-    //   @media (min-width: $breakpoint-tablet) {
-    //     padding: var(--container-spacing) calc(var(--container-spacing) + var(--slider-button-size)) calc(var(--container-spacing) + 30px);
-    //   }
-  
+
+      @media (min-width: $breakpoint-mobile-horizontal) {
+        font-size: 1.25rem;
+      }
+
+      @media (min-width: $breakpoint-tablet) {
+        font-size: 1.5rem;
+      }
+
       @media (min-width: $breakpoint-tablet-horizontal) {
-        //padding-block-end: var(--container-spacing);
+        font-size: 1.75rem;
         padding-block-end: 0;
       }
+
     }
 
     .author {
