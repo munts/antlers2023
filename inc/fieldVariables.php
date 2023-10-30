@@ -18,7 +18,8 @@ function getTheme($default = '')
         'ajax' => 0,
         'choices' => [
             '' => __('(none)', 'flynt'),
-            'light' => __('Light', 'flynt'),
+            'white' => __('White', 'flynt'),
+            'light' => __('Light Blue', 'flynt'),
             //'dark' => __('Dark', 'flynt'),
             'fade' => __('Fade to white', 'flynt'),
         ],

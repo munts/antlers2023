@@ -42,12 +42,12 @@ flynt-component[name='GridPostsLatest'] {
         font-size: 1.25rem;
         font-weight: 400;
         line-height: 1em;
+      }
     }
-
+    
     .white {
-        color: var(--color-background);
-        margin-inline-start: 30px;
-    }
+      color: var(--color-background);
+      margin-inline-start: 30px;
     }
 
     .footer {

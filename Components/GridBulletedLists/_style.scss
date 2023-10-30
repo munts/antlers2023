@@ -64,7 +64,7 @@ flynt-component[name='GridBulletedLists'] {
         block-size: 15px; /* Height of the bullet */
         content: " ";
         inline-size: 15px;
-        margin-block-start: 16px;
+        margin-block-start: 10px;
         margin-inline-start: -2rem;
         position: absolute; /* Positioning the bullet as absolute. It will relative to the li item */  
         transform: rotate(45deg); /* Rotating the rectangle */

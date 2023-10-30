@@ -43,7 +43,7 @@
               {% if item.contentHtml %}
                 <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
                   <div class="amenity">
-                    {{ item.contentHtml|striptags }}
+                    {{ item.contentHtml|striptags('<br>') }}
                   </div>
                 </div>
               {% endif %}
