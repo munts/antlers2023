@@ -4,6 +4,11 @@
         {% if preContentHtml %}
             <div data-size="medium" data-align="" data-text-align="" style="padding: 0 30px;">
             {{ preContentHtml|e('wp_kses_post') }}
+            {% if seeMoreUrl %}
+                <a hrer="{{ seeMoreUrl }}" class="button--underline blue">See More</a>
+            {% else %}
+                {# {{ postTypeArchiveLink }} #}
+            {% endif %}
             </div>
         {% endif %}
         </div>

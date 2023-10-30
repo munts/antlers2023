@@ -46,7 +46,8 @@ add_filter('Flynt/addComponentData?name=SliderFeaturedPosts', function ($data) {
     // $data['cta'] = post.get_field('website_url');
     // $data['cta'] = get_fields('group_624495962114e', 'website_url');
 
-    $data['postTypeArchiveLink'] = get_post_type_archive_link('posts');
+    $data['postTypeArchiveLink'] = get_post_type_archive_link('post');
+    $data['seeMoreUrl'] = $data['seeMoreUrl'];
 
     return $data;
 });
@@ -65,10 +66,15 @@ function getACFLayout()
                 'endpoint' => 0
             ],
             [
-                'label' => __('Title', 'flynt'),
+                'label' => __('Title & seacription', 'flynt'),
                 'name' => 'preContentHtml',
                 'type' => 'wysiwyg',
                 'media_upload' => 0,
+            ],
+            [
+                'label' => __('See More Url', 'flynt'),
+                'name' => 'seeMoreUrl',
+                'type' => 'text',
             ],
             [
                 'label' => 'Options Tab',
