@@ -16,11 +16,11 @@
       {% endfor %}
     </div>
     {% if slides|length > 1 %}
-      <div class="clip-path-container">
+      {# <div class="clip-path-container">
       </div>
       <div class="tag-line-container">
         <img src="{{careFreeSpirit|join(', ')}}" style="width:700px;">
-      </div>
+      </div> #}
       <div data-ref="pagination" class="slider-pagination"></div>
       <button type="button" data-ref="prev" class="slider-button slider-button--prev" aria-label="{{ sliderOptions.a11y.prevSlideMessage|e }}"></button>
       <button type="button" data-ref="next" class="slider-button slider-button--next" aria-label="{{ sliderOptions.a11y.nextSlideMessage|e }}"></button>
