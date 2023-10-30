@@ -5,8 +5,9 @@ flynt-component[name='BlockImageText'] {
       display: flex;
       gap: var(--column-gap);
       justify-content: space-around;
-      margin-inline: 0;
-      max-inline-size: 100%;
+      margin-inline: auto;
+      // max-inline-size: 100%;
+      max-inline-size: 1800px;
 
       > * {
         flex-basis: 50%;
