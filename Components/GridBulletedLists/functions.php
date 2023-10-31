@@ -37,6 +37,28 @@ function getACFLayout()
                 'delay' => 1,
             ],
             [
+                'label' => __('Call to Action Url', 'flynt'),
+                'instructions' => __('Use this field if you want to add a call to action button.  This field is for the url', 'flynt'),
+                'name' => 'ctaUrl',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Call to Action Label', 'flynt'),
+                'instructions' => __('Use this field if you want to add a call to action button.  This field is for the Label.  Such as Book Now...', 'flynt'),
+                'name' => 'ctaLabel',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Call to Action button Target', 'flynt'),
+                'name' => 'ctaTarget',
+                'type' => 'button_group',
+                'choices' => [
+                    'self' => 'Self',
+                    '_blank' => 'New Window'
+                ],
+                'default_value' => 'self'
+            ],
+            [
                 'label' => __('Items', 'flynt'),
                 'name' => 'items',
                 'type' => 'repeater',
