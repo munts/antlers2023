@@ -53,7 +53,7 @@ function getACFLayout()
                 'name' => 'ctaTarget',
                 'type' => 'button_group',
                 'choices' => [
-                    'self' => 'Self',
+                    '_self' => 'Self',
                     '_blank' => 'New Window'
                 ],
                 'default_value' => 'self'
