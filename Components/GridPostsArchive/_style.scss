@@ -1,6 +1,6 @@
 flynt-component[name='GridPostsArchive'] {
   li {
-    max-block-size: 600px;
+    max-block-size: 450px;
   }
   
   .posts {
@@ -29,19 +29,15 @@ flynt-component[name='GridPostsArchive'] {
     inline-size: var(--grid-item-width);
     max-inline-size: var(--grid-item-max-width);
 
-    .link {
-      block-size: 100%;
-      color: currentColor;
-      display: flex;
-      flex-direction: column;
-      font-weight: initial;
-      text-decoration: none;
-    }
-
     .hex-figure {
       clip-path: polygon(50% 0%, 100% 18%, 100% 83%, 50% 100%, 0 83%, 0 18%);
       //filter: grayscale(0.20);
       filter: brightness(50%);
+      max-block-size: 450px;
+    }
+
+    .figure-image {
+      max-block-size: 450px;
     }
 
     .hex-figure-image-svg {
@@ -55,22 +51,43 @@ flynt-component[name='GridPostsArchive'] {
       display: flex;
       flex-direction: column;
       inline-size: 100%;
-      inset-block-start: -85%;
+      inset-block-start: -400px;
       inset-inline-start: 0;
       justify-content: center;
       padding: var(--container-spacing);
       position: relative;
 
       &-hex {
+        display: none;
         font-size: 1.25rem;
         font-weight: 400;
-        line-height: 1.1em;
+        inline-size: 98%;
+        line-height: 1.2em;
+        text-align: center;
       }
+    }
+
+    .post-title {
+      margin-block-end: -10px;
+      margin-block-start: -10px;
+      text-align: center;
+    }
+
+    .link {
+      block-size: 100%;
+      color: currentColor;
+      display: flex;
+      flex-direction: column;
+      font-weight: initial;
+      inline-size: 100%;
+      text-decoration: none;
     }
     
     .white {
       color: var(--color-background);
-      margin-inline-start: 30px;
+      inline-size: 154px;
+      margin-inline-end: auto;
+      margin-inline-start: auto;
     }
 
     .footer {

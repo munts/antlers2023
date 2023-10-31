@@ -1,5 +1,5 @@
 <flynt-component name="GridPostsArchive" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
-  <div class="container" data-flow="layout">
+  <div class="container" data-flow="layout" style="margin-top:250px;">
     <div data-size="medium" data-align="center" data-text-align="center">
     {# the type is {{type}} #}
       {# <h1>{{ title }}</h1> #}
@@ -18,7 +18,7 @@
         {% set shortDescription = post.get_field('short_description') %}
         {% set position = post.get_field('position') %}
           <li class="post boxBorder-none" data-theme="reset">
-            <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
+            
               {% if post.thumbnail %}
                 <figure class="hex-figure">
                  {% if post.thumbnail.post_mime_type == 'image/svg+xml'%}
@@ -45,19 +45,28 @@
               {% endif %}
               {% set max_length = 100 %}
                 {% if shortDescription %}
+                <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
                   <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
-                    <h3>{{post.title}}</h3>
-                    <div class="content-hex">{{ shortDescription|striptags }}</div>
-                    <a class="button--underline white" href="{{post.ctaUrl}}">Learn More</a>
+                    <h3 class="post-title">{{post.title}}</h3>
+                    <div class="content-hex">
+                      {{ shortDescription|striptags|slice(0, 130) ~ '...' }}<br>
+                      <div class="button--underline2 white">Learn More</div>
+                    </div>
                   </div>
+                </a>
                 {% elseif position %}
+                <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
                   <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
-                      <h3>{{post.title}}</h3>
-                      <div class="content-hex">{{ post.contentHtml|striptags }}</div>
-                      <a class="button--underline white" href="{{post.ctaUrl}}">Learn More</a>
+                    <h3 class="post-title">{{post.title}}</h3>
+                    <div class="content-hex">
+                    {{position}}
+                      {{ post.contentHtml|striptags|slice(0, 130) ~ '...' }}<br>
+                      <div class="button--underline2 white">Learn More</div>
+                    </div>
                   </div>
+                </a>
                 {% endif %}
-            </a>
+            
           </li>
         {% endfor %}
       </ul>

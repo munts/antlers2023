@@ -5,6 +5,20 @@ import { buildRefs } from '@/assets/scripts/helpers.js'
 export default function (el) {
   const refs = buildRefs(el)
 
+  const hotspots = document.querySelectorAll('.content')
+
+  hotspots.forEach((hotspot) => {
+    hotspot.addEventListener('mouseover', function () {
+      const hiddenContent = this.querySelector('.content-hex')
+      hiddenContent.style.display = 'block'
+    })
+
+    hotspot.addEventListener('mouseout', function () {
+      const hiddenContent = this.querySelector('.content-hex')
+      hiddenContent.style.display = 'none'
+    })
+  })
+
   el.addEventListener('click', delegate('[data-ref="loadMore"]', onLoadMore))
 
   async function onLoadMore (e) {
