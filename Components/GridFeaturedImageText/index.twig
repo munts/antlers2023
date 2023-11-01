@@ -25,11 +25,6 @@
                         height="{{ (768 / 2 * 3)|round }}"
                         srcset="{{ placeholderImage(768, (768 / 2 * 3)|round, 'rgba(125, 125, 125, 0.1)') }}"
                         data-srcset="
-                        {# {{ item.image.src|resizeDynamic(1920, (1920 / 2 * 3)|round, 'center') }} 1920w,
-                        {{ item.image.src|resizeDynamic(1600, (1600 / 2 * 3)|round, 'center') }} 1600w,
-                        {{ item.image.src|resizeDynamic(1440, (1440 / 2 * 3)|round, 'center') }} 1440w,
-                        {{ item.image.src|resizeDynamic(1366, (1366 / 2 * 3)|round, 'center') }} 1366w, #}
-                        {{ item.image.src|resizeDynamic(1024, (1024 / 2 * 3)|round, 'center') }} 1024w,
                         {{ item.image.src|resizeDynamic(768, (768 / 2 * 3)|round, 'center') }} 768w,
                         {{ item.image.src|resizeDynamic(640, (640 / 2 * 3)|round, 'center') }} 640w"
                         data-sizes="auto"
@@ -39,8 +34,8 @@
               {% endif %}
               {% if item.contentHtml %}
                 <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
-                    <h3>{{item.title}}</h3>
-                    <div class="content-featured">{{ item.contentHtml|striptags }}</div>
+                    <h3 class="post-title">{{item.title}}</h3>
+                    <div class="content-featured">{{ item.contentHtml|striptags|slice(0, 100) ~ '...' }}</div>
                     <a class="button--underline white" href="{{item.ctaUrl}}">Learn More</a>
                 </div>
             {% endif %}
