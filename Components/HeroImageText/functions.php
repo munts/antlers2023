@@ -54,6 +54,17 @@ function getACFLayout()
                 'media_upload' => 0,
                 'required' => 0,
             ],
+            [
+                'label' => 'Remove transparent gradient from hero',
+                'instructions' => __('If left to No, the image gets a transparent gradient applied to it which makes it appear darker.', 'flynt'),
+                'name' => 'gradientOption',
+                'type' => 'button_group',
+                'choices' => [
+                    'no' => sprintf('No', __('No', 'flynt')),
+                    'yes' => sprintf('Yes', __('Yes', 'flynt')),
+                ],
+                'default_value' => 'no'
+            ],
         ]
     ];
 }

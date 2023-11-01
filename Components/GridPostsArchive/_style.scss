@@ -59,7 +59,7 @@ flynt-component[name='GridPostsArchive'] {
 
       &-hex {
         display: none;
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: 400;
         inline-size: 98%;
         line-height: 1.2em;
@@ -76,8 +76,6 @@ flynt-component[name='GridPostsArchive'] {
     .link {
       block-size: 100%;
       color: currentColor;
-      display: flex;
-      flex-direction: column;
       font-weight: initial;
       inline-size: 100%;
       text-decoration: none;

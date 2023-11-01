@@ -42,7 +42,17 @@
         alt="{{ images.imageDesktop.alt|e }}">
     {% endif %}
   </picture>
+  {% if contentHtml and gradientOption == 'yes' %}
+  <div class="content-no-gradient" data-text-align="center">
+    {{ contentHtml|e('wp_kses_post') }}
+  </div>
+  {% elseif contentHtml and gradientOption == 'no' %}
   <div class="content" data-text-align="center">
     {{ contentHtml|e('wp_kses_post') }}
   </div>
+  {% else %}
+    <div class="no-content" data-text-align="center">
+    {{ contentHtml|e('wp_kses_post') }}
+  </div>
+  {% endif %}
 </flynt-component>

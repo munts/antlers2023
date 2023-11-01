@@ -11,11 +11,15 @@ export default function (el) {
     hotspot.addEventListener('mouseover', function () {
       const hiddenContent = this.querySelector('.content-hex')
       hiddenContent.style.display = 'block'
+      // const hexFilter = this.querySelector('.hex-figure')
+      // hexFilter.style.filter = 'brightness(25%)'
     })
 
     hotspot.addEventListener('mouseout', function () {
       const hiddenContent = this.querySelector('.content-hex')
       hiddenContent.style.display = 'none'
+      // const hexFilter = this.querySelector('.hex-figure')
+      // hexFilter.style.filter = 'brightness(50%)'
     })
   })
 
