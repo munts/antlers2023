@@ -2,31 +2,31 @@ flynt-component[name='SliderTimeline'] {
     --color-text: $av-dark-blue;
     --slider-pagination-height: 30px;
     --slider-button-size: 40px;
-    --timeline-slider-height: 720px;
+    --timeline-slider-height: 750px;
     //block-size: var(--slider-height);
     block-size: var(--timeline-slider-height);
     display: flex;
     inline-size: 100%;
     overflow: hidden;
   
-    @media (min-width: $breakpoint-tablet) {
-      --slider-height: 540px;
-    }
-  
-    // .slider:not(.swiper-initialized) {
-    //   .swiper-wrapper .swiper-slide:not(:first-child) {
-    //     display: none;
-    //   }
+    // @media (min-width: $breakpoint-tablet) {
+    //   --slider-height: 540px;
     // }
+  
+    .slider:not(.swiper-initialized) {
+      .swiper-wrapper .swiper-slide:not(:first-child) {
+        display: none;
+      }
+    }
+
+    .swiper-wrapper {
+      z-index: 99;
+    }
   
     .slider {
-      background-color: $av-light-blue;
+      // background-color: $av-light-blue;
     }
-  
-    // .swiper-wrapper {
-    //   clip-path: polygon(0 74%, 100% 100%, 100% 0, 0 0);
-    // }
-  
+
     .slider {
       display: flex;
       inline-size: 100%;
@@ -42,7 +42,7 @@ flynt-component[name='SliderTimeline'] {
         justify-content: center;
         position: absolute;
         transform: translateY(-50%);
-        z-index: 10;
+        z-index: 99;
   
         &::before {
           background-color: var(--color-accent);
@@ -140,16 +140,23 @@ flynt-component[name='SliderTimeline'] {
           }
         }
       }
+
+      .swiper-slide {
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+      }
     }
+
   
     .container {
-      block-size: var(--slider-height);
       display: flex;
-      margin-inline-end: auto;
-      margin-inline-start: auto;
+      flex-direction: column;
+      margin-inline: 0;
+      max-block-size: var(--timeline-slider-height);
   
       &::before {
-        block-size: 100%;
+        block-size: auto;
         content: '';
         inline-size: 100%;
         inset-block-start: 0;
@@ -158,51 +165,36 @@ flynt-component[name='SliderTimeline'] {
       }
     }
   
-    .container-two {
-        align-items: center;
-        block-size: 100%;
-        display: flex;
-        justify-content: center;
-        margin-inline-end: auto;
-        margin-inline-start: auto;
-        max-inline-size: 1440px;
-        padding-inline: 0;
-        position: relative;
-        z-index: 99;
-    }
-  
     .content {
-      color: $av-dark-blue;
-      font-size: 1.75rem;
-      font-style: italic;
-      margin-block-start: 0;
-      margin-inline-end: auto;
-      margin-inline-start: auto;
-      // padding: var(--container-spacing) var(--container-spacing) calc(var(--container-spacing) + var(--slider-pagination-height));
+      color: var(--color-text);
+      inset-block-start: 24px;
+      padding: var(--container-spacing) var(--container-spacing) calc(var(--container-spacing) + var(--slider-pagination-height));
       padding: 0;
       position: relative;
   
-    //   @media (min-width: $breakpoint-tablet) {
-    //     padding: var(--container-spacing) calc(var(--container-spacing) + var(--slider-button-size)) calc(var(--container-spacing) + 30px);
-    //   }
+      @media (min-width: $breakpoint-tablet) {
+        padding: var(--container-spacing) calc(var(--container-spacing) + var(--slider-button-size)) calc(var(--container-spacing) + 30px);
+      }
   
       @media (min-width: $breakpoint-tablet-horizontal) {
-        //padding-block-end: var(--container-spacing);
+        padding-block-end: var(--container-spacing);
         padding-block-end: 0;
       }
     }
 
-    .author {
-        position: relative;
-        text-align: end;
+    .decadeDetails {
+      padding-block-start: 60px;
     }
-  
-    .homepage-h1 {
-      color: $av-dark-blue;
-      margin-block-start: 0;
+
+    .horizontalLine {
+      inset-block-start: 50%;
+      block-size: 2px;
+      color: #333;
+      inline-size: 100%;
+      position: absolute;
+      z-index: 9;
     }
-  
-    .homepage-h2 {
-      text-transform: uppercase;
-    }
+
+    @import 'Partials/picture';
   }
+  

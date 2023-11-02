@@ -1,7 +1,13 @@
+.picture-container {
+  position: relative;
+  inset-inline-start: -140px;
+}
+
 .picture {
-    background-color: $av-light-blue;
-    block-size: 100%;
-    inline-size: auto;
+    background-color: transparent;
+    block-size: auto;
+    inline-size: 100%;
+    max-inline-size: 768px;
     //inset: 0;
     //position: absolute;
   

@@ -26,6 +26,16 @@ function getACFLayout()
                 'required' => 1,
             ],
             [
+                'label' => __('Call to Action Label', 'flynt'),
+                'name' => 'ctaLabel',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Call to Action Url', 'flynt'),
+                'name' => 'ctaUrl',
+                'type' => 'text',
+            ],
+            [
                 'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',
                 'type' => 'tab',

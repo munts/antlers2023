@@ -1,8 +1,8 @@
+<div class="picture-container">
 <picture class="picture">
   {% if images.imageMobile %}
     <source
       srcset="
-        
         {{ images.imageDesktop.src|resizeDynamic(800, 540, images.imageDesktopCrop) }} 800w"
       media="(min-width: 768px)"
       width="800"
@@ -23,10 +23,10 @@
     {% else %}
       <img
         class="picture-image"
-        src="{{ images.imageDesktop.src|resizeDynamic(768, 420, images.imageDesktopCrop) }}"
+        //src="{{ images.imageDesktop.src|resizeDynamic(768, 420, images.imageDesktopCrop) }}"
+        src="{{ images.imageDesktop.src }}"
         srcset="
-         
-          {{ images.imageDesktop.src|resizeDynamic(640, 420, images.imageDesktopCrop) }} 640w"
+          {{ images.imageDesktop.src }} 1000w"
         sizes="100vw"
         width="768"
         height="420"
@@ -34,3 +34,4 @@
         alt="{{ images.imageDesktop.alt|e }}">
   {% endif %}
 </picture>
+</div>

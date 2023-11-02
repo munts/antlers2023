@@ -59,7 +59,7 @@ function getACFLayout()
                                 'return_format' => 'array',
                                 'preview_size' => 'medium',
                                 'library' => 'all',
-                                'mime_types' => 'jpg,jpeg,png,webp',
+                                'mime_types' => 'jpg,jpeg,png,webp,svg',
                                 'required' => 1,
                                 'wrapper' =>  [
                                     'width' => '50',
@@ -73,7 +73,7 @@ function getACFLayout()
                                 'return_format' => 'array',
                                 'preview_size' => 'medium',
                                 'library' => 'all',
-                                'mime_types' => 'jpg,jpeg,png,webp',
+                                'mime_types' => 'jpg,jpeg,png,webp,svg',
                                 'wrapper' =>  [
                                     'width' => '50',
                                 ],
@@ -116,7 +116,7 @@ function getACFLayout()
                         'label' => __('Content', 'flynt'),
                         'name' => 'contentHtml',
                         'type' => 'wysiwyg',
-                        'media_upload' => 0,
+                        'media_upload' => 1,
                         'toolbar' => 'full',
                     ],
                     [
