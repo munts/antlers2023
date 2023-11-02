@@ -22,7 +22,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\BlockCustomHtml\getACFLayout(),
                     Components\SliderImageGallery\getACFLayout(),
                     Components\AccordionDefault\getACFLayout(),
-                    Components\BlockGalleryText\getACFLayout(),
+                    //Components\BlockGalleryText\getACFLayout(),
                     Components\BlockAnchor\getACFLayout(),
                     Components\BlockImage\getACFLayout(),
                     Components\BlockImageText\getACFLayout(),

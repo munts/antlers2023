@@ -16,7 +16,7 @@ function getACFLayout()
 {
     return [
         'name' => 'BlockGalleryText',
-        'label' => 'Text: Image Gallery',
+        'label' => 'Block: Text Image Gallery - BROKEN',
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
@@ -30,6 +30,16 @@ function getACFLayout()
                 'name' => 'preContentHtml',
                 'type' => 'wysiwyg',
                 'media_upload' => 0,
+            ],
+            [
+                'label' => __('Call to Action Label', 'flynt'),
+                'name' => 'ctaLabel',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Call to Action Url', 'flynt'),
+                'name' => 'ctaUrl',
+                'type' => 'text',
             ],
             [
                 'label' => __('Gallery Position', 'flynt'),
