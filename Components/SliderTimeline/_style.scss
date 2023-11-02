@@ -187,10 +187,10 @@ flynt-component[name='SliderTimeline'] {
     }
 
     .horizontalLine {
-      inset-block-start: 50%;
       block-size: 2px;
       color: #333;
       inline-size: 100%;
+      inset-block-start: 50%;
       position: absolute;
       z-index: 9;
     }
