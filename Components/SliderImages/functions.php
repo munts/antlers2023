@@ -34,6 +34,16 @@ function getACFLayout()
                 'media_upload' => 0,
             ],
             [
+                'label' => __('Call to Action Label', 'flynt'),
+                'name' => 'ctaLabel',
+                'type' => 'text',
+            ],
+            [
+                'label' => __('Call to Action Url', 'flynt'),
+                'name' => 'ctaUrl',
+                'type' => 'text',
+            ],
+            [
                 'label' => __('Images', 'flynt'),
                 'instructions' => __('Image-Format: JPG, PNG, WebP.', 'flynt'),
                 'name' => 'images',
