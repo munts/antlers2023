@@ -9,23 +9,122 @@ flynt-component[name='GridPostsLatest'] {
     padding: 0;
   }
 
+  .staff-grid{
+    --grid-columns: 1;
+    display: grid;
+    gap: var(--flow-space);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+
+    // @media (min-width: $breakpoint-tablet) {
+    //   --grid-columns: 2;
+    // }
+
+    // @media (min-width: $breakpoint-tablet-horizontal) {
+    //   --grid-columns: 4;
+    // }
+
+    &[data-max-columns='3'] {
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        --grid-columns: 3;
+      }
+    }
+
+    &[data-max-columns='4'] {
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        --grid-columns: 4;
+
+        .staff-item {
+          max-block-size: 230px !important;
+        }
+      }
+    }
+  }
+
   .post {
+    inline-size: var(--grid-item-width);
+    max-inline-size: var(--grid-item-max-width);
+
+    .hex-figure {
+      clip-path: polygon(50% 0%, 100% 18%, 100% 83%, 50% 100%, 0 83%, 0 18%);
+      //filter: grayscale(0.20);
+      filter: brightness(50%);
+      max-block-size: 450px;
+    }
+
+    .figure-image {
+      max-block-size: 450px;
+    }
+
+    .hex-figure-image-svg {
+      aspect-ratio: 2 / 3;
+    }
+
+    .content {
+      align-items: center;
+      block-size: 330px;
+      color: var(--color-background);
+      display: flex;
+      flex-direction: column;
+      inline-size: 100%;
+      inset-block-start: -400px;
+      inset-inline-start: 0;
+      justify-content: center;
+      padding: var(--container-spacing);
+      position: relative;
+
+      &-hex {
+        display: none;
+        font-size: 1rem;
+        font-weight: 400;
+        inline-size: 98%;
+        line-height: 1.2em;
+        text-align: center;
+      }
+    }
+
+    .post-title {
+      margin-block-end: -10px;
+      margin-block-start: -10px;
+      text-align: center;
+    }
+
     .link {
       block-size: 100%;
       color: currentColor;
-      display: flex;
-      flex-direction: column;
       font-weight: initial;
+      inline-size: 100%;
       text-decoration: none;
+    }
+    
+    .white {
+      color: var(--color-background);
+      inline-size: 154px;
+      margin-inline-end: auto;
+      margin-inline-start: auto;
+    }
+  }
+
+  .staff-item {
+    max-block-size: 330px;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      //max-block-size: 230px;
     }
 
     .figure {
       margin: 0;
     }
 
+    .staff-figure-image {
+      max-block-size: 330px;
+      min-block-size: 230px;
+    }
+
     .hex-figure {
       clip-path: polygon(50% 0%, 100% 18%, 100% 83%, 50% 100%, 0 83%, 0 18%);
-      //filter: grayscale(0.20);
       filter: brightness(50%);
     }
 
@@ -34,20 +133,51 @@ flynt-component[name='GridPostsLatest'] {
     }
 
     .content {
-      color: var(--color-text);
-      flex-grow: 1;
-      margin-block-start: 0;
+      align-items: center;
+      block-size: 190px;
+      color: var(--color-background);
+      display: flex;
+      flex-direction: column;
+      inline-size: 100%;
+      inset-block-start: -260px;
+      inset-inline-start: 0;
+      justify-content: center;
+      padding: var(--container-spacing);
+      position: relative;
 
       &-hex {
-        font-size: 1.25rem;
+        display: none;
+        font-size: 1rem;
         font-weight: 400;
-        line-height: 1em;
+        inline-size: 98%;
+        line-height: 1.2em;
+        text-align: center;
+      }
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        inset-block-start: -210px;
       }
     }
-    
+
+    .post-title {
+      margin-block-end: -10px;
+      margin-block-start: -10px;
+      text-align: center;
+    }
+
+    .link {
+      block-size: 100%;
+      color: currentColor;
+      font-weight: initial;
+      inline-size: 100%;
+      text-decoration: none;
+    }
+
     .white {
       color: var(--color-background);
-      margin-inline-start: 30px;
+      inline-size: 154px;
+      margin-inline-end: auto;
+      margin-inline-start: auto;
     }
 
     .footer {

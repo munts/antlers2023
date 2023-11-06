@@ -9,16 +9,26 @@
     {# {% if terms %}
       {% include 'Partials/_filter.twig' %}
     {% endif %} #}
+    {% if queriedObject.name == 'staff' %}
+      {% set gridType = 'staff' %}
+      {% set itemType = 'staff-item' %}
+      {% set imgWidth = 384 %}
+      {% set imgHeight = 330 %}
+    {% else %}
+      {% set gridType = 'posts' %}
+      {% set itemType = 'post' %}
+      {% set imgWidth = 768 %}
+      {% set imgHeight = '768 / 2 * 3' %}
+    {% endif %}
 
     {% if posts|length > 0 %}
-    
-      <ul data-ref="posts" class="posts">
+
+      <ul data-ref="posts" class="{{gridType}}">
         {% for post in posts %}
         {% set title = post.title %}
         {% set shortDescription = post.get_field('short_description') %}
         {% set position = post.get_field('position') %}
-          <li class="post boxBorder-none" data-theme="reset">
-            
+          <li class="{{itemType}} boxBorder-none" data-theme="reset">
               {% if post.thumbnail %}
                 <figure class="hex-figure">
                  {% if post.thumbnail.post_mime_type == 'image/svg+xml'%}
@@ -30,15 +40,14 @@
                       alt="{{ post.thumbnail.alt|e }}">
                   {% else %}
                         <img class="figure-image lazyload"
-                        src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
-                        width="{{ 768 }}"
-                        height="{{ (768 / 2 * 3)|round }}"
-                        srcset="{{ placeholderImage(768, (768 / 2 * 3)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                        src="{{ post.thumbnail.src|resizeDynamic(imgWidth, (imgHeight)|round, 'center') }}"
+                        {# width="{{ ingWidth }}"
+                        height="{{ (imgHeight)|round }}"
+                        srcset="{{ placeholderImage(imgWidth, (imgHeight)|round, 'rgba(125, 125, 125, 0.1)') }}"
                         data-srcset="
-                        {{ post.thumbnail.src|resizeDynamic(1024, (1024 / 2 * 3)|round, 'center') }} 1024w,
                         {{ post.thumbnail.src|resizeDynamic(768, (768 / 2 * 3)|round, 'center') }} 768w,
-                        {{ post.thumbnail.src|resizeDynamic(640, (640 / 2 * 3)|round, 'center') }} 640w"
-                        data-sizes="auto"
+                        {{ post.thumbnail.src|resizeDynamic(640, (640 / 2 * 3)|round, 'center') }} 640w" 
+                        data-sizes="auto" #}
                         alt="{{ post.thumbnail.alt|e }}">
                   {% endif %}
                   </figure>
@@ -66,7 +75,6 @@
                   </div>
                 </a>
                 {% endif %}
-            
           </li>
         {% endfor %}
       </ul>

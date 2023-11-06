@@ -18,6 +18,9 @@ add_filter('Flynt/addComponentData?name=GridPostsArchive', function ($data) {
     ]);
 
     $queriedObject = get_queried_object();
+
+    $data['queriedObject'] = $queriedObject;
+
     $data['type'] = $postType;
     if (count($terms) > 1) {
         $data['terms'] = array_map(function ($term) use ($queriedObject) {

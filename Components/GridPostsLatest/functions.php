@@ -17,7 +17,7 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
     $data['layoutType'] = $data['layout'];
 
     $data['taxonomies'] = $data['taxonomies'] ?? [];
-    $data['options']['maxColumns'] = 3;
+    //$data['options']['maxColumns'] = 3;
     $postsPerPage = $data['options']['maxPosts'] ?? 3;
 
     if ($postType === 'page') {
@@ -148,6 +148,15 @@ function getACFLayout()
                 'layout' => 'row',
                 'sub_fields' => [
                     FieldVariables\getTheme(),
+                    [
+                        'label' => __('Max Columns', 'flynt'),
+                        'name' => 'maxColumns',
+                        'type' => 'number',
+                        'default_value' => 3,
+                        'min' => 1,
+                        'max' => 4,
+                        'step' => 1
+                    ],
                     [
                         'label' => __('Max Posts', 'flynt'),
                         'name' => 'maxPosts',
