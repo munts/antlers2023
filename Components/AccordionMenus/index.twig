@@ -1,0 +1,79 @@
+<flynt-component name="AccordionMenus" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container">
+    {% set layoutType = 'links' %}
+    <div data-size="full" data-align="center">
+    {% set i = 0 %}
+      <ul class="items">
+        {% for panel in accordionPanels %}
+        
+          <li class="item">
+              <h3 class="h5">
+                <button data-refs="trigger" class="trigger" type="button" aria-expanded="false" aria-controls="content-{{ uuid ~ '-' ~ loop.index }}" style="padding: 15px 0 0 15px;">
+                  {{ panel.title|e }}
+                </button>
+              </h3>
+            <div class="content boxPadding" aria-hidden="true" id="content-{{ uuid ~ '-' ~ loop.index }}">
+            <div class="panel-container" style="display:flex; flex-direction:row;">
+              <figure class="figure" data-size="full" data-align="center" style="flex-grow: 1;">
+                  <img class="figure-panel.image lazyload"
+                    src="{{ panel.image.src }}" style="max-width:400px;"
+                    alt="{{ panel.image.alt|e }}">
+                {# {% endif %} #}
+                {# {% if panel.image.caption %}
+                  <figcaption>{{ panel.image.caption|e }}</figcaption>
+                {% endif %} #}
+              </figure>
+                <div class="content-inner" style="flex-grow: 1;">
+                    {{ panel.contentHtml|e('wp_kses_post') }}
+                    {% set currentCat = catToUse[i] %}
+                    {% if currentCat == 'studio' %}
+                        {% set catLabel = 'Studio Suite' %}
+
+                        {% elseif currentCat == '1-bedroom' %}
+                        {% set catLabel = '1 Bedroom' %}
+
+                        {% elseif currentCat == '1-bedroom-bunks' %}
+                        {% set catLabel = '1 Bedroom + Bunk Beds' %}
+
+                        {% elseif currentCat == '2-bedroom' %}
+                        {% set catLabel = '2 Bedroom + 2 Bath 900' %}
+
+                        {% elseif currentCat == '2-bedroom-1000' %}
+                        {% set catLabel = '2 Bedroom + 2 Bath 1000' %}
+
+                        {% elseif currentCat == '3-bedroom-2-bath' %}
+                        {% set catLabel = '3 Bedroom + 2 Bath' %}
+
+                        {% elseif currentCat == '3-bedroom-3-bath' %}
+                        {% set catLabel = '3 Bedroom + 3 Bath' %}
+
+                        {% else %}
+                        {% set catLabel = '4 Bedroom + 4 Bath' %}
+                    {% endif %}
+                    {# <b>{{ catLabel }}</b> #}
+                  <ul class="units" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+                    {% for post in posts %}
+                    {% if post.category.slug == catToUse[i] %}
+                    <li class="links" data-theme="reset">
+                        <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
+                        {{post.title}}
+                        {# {{post.category.slug}} #}
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                  <div class="cta-container">
+                    {# <a class="button--more-info" href="{{panel.url}}">More Info</a> #}
+                    <a class="button--more-info" href="/lodging/{{currentCat}}/">More Info</a>
+                  </div>
+                </div>
+            </div>
+            </div>
+          </li>
+          {% set i = i + 1 %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</flynt-component>

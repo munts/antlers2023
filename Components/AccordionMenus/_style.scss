@@ -1,0 +1,117 @@
+flynt-component[name='AccordionMenus'] {
+    .grid {
+        --grid-item-width: calc((var(--content-max-width-full) - 2 * var(--flow-space)) / 3);
+        display: grid;
+        gap: var(--flow-space);
+        grid-template-columns: repeat(auto-fit, min(var(--grid-item-width), 100%));
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+      }
+
+    .items {
+      list-style: none;
+      padding-inline-start: 0;
+    }
+
+    .item {
+      background-color: $av-light-blue;
+      display: block;
+      margin-block-end: 10px;
+      padding-block-end: 10px;
+
+      + .item {
+        border-block-start: 2px solid var(--color-border);
+      }
+    }
+
+    h2 {
+      color: $av-dark-blue;
+    }
+
+    .h5 {
+      color: $av-dark-blue;
+      font-size: 2rem;
+    }
+
+    .trigger {
+      --icon-size: 18px;
+      color: $av-dark-blue;
+      cursor: pointer;
+      inline-size: 100%;
+      margin: 0;
+      padding-inline-end: calc(var(--icon-size) + 1ch);
+      position: relative;
+
+      &::before,
+      &::after {
+        //background-color: var(--color-accent);
+        background-color: $av-dark-blue;
+        block-size: 2px;
+        content: '';
+        inline-size: var(--icon-size);
+        inset-block-start: calc(50%);
+        inset-inline-end: 15px;
+        position: absolute;
+        transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        will-change: transform;
+      }
+
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
+
+    // Do not add margins or padding to this, it will may break the layout.
+    .content {
+      display: none;
+      margin: 0;
+      padding-block: var(--box-spacing);
+      padding-inline: var(--box-spacing);
+
+      &-inner {
+        margin-block-start: var(--flow-space);
+      }
+    }
+
+    .units {
+      columns: 2;
+
+      li {
+        background-color: $av-light-blue;
+        list-style-type: none;
+
+          &::after {
+          background-color: $av-dark-blue; /* Set color for the bullet */
+          block-size: 24px; /* Height of the bullet */
+          clip-path: polygon(33.65% 48.17%, 66.3% 61.77%, 1% 99.86%, 1% 34.56%);
+          content: " ";
+          inline-size: 15px;
+          margin-block-start: 2px;
+          margin-inline-start: 10px;
+          position: absolute; /* Positioning the bullet as absolute. It will relative to the li item */
+        }
+      }
+
+      a {
+        color: $av-dark-blue;
+        text-decoration: none;
+      }
+    }
+
+    [aria-expanded=true] {
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      box-shadow: 0 5px 3px -3px #00000030;
+    }
+
+    [aria-hidden=false] {
+      display: block;
+    }
+  }
