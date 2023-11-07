@@ -44,6 +44,16 @@ function getACFLayout()
                 'type' => 'text',
             ],
             [
+                'label' => __('Call to Action button Target', 'flynt'),
+                'name' => 'ctaTarget',
+                'type' => 'button_group',
+                'choices' => [
+                    '_self' => 'Self',
+                    '_blank' => 'New Window'
+                ],
+                'default_value' => 'self'
+            ],
+            [
                 'label' => __('Image Position', 'flynt'),
                 'name' => 'imagePosition',
                 'type' => 'button_group',
