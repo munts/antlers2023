@@ -44,6 +44,15 @@ function getACFLayout()
                 'type' => 'text',
             ],
             [
+                'label' => __('Image Position', 'flynt'),
+                'name' => 'imagePosition',
+                'type' => 'button_group',
+                'choices' => [
+                    'left' => sprintf('<i class=\'dashicons dashicons-align-left\' title=\'%1$s\'></i>', __('Image on the left', 'flynt')),
+                    'right' => sprintf('<i class=\'dashicons dashicons-align-right\' title=\'%1$s\'></i>', __('Image on the right', 'flynt'))
+                ]
+            ],
+            [
                 'label' => __('Images', 'flynt'),
                 'instructions' => __('Image-Format: JPG, PNG, WebP.', 'flynt'),
                 'name' => 'images',

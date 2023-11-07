@@ -14,11 +14,11 @@ flynt-component[name='SliderImages'] {
       }
 
       &[data-image-position='left'] {
-        flex-direction: row;
+        flex-direction: row-reverse;
       }
 
       &[data-image-position='right'] {
-        flex-direction: row-reverse;
+        flex-direction: row;
       }
     }
   }
