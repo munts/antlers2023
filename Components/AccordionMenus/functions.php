@@ -13,7 +13,7 @@ add_filter('Flynt/addComponentData?name=AccordionMenus', function ($data) {
     $postsPerPage = -1;
     $accordionPanels = $data['accordionPanels'];
     $accordionPanels_length = count($accordionPanels);
-    $taxArray=[];
+    $taxArray = [];
 
     $taxArray = join(',', array_map(function ($taxonomy) {
         return $taxonomy->slug;
