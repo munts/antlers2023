@@ -119,7 +119,7 @@
       {% elseif layoutType == 'links' %}
       <ul class="units" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
-          <li class="links" data-theme="reset">
+          <li class="links">
             <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
              {{post.title}}
             </a>
