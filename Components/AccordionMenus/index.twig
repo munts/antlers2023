@@ -64,8 +64,16 @@
                     {% endfor %}
                 </ul>
                   <div class="cta-container">
-                    {# <a class="button--more-info" href="{{panel.url}}">More Info</a> #}
-                    <a class="button--more-info" href="/lodging/{{currentCat}}/">More Info</a>
+                  {% set buttonLabel = panel.ctaLabel %}
+                  {% if buttonLabel is not empty %}
+                  {% else %}
+                    {% set buttonLabel = 'More Info' %}
+                  {% endif %}
+                  {% if panel.url %}
+                    <a class="button--more-info" href="{{panel.url}}">{{ buttonLabel }}</a>
+                  {% else %}
+                    <a class="button--more-info" href="/lodging/{{currentCat}}/">{{ buttonLabel }}</a>
+                  {% endif %}
                   </div>
                 </div>
             </div>

@@ -93,6 +93,11 @@ flynt-component[name='AccordionDefault'] {
     }
   }
 
+  .cta-container {
+    text-align: right;
+    padding-inline-end: 60px;
+  }
+
   [aria-expanded=true] {
     &::before {
       transform: rotate(45deg);

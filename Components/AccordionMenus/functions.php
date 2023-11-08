@@ -64,6 +64,8 @@ add_filter('Flynt/addComponentData?name=AccordionMenus', function ($data) {
         '4 Bedroom + 4 Bath' => '4-bedroom-4-bath',
     ];
 
+    // $data['accordionPanels']['ctaLabel'] = $data['accordionPanels']['ctaLabel'];
+
     $data['uuid'] = wp_generate_uuid4();
     return $data;
 });
@@ -141,12 +143,19 @@ function getACFLayout()
                         'media_upload' => 0,
                         'required' => 0,
                     ],
-                    // [
-                    //     'label' => __('Url', 'flynt'),
-                    //     'name' => 'url',
-                    //     'type' => 'text',
-                    //     'required' => 0,
-                    // ],
+                    [
+                        'label' => __('Call to Action Label', 'flynt'),
+                        'instructions' => __('If you add a label here, you must also add a url', 'flynt'),
+                        'name' => 'ctaLabel',
+                        'type' => 'text',
+                        'required' => 0,
+                    ],
+                    [
+                        'label' => __('Url', 'flynt'),
+                        'name' => 'url',
+                        'type' => 'text',
+                        'required' => 0,
+                    ],
                 ],
             ],
             // [

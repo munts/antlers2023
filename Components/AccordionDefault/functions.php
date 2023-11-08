@@ -63,6 +63,12 @@ function getACFLayout()
                         'required' => 1,
                     ],
                     [
+                        'label' => __('Call to Action Label', 'flynt'),
+                        'name' => 'ctaLabel',
+                        'type' => 'text',
+                        'required' => 0,
+                    ],
+                    [
                         'label' => __('Url', 'flynt'),
                         'name' => 'url',
                         'type' => 'text',
