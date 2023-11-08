@@ -100,8 +100,8 @@ flynt-component[name='AccordionMenus'] {
     }
 
     .cta-container {
-      text-align: right;
       padding-inline-end: 60px;
+      text-align: end;
     }
 
     [aria-expanded=true] {
