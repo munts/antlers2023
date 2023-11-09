@@ -1,27 +1,41 @@
 flynt-component[name='SliderFeaturedPosts'] {
   .container {
-    max-inline-size: 1800px;
+    display: flex;
+    //max-inline-size: 1800px;
+  }
+  
+  .sfp-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-inline-size: 100%;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      inline-size: 1800px;
+    }
   }
 
   .specials-intro {
-    @media (min-width: 320px) {
+    @media (max-width: $breakpoint-tablet) {
       inline-size: 100%;
     }
-    @media (min-width: $breakpoint-tablet) {
-      inline-size: 33%;
-    }
+    // @media (min-width: $breakpoint-tablet-horizontal) {
+    //   inline-size: 33%;
+    // }
     @media (min-width: $breakpoint-desktop) {
       inline-size: 50%;
     }
   }
 
   .container-specials {
+    display: flex;
+
     @media (min-width: 320px) {
       inline-size: 100%;
     }
-    @media (min-width: $breakpoint-tablet) {
-      inline-size: 66%;
-    }
+    // @media (min-width: $breakpoint-tablet) {
+    //   inline-size: 66%;
+    // }
     @media (min-width: $breakpoint-desktop) {
       inline-size: 50%;
     }
@@ -160,7 +174,10 @@ flynt-component[name='SliderFeaturedPosts'] {
         border-color: transparent transparent transparent $av-gold;
         border-style: solid;
         border-width: 40px 0 40px 40px;
-        inset-inline-end: 15px;
+        inset-block-start: 48%;
+        inset-inline-end: 10px;
+        max-block-size: 40px;
+        position: relative;
 
         &::after {
           block-size: 0.75em;
@@ -170,7 +187,6 @@ flynt-component[name='SliderFeaturedPosts'] {
         }
 
         @media (max-width: $breakpoint-tablet) {
-          inset-inline-end: 30px;
           margin-block-start: 40px;
         }
 
@@ -180,15 +196,6 @@ flynt-component[name='SliderFeaturedPosts'] {
             background-color: #fff;
           }
         }
-
-        @media (min-width: $breakpoint-tablet-horizontal) {
-          inset-inline-end: 45px;
-        }
-
-        @media (min-width: $breakpoint-desktop) {
-          inset-inline-end: 32px;
-        }
-        
       }
 
       @media (min-width: $breakpoint-tablet) {

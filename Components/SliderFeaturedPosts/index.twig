@@ -1,8 +1,8 @@
 <flynt-component name="SliderFeaturedPosts" load:on="visible" class="featured-post-slider componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} >
-    <div class="container" style="display: flex;">
+    <div class="container sfp-container">
         <div class="specials-intro">
         {% if preContentHtml %}
-            <div data-size="medium" data-align="" data-text-align="" style="padding: 0 30px;">
+            <div data-size="full" data-align="" data-text-align="" style="padding: 0 30px;">
             {{ preContentHtml|e('wp_kses_post') }}
             {% if seeMoreUrl %}
                 <a href="{{ seeMoreUrl }}" class="button--underline blue">See More</a>
