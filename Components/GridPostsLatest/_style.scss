@@ -195,7 +195,18 @@ flynt-component[name='GridPostsLatest'] {
   }
 
   .units {
-    columns: 3;
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+    max-inline-size: 800px;
+    text-align: center;
+
+    @media (min-width: $breakpoint-tablet) {
+      columns: 2;
+    }
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      columns: 3;
+    }
 
     li {
       list-style-type: none;

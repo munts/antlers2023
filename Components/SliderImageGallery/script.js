@@ -27,6 +27,7 @@ function initSliders (refs, data) {
     freeMode: true,
     centeredSlides: true,
     slideToClickedSlide: true,
+    watchSlidesProgress: true,
     lazy: {
       loadPrevNext: true,
       loadPrevNextAmount: 10
@@ -43,7 +44,7 @@ function initSliders (refs, data) {
     a11y: options.a11y,
     controller: {
       control: swiperSliderThumb
-    }
+    },
   })
 
   swiperSliderThumb.controller.control = swiperSliderMain

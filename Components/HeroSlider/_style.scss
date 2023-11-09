@@ -44,7 +44,7 @@ flynt-component[name='HeroSlider'] {
       z-index: 10;
 
       &::before {
-        background-color: var(--color-accent);
+        // background-color: var(--color-accent);
         block-size: 100%;
         border-radius: 50%;
         content: '';
@@ -71,8 +71,8 @@ flynt-component[name='HeroSlider'] {
 
         &::after {
           block-size: 0.75em;
-          border-block-start: 2px solid currentColor;
-          border-inline-start: 2px solid currentColor;
+          border-block-start: 6px solid currentColor;
+          border-inline-start: 6px solid currentColor;
           content: '';
           inline-size: 0.75em;
           margin-inline-start: calc(0.25em + 2px);
@@ -89,8 +89,8 @@ flynt-component[name='HeroSlider'] {
 
         &::after {
           block-size: 0.75em;
-          border-block-start: 2px solid currentColor;
-          border-inline-end: 2px solid currentColor;
+          border-block-start: 6px solid currentColor;
+          border-inline-end: 6px solid currentColor;
           content: '';
           inline-size: 0.75em;
           margin-inline-end: calc(0.25em - 2px);

@@ -5,7 +5,8 @@ flynt-component[name='SliderImageGallery'] {
 
   .sliderMain {
     margin-inline: var(--container-spacing);
-    max-inline-size: calc(var(--content-max-width-full) + var(--container-spacing) * 2);
+    //max-inline-size: calc(var(--content-max-width-full) + var(--container-spacing) * 2);
+    max-inline-size: 1024px;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -46,7 +47,7 @@ flynt-component[name='SliderImageGallery'] {
       z-index: 10;
 
       &::before {
-        background-color: var(--color-accent);
+        // background-color: var(--color-accent);
         block-size: 100%;
         border-radius: 50%;
         content: '';
@@ -77,8 +78,8 @@ flynt-component[name='SliderImageGallery'] {
 
         &::after {
           block-size: 0.75em;
-          border-block-start: 2px solid currentColor;
-          border-inline-start: 2px solid currentColor;
+          border-block-start: 6px solid currentColor;
+          border-inline-start: 6px solid currentColor;
           content: '';
           inline-size: 0.75em;
           margin-inline-start: calc(0.25em + 2px);
@@ -91,8 +92,8 @@ flynt-component[name='SliderImageGallery'] {
 
         &::after {
           block-size: 0.75em;
-          border-block-start: 2px solid currentColor;
-          border-inline-end: 2px solid currentColor;
+          border-block-start: 6px solid currentColor;
+          border-inline-end: 6px solid currentColor;
           content: '';
           inline-size: 0.75em;
           margin-inline-end: calc(0.25em - 2px);
@@ -136,6 +137,9 @@ flynt-component[name='SliderImageGallery'] {
   }
 
   .sliderThumb {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    max-inline-size: 1024px;
     overflow: hidden;
     padding: 1rem 0 0;
 
