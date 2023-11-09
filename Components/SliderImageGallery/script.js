@@ -44,7 +44,7 @@ function initSliders (refs, data) {
     a11y: options.a11y,
     controller: {
       control: swiperSliderThumb
-    },
+    }
   })
 
   swiperSliderThumb.controller.control = swiperSliderMain
