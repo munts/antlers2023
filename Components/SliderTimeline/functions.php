@@ -113,17 +113,31 @@ function getACFLayout()
                         ]
                     ],
                     [
+                        'label' => __('Decade Image', 'flynt'),
+                        'instructions' => __('Image-Format: JPG, PNG, WebP. Recommended resolution greater than 2560 × 1200 px.', 'flynt'),
+                        'name' => 'imageDecade',
+                        'type' => 'image',
+                        'return_format' => 'array',
+                        'preview_size' => 'medium',
+                        'library' => 'all',
+                        'mime_types' => 'jpg,jpeg,png,webp,svg',
+                        'required' => 1,
+                        'wrapper' =>  [
+                            'width' => '25',
+                        ],
+                    ],
+                    [
                         'label' => __('Content', 'flynt'),
                         'name' => 'contentHtml',
                         'type' => 'wysiwyg',
                         'media_upload' => 1,
                         'toolbar' => 'full',
                     ],
-                    [
-                        'label' => __('Date or year', 'flynt'),
-                        'name' => 'timelineDate',
-                        'type' => 'text',
-                    ],
+                    // [
+                    //     'label' => __('Date or year', 'flynt'),
+                    //     'name' => 'timelineDate',
+                    //     'type' => 'text',
+                    // ],
                 ]
             ],
             [

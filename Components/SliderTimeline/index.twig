@@ -2,18 +2,21 @@
   <script type="application/json">{{ jsonData|json_encode }}</script>
   <div data-ref="slider" data-slider class="slider swiper-container">
     <div class="swiper-wrapper no-container">
+    {% set i = 0 %}
       {% for slide in slides %}
-        <div data-refs="sliderItems" class="swiper-slide" style="display:flex;flex-direction:row;">
-        {% if slide.contentHtml %}
-            <div class="container">
+        <div data-refs="sliderItems" class="swiper-slide slide-{{i}}" style="display:flex;flex-direction:row;">
+            <div class="container decade-container">
+              <img class="decadeImg" src="{{ slide.imageDecade.src }}">
+              <div class="diamond"></div>
               <div class="content" data-size="full">
-                {{ slide.contentHtml|striptags('<img>') }}
-                <div class="decadeDetails">-- {{slide.timelineDate}}</div>
+                {% if slide.contentHtml %}
+                  {{ slide.contentHtml }}
+                {% endif %}
               </div>
             </div>
-          {% endif %}
         {% include "Partials/_picture.twig" with { images: slide.images, loopIndex: loop.index } %}
         </div>
+        {% set i = i + 1 %}
       {% endfor %}
     </div>
     {% if slides|length > 1 %}

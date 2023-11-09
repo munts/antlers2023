@@ -26,6 +26,7 @@ flynt-component[name='SliderTestimonials'] {
     .slider {
       display: flex;
       inline-size: 100%;
+      justify-content: center;
   
       &-button {
         align-items: center;
@@ -41,7 +42,7 @@ flynt-component[name='SliderTestimonials'] {
         z-index: 10;
   
         &::before {
-          background-color: var(--color-accent);
+          background-color: $av-dark-blue;
           block-size: 100%;
           border-radius: 50%;
           content: '';
@@ -195,8 +196,9 @@ flynt-component[name='SliderTestimonials'] {
     }
 
     .author {
-        position: relative;
-        text-align: end;
+      font-style: normal;
+      position: relative;
+      text-align: end;
     }
   
     .homepage-h1 {
