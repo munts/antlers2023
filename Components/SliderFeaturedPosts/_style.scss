@@ -37,7 +37,7 @@ flynt-component[name='SliderFeaturedPosts'] {
     //   inline-size: 66%;
     // }
     @media (min-width: $breakpoint-desktop) {
-      inline-size: 50%;
+      inline-size: 48%;
     }
   }
 
@@ -53,17 +53,11 @@ flynt-component[name='SliderFeaturedPosts'] {
 
     .swiper-wrapper {
       display: flex;
-      //max-inline-size: 520px;
       inline-size: 100%;
     }
 
     &-item {
       margin-inline: auto;
-      max-inline-size: 375px;
-
-      @media (min-width: $breakpoint-tablet) {
-        max-inline-size: 420px;
-      }
 
       @media (min-width: $breakpoint-tablet-horizontal) {
         max-inline-size: 100%;
@@ -94,7 +88,8 @@ flynt-component[name='SliderFeaturedPosts'] {
       }
 
       .specials-title {
-        block-size: 100px;
+        block-size: 90px;
+        overflow: hidden;
       }
 
       .specials-button {
@@ -158,8 +153,16 @@ flynt-component[name='SliderFeaturedPosts'] {
         border-width: 40px 0 40px 40px;
         inset-inline-start: auto;
         margin-block-start: 0;
-        margin-inline-start: -30px;
+        margin-inline-start: -16px;
         transform: rotate(-180deg);
+
+        @media (min-width: $breakpoint-tablet) {
+          margin-inline-start: -30px;
+        }
+
+        @media (min-width: $breakpoint-desktop) {
+          margin-inline-start: -40px;
+        }
 
         &::after {
           block-size: 0.75em;
@@ -174,10 +177,9 @@ flynt-component[name='SliderFeaturedPosts'] {
         border-color: transparent transparent transparent $av-gold;
         border-style: solid;
         border-width: 40px 0 40px 40px;
-        inset-block-start: 48%;
-        inset-inline-end: 10px;
+        inset-block-start: 24%;
+        inset-inline-end: 0;
         max-block-size: 40px;
-        position: relative;
 
         &::after {
           block-size: 0.75em;
@@ -186,15 +188,21 @@ flynt-component[name='SliderFeaturedPosts'] {
           transform: rotate(45deg);
         }
 
-        @media (max-width: $breakpoint-tablet) {
-          margin-block-start: 40px;
+        @media (min-width: $breakpoint-mobile-horizontal) {
+          inset-block-start: 50%;
         }
 
         @media (min-width: $breakpoint-tablet) {
-          &:hover,
-          &:focus {
-            background-color: #fff;
-          }
+          inset-block-start: 48%;
+        }
+
+        @media (min-width: $breakpoint-tablet-horizontal) {
+          inset-block-start: 48%;
+        }
+
+        @media (min-width: $breakpoint-desktop) {
+          inset-block-start: 48%;
+          position: relative;
         }
       }
 
