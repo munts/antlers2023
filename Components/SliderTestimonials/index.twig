@@ -7,7 +7,7 @@
           {% if slide.contentHtml %}
             <div class="container-two">
               <div class="content" data-size="full">
-                <q> {{ slide.contentHtml|striptags }}</q>
+                <div class="testimonial"><q> {{ slide.contentHtml|striptags }}</q></div>
                 <div class="author">-- {{slide.author}}</div>
               </div>
             </div>

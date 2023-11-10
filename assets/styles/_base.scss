@@ -28,7 +28,8 @@ header.mainHeader {
 
 body,
 .paragraph {
-  color: var(--color-text);
+  color: $av-dark-blue;
+  //color: var(--color-text);
   font-family: var(--font-family-text);
   font-size: var(--font-size-body);
   font-weight: initial;

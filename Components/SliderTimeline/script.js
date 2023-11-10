@@ -31,7 +31,6 @@ async function initSlider (refs, data) {
     spaceBetween: 1,
     loop: true,
     freeMode: true,
-    // keyboard: true,
     navigation: {
       nextEl: refs.next,
       prevEl: refs.prev
