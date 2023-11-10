@@ -27,7 +27,7 @@ async function initSlider (refs, data) {
     modules: [Autoplay, A11y, Navigation, Pagination, FreeMode],
     a11y: options.a11y,
     roundLengths: true,
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 1,
     loop: true,
     freeMode: true,
@@ -39,6 +39,12 @@ async function initSlider (refs, data) {
     pagination: {
       el: refs.pagination,
       clickable: true
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 1
+      }
     }
   }
 

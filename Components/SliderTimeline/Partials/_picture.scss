@@ -1,6 +1,10 @@
 .picture-container {
-  inset-inline-start: -140px;
+  inset-inline-start: -40px;
   position: relative;
+
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    inset-inline-start: -140px;
+  }
 }
 
 .picture {

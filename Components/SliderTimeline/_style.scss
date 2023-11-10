@@ -167,24 +167,27 @@ flynt-component[name='SliderTimeline'] {
     }
 
     .slide-0 {
-      inset-inline-start: 80px;
-    }
+      inset-inline-start: 40px;
 
-    .decade-container {
-      max-inline-size: 450px;
-      min-inline-size: 400px;
-      position: relative;
+      @media (min-width: $breakpoint-tablet) {
+        inset-inline-start: 80px;
+      }
     }
 
     .diamond {
       block-size: 0;
       border: 10px solid transparent;
       border-block-end-color: #decc62;
+      display: none;
       inline-size: 0;
       inset-block-start: 12px;
       inset-inline-start: 38%;
       position: relative;
       z-index: 12;
+
+      @media (min-width: $breakpoint-tablet) {
+        display: block;
+      }
     }
 
     .diamond::after {
@@ -197,15 +200,25 @@ flynt-component[name='SliderTimeline'] {
       inset-inline-start: -10px;
       position: absolute;
     }
+
+    .decade-container {
+      position: relative;
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        max-inline-size: 450px;
+        min-inline-size: 400px;
+      }
+    }
   
     .content {
       color: var(--color-text);
-      inset-block-start: 60px;
+      inset-block-start: 0;
       //padding: var(--container-spacing) var(--container-spacing) calc(var(--container-spacing) + var(--slider-pagination-height));
       padding: 0 10px;
       position: relative;
   
       @media (min-width: $breakpoint-tablet) {
+      inset-block-start: 60px;
         //padding: var(--container-spacing) calc(var(--container-spacing) + var(--slider-button-size)) calc(var(--container-spacing) + 30px);
       }
   
@@ -215,8 +228,22 @@ flynt-component[name='SliderTimeline'] {
       }
     }
 
+    ul {
+      @media (max-width: $breakpoint-tablet) {
+        --item-spacing: 0;
+        padding-inline-start: 0;
+      }
+    }
+
+    li {
+      max-inline-size: 380px;
+    }
+
     .decadeImg {
-      max-inline-size: 370px;
+      inline-size: 100%;
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        max-inline-size: 280px;
+      }
     }
 
     .decadeDetails {
@@ -226,10 +253,15 @@ flynt-component[name='SliderTimeline'] {
     .horizontalLine {
       block-size: 2px;
       color: #333;
+      display: none;;
       inline-size: 100%;
       inset-block-start: 40%;
       position: absolute;
       z-index: 9;
+
+      @media (min-width: $breakpoint-tablet) {
+        display: block;
+      }
     }
 
     li {
