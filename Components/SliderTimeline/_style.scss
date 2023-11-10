@@ -34,7 +34,7 @@ flynt-component[name='SliderTimeline'] {
       &-button {
         align-items: center;
         block-size: var(--slider-button-size);
-        color: var(--color-background);
+        color: $av-dark-blue;
         cursor: pointer;
         display: none;
         inline-size: var(--slider-button-size);
@@ -45,7 +45,7 @@ flynt-component[name='SliderTimeline'] {
         z-index: 99;
   
         &::before {
-          background-color: var(--color-accent);
+          // background-color: var(--color-accent);
           block-size: 100%;
           border-radius: 50%;
           content: '';
@@ -72,8 +72,8 @@ flynt-component[name='SliderTimeline'] {
   
           &::after {
             block-size: 0.75em;
-            border-block-start: 2px solid currentColor;
-            border-inline-start: 2px solid currentColor;
+            border-block-start: 4px solid currentColor;
+            border-inline-start: 4px solid currentColor;
             content: '';
             inline-size: 0.75em;
             margin-inline-start: calc(0.25em + 2px);
@@ -90,8 +90,8 @@ flynt-component[name='SliderTimeline'] {
   
           &::after {
             block-size: 0.75em;
-            border-block-start: 2px solid currentColor;
-            border-inline-end: 2px solid currentColor;
+            border-block-start: 4px solid currentColor;
+            border-inline-end: 4px solid currentColor;
             content: '';
             inline-size: 0.75em;
             margin-inline-end: calc(0.25em - 2px);
