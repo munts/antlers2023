@@ -23,11 +23,10 @@ function initSliders (refs, data) {
     a11y: options.a11y,
     roundLengths: true,
     spaceBetween: 10,
-    slidesPerView: 'auto',
+    slidesPerView: 10,
     freeMode: true,
     centeredSlides: true,
     slideToClickedSlide: true,
-    watchSlidesProgress: true,
     lazy: {
       loadPrevNext: true,
       loadPrevNextAmount: 10

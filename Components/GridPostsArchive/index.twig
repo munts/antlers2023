@@ -1,28 +1,37 @@
 <flynt-component name="GridPostsArchive" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
-  <div class="container" data-flow="layout" style="margin-top:250px;">
-    <div data-size="medium" data-align="center" data-text-align="center">
-    {# the type is {{type}} #}
-      {# <h1>{{ title }}</h1> #}
-      {# {% set html = isHome ? preContentHtml : description %}
-      {{ html|e('wp_kses_post') }} #}
+{# {{dump(introOptions.specials_hero.src)}} #}
+{% if queriedObject.name == 'specials-packages' %}
+  {% set intro = introOptions.specials_intro %}
+  {% set heroImg = introOptions.specials_hero.src %}
+{% elseif queriedObject.name == 'staff' %}
+   {% set intro = introOptions.staff_intro %}
+{% endif %}
+{% if queriedObject.name == 'staff' %}
+  {% set heroImg = introOptions.staff_hero %}
+  {% set gridType = 'staff' %}
+  {% set itemType = 'staff-item' %}
+  {% set imgWidth = 384 %}
+  {% set imgHeight = 330 %}
+{% else %}
+  {% set gridType = 'posts' %}
+  {% set itemType = 'post' %}
+  {% set imgWidth = 768 %}
+  {% set imgHeight = '768 / 2 * 3' %}
+{% endif %}
+
+  <picture class="picture">
+      <img class="picture-image"
+        src="{{ heroImg }}">
+  </picture>
+  <div class="container" data-flow="layout" style="margin:60px auto;">
+    <div data-size="full" data-align="center" data-text-align="center">
+    {{ intro }}
     </div>
     {# {% if terms %}
       {% include 'Partials/_filter.twig' %}
     {% endif %} #}
-    {% if queriedObject.name == 'staff' %}
-      {% set gridType = 'staff' %}
-      {% set itemType = 'staff-item' %}
-      {% set imgWidth = 384 %}
-      {% set imgHeight = 330 %}
-    {% else %}
-      {% set gridType = 'posts' %}
-      {% set itemType = 'post' %}
-      {% set imgWidth = 768 %}
-      {% set imgHeight = '768 / 2 * 3' %}
-    {% endif %}
 
     {% if posts|length > 0 %}
-
       <ul data-ref="posts" class="{{gridType}}">
         {% for post in posts %}
         {% set title = post.title %}

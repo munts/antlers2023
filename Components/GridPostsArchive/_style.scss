@@ -1,4 +1,18 @@
 flynt-component[name='GridPostsArchive'] {
+  .picture {
+    &-image {
+      //aspect-ratio: 4 / 3;
+      block-size: 100%;
+      inline-size: 100%;
+      min-block-size: 400px;
+      object-fit: cover;
+
+      @media (min-width: $breakpoint-tablet) {
+        aspect-ratio: 32 / 10;
+      }
+    }
+  }
+
   li {
     max-block-size: 450px;
   }

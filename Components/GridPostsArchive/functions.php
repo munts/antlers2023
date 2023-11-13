@@ -17,6 +17,10 @@ add_filter('Flynt/addComponentData?name=GridPostsArchive', function ($data) {
         'hide_empty' => true,
     ]);
 
+    if (function_exists('acf_add_options_page')) {
+        $data['introOptions'] = get_fields('options');
+    }
+
     $queriedObject = get_queried_object();
 
     $data['queriedObject'] = $queriedObject;
