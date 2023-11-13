@@ -1,0 +1,150 @@
+<flynt-component name="BlockMapEmbed" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+{% if not fn('is_front_page') %}
+  {% if contentHtml %}
+    <div class="container centerMaxWidthContainer">
+      <div class="contentWrapper centerContentMaxWidth">
+        <div class="content">
+          {{ contentHtml|e('wp_kses_post') }}
+        </div>
+        {# {% if gmaps %} #}
+      {# <script src="https://maps.googleapis.com/maps/api/js?key={{ googleMapsApiKey }}&callback=initMap" defer></script> #}
+      {# {% endif %} #}
+      </div>
+    </div>
+  {% endif %}
+  {% set markerIconPath = lodgingIcon.src %}
+  {% set markerContent = post.content.contentHtml %}
+  {% set markerThumbSrc = post.thumbnail.src | default(defaultimg) | resize(360, 240) %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNNHyRixKWv9_xMDyRIapOSmXHRlh_NFo&callback=initMap" defer></script>
+      <script type="text/javascript">
+
+      // Initialize and add the map
+      async function initMap() {
+        const property = { lat: {{gmaps.lat}}, lng: {{gmaps.lng}} };
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
+          "marker",
+        );
+        // const uluru = { lat: 39.186530, lng: -106.816860 };
+        const map = new google.maps.Map(document.getElementById("myMap"), {
+            zoom: 16,
+            mapId: "4a4edc51840c2e51",
+            center: property,
+            styles: [
+              {
+                featureType: "poi.business",
+                stylers: [{ visibility: "on" }],
+              }
+            ],
+        });
+
+        const lodgingIcon = document.createElement("img");
+        lodgingIcon.src = "{{markerIconPath}}";
+
+        const contentStringOffice = '<div style="font-size:16px;padding:10px;"><strong>Vail Office</strong><br>302 Hanson Ranch Rd<br>Vail, Colorado 81657<br>970-476-8800</div>';
+        const contentString = '<div style="font-weight:bold;font-size:16px;padding:10px;">{{gmaps.address}}</div>' + '<div style="font-weight:bold;font-size:16px;padding:10px;">{{markerContent}}</div>'+ '<br><img class="image" src="{{markerThumbSrc}}" style="max-width:200px;margin:0 auto;">';
+
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+        });
+
+        /*const officewindow = new google.maps.InfoWindow({
+          content: contentStringOffice,
+        });
+
+        markerOffice = new google.maps.Marker({
+          position: {lat: 39.64030541430965, lng: -106.37307404232853},
+          map: map,
+        });*/
+
+        marker = new AdvancedMarkerElement({
+          map: map,
+          position: property,
+          //content: myCustomPin.element,
+          content: lodgingIcon,
+
+        });
+
+        /*google.maps.event.addListener(markerOffice, 'click', (function() {
+            officewindow.open(map,markerOffice);
+          }));
+          officewindow.open(map,markerOffice);*/
+
+        google.maps.event.addListener(marker, 'click', (function() {
+            infowindow.open(map,marker);
+          }));
+          infowindow.open(map,marker);
+        //marker.addListener("click", () => {
+            //infowindow.open(map, marker);
+        //});
+      }
+    </script>
+    <div id="myMap" class="acf-map" style="width:100%; height:500px;"></div>
+  {% else %}
+    {% if contentHtml %}
+    <div class="container centerMaxWidthContainer">
+      <div class="contentWrapper centerContentMaxWidth">
+        <div class="content">
+          {{ contentHtml|e('wp_kses_post') }}
+        </div>
+        {# {% if gmaps %} #}
+      {# <script src="https://maps.googleapis.com/maps/api/js?key={{ googleMapsApiKey }}&callback=initMap" defer></script> #}
+      {# {% endif %} #}
+      </div>
+    </div>
+  {% endif %}
+  <div class="centerMaxWidthContainer">
+  {% for property in props %}
+    {% set gMapData = [] %}
+    {# {{dump(property)}} #}
+     {% set subHeading = property.get_field('sub-title') %}
+      <h2>{{ property.title }}</h2>
+      <h3>{{ subHeading }}</h3>
+      <h4>address: {{ property.pageComponentsPropertyMap_1_gmaps.address }}</h4>
+      <h4>address: {{ property.pageComponentsPropertyMap_0_gmaps.address }}</h4>
+      {# {% set gMapData = [(lat: property.pageComponentsPropertyMap_1_gmaps.lat, lng: property.pageComponentsPropertyMap_1_gmaps.lng)] %} #}
+      {# {% set gMapData = gMapDate|merge([property.pageComponentsPropertyMap_1_gmaps.lat,  property.pageComponentsPropertyMap_1_gmaps.lng]) %} #}
+      lat: {{property.pageComponentsPropertyMap_1_gmaps.lat}}, lng: {{property.pageComponentsPropertyMap_1_gmaps.lng}}<br><br>
+      lat: {{property.pageComponentsPropertyMap_0_gmaps.lat}}, lng: {{property.pageComponentsPropertyMap_0_gmaps.lng}}<br><br>
+      {# {{dump(gMapData)}} #}
+  {% endfor %}
+  </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA498ClE2q7oc5zNF5owe9gsl483sb0HCg&callback=initMap" defer></script>
+      <script type="text/javascript">
+
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: {{gmaps.lat}}, lng: {{gmaps.lng}} };
+        // const uluru = { lat: 39.186530, lng: -106.816860 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("myMap"), {
+            zoom: 16,
+            center: uluru,
+            styles: [
+              {
+                featureType: "poi.business",
+                stylers: [{ visibility: "off" }],
+              }
+            ],
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: "{{markerInfo}}",
+        });
+
+        const contentString = '<div style="font-weight:bold;font-size:16px;padding:10px;">{{gmaps.address}}</div>' + '<div style="font-weight:bold;font-size:16px;padding:10px;">{{markerInfo}}</div>';
+
+        const infowindow = new google.maps.InfoWindow({
+            content: contentString,
+        });
+        marker.addListener("click", () => {
+            infowindow.open(map, marker);
+        });
+      }
+    </script>
+    <div id="myMap" class="acf-map" style="width:100%; height:500px;"></div>
+  {% endif %}
+</div>

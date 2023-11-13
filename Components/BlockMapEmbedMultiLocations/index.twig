@@ -1,0 +1,100 @@
+<flynt-component name="BlockMapEmbedMultipleLocations" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNNHyRixKWv9_xMDyRIapOSmXHRlh_NFo&callback=initMap" defer></script>
+    {% if contentHtml %}
+      <div class="container centerMaxWidthContainer">
+        <div class="contentWrapper centerContentMaxWidth">
+          <div class="content">
+            {{ contentHtml|e('wp_kses_post') }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+      {% set center = '{ lat: 39.6433, lng: -106.3781 }' %}
+      {% set office = '<div style="font-size:16px;padding:10px;"><strong>Vail Office</strong><br>302 Hanson Ranch Rd<br>Vail, Colorado 81657<br>970-476-8800</div>' %}
+    {% set locationsArray = [] %}
+    {% for item in items %}
+      {% set lat = item.gmaps.lat %}
+      {% set lng = item.gmaps.lng %}
+      {% if item not in locationsArray %}
+        {% set locationsArray = locationsArray|merge([item]) %}
+      {% endif %}
+    {% endfor %}
+
+    {% set rootPath = fn('get_home_url') %}
+    {% set markerIconPath = lodgingIcon.src %}
+      {# {{dump(locationsArray)}} #}
+      {# Multiple Markers #}
+      <script type="text/javascript">
+        const locations = {{ locationsArray | json_encode | raw }};
+        //console.log('locations:',locations[0].gmaps.lat);
+        // Initialize and add the map
+        async function initMap() {
+          // Request needed libraries.
+          const { Map } = await google.maps.importLibrary("maps");
+          const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
+            "marker",
+          );
+
+          const map = new google.maps.Map(document.getElementById("myMap"), {
+            center: {{center}},
+            zoom: 15,
+            mapId: "4a4edc51840c2e51",
+            styles: [
+              {
+                featureType: "poi.business",
+                stylers: [{ visibility: "on" }],
+              }
+            ],
+          });
+
+          // start static office location marker
+          var contentStringOffice = ' {{office}} ';
+
+          var officewindow = new google.maps.InfoWindow({
+            content: contentStringOffice,
+          });
+          markerOffice = new google.maps.Marker({
+            // position: {lat: 39.64030541430965, lng: -106.37307404232853},
+            position: {{center}},
+            map: map,
+          });
+
+          google.maps.event.addListener(markerOffice, 'click', (function() {
+            officewindow.open(map,markerOffice);
+          }));
+          //officewindow.setContent(contentStringOffice);
+          officewindow.open(map,markerOffice);
+
+          var infowindow = new google.maps.InfoWindow();
+          var marker, i;
+
+          for (i = 0; i < locations.length; i++) {
+          const lodgingIcon = document.createElement("img");
+          lodgingIcon.src = "{{markerIconPath}}";
+
+          // Change the background color.
+          const myCustomPin = new PinElement({
+            background: "#2c59b0",
+            borderColor: "#fff",
+            scale: 1.5,
+            glyphColor: "white",
+          });
+            marker = new AdvancedMarkerElement({
+              map: map,
+              position: {lat: locations[i].gmaps.lat, lng: locations[i].gmaps.lng},
+              //content: myCustomPin.element,
+              content: lodgingIcon,
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                infowindow.setContent('<strong>' + locations[i].markerInfo + '</strong><br>' + locations[i].gmaps.address + '<br><img class="image" src="' + locations[i].markerImage.guid +'" style="max-width:150px;"><br><a href="' + locations[i].propertyUrl +'">View Business</a>');
+                //infowindow.setContent(locations[i] + contentString);
+                infowindow.open(map, marker);
+              }
+            })(marker, i));
+          }; // End For Loop
+        } // end initMap function
+  </script>
+  <div id="myMap" class="acf-map" style="width:100%; height:500px;"></div>
+</div>

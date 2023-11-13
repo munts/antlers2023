@@ -18,11 +18,12 @@
   {% set imgWidth = 768 %}
   {% set imgHeight = '768 / 2 * 3' %}
 {% endif %}
-
+{% if hereImg %}
   <picture class="picture">
       <img class="picture-image"
         src="{{ heroImg }}">
   </picture>
+  {% endif %}
   <div class="container" data-flow="layout" style="margin:60px auto;">
     <div data-size="full" data-align="center" data-text-align="center">
     {{ intro }}

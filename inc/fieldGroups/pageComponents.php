@@ -40,6 +40,8 @@ add_action('Flynt/afterRegisterComponents', function () {
                     //Components\SliderImagesCentered\getACFLayout(),
                     Components\SliderSpecialsPackages\getACFLayout(),
                     Components\SliderFeaturedPosts\getACFLayout(),
+                    //Components\BlockMapEmbed\getACFLayout(),
+                    //Components\BlockMapEmbedMultiLocations\getACFLayout(),
                     //Components\ReusableComponent\getACFLayout(),
                 ],
             ],
