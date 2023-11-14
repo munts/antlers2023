@@ -14,7 +14,7 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
     } else {
         $postType = 'post';
     }
-    $data['layoutType'] = $data['layout'];
+    $data['layoutType'] = $data['layout'] ?? [];
 
     $data['taxonomies'] = $data['taxonomies'] ?? [];
     //$data['options']['maxColumns'] = 3;
@@ -72,7 +72,7 @@ add_filter('Flynt/addComponentData?name=GridPostsLatest', function ($data) {
         return $post->ID !== get_the_ID();
     }), 0, $postsPerPage);
 
-    $data['postTypeArchiveLink'] = get_permalink(get_option('page_for_posts')) ?? get_post_type_archive_link(POST_TYPE);
+    $data['postTypeArchiveLink'] = get_permalink(get_option('page_for_posts')) ?? get_post_type_archive_link($postType);
 
     return $data;
 });

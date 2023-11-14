@@ -1,11 +1,11 @@
-<flynt-component name="BlockPostHeader">
+<flynt-component name="BlockPostHeader" style="margin-top:120px;"">
   <div class="container" data-size="full" data-theme="light">
-    <div class="content" data-size="medium" data-align="center">
+    <div class="content" data-size="wide" data-align="center">
       <h1>{{ post.title }}</h1>
       {% if post.post_excerpt %}
         <p class="h5">{{ post.post_excerpt }}</p>
       {% endif %}
-      <p class="meta">
+      {# <p class="meta">
         <a class="author" href="{{ post.author.link|e('esc_url') }}">
           {% if post.author.avatar %}
             <img class="avatar lazyload" src="{{ placeholderImage(48, 48) }}" data-src="{{ post.author.avatar|resizeDynamic(96) }}" width="48" height="48" alt="{{ post.author.name|e }}">
@@ -18,7 +18,7 @@
           <small>{{ post.category }}</small>
         </a>
         <span class="readingtime"><small>{{ labels.readingTime|replace({'%d': post.content|readingtime})|e }}</small></span>
-      </p>
+      </p> #}
     </div>
   </div>
   {% if post.thumbnail %}
