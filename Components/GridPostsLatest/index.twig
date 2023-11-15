@@ -8,12 +8,12 @@
     {% set imgHeight = 330 %}
     {% set gridType = 'staff-grid' %}
     {% set itemClass = 'staff-item' %}
-    
+
   {% else %}
     {% set imgWidth = 768 %}
     {% set imgHeight = '768 / 3 * 2' %}
     {% set gridType = 'grid' %}
-    {% set itemClass = 'post' %}
+    {% set itemClass = 'specials' %}
   {% endif %}
     <div class="container" data-flow="layout">
       {% if preContentHtml %}
@@ -23,43 +23,42 @@
       {% endif %}
 
       {% if layoutType == 'cards' %}
-          <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+      {# only used for blog page and blog posts #}
+      <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
-          <li class="post boxBorder" data-theme="reset">
-            <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
-              {% if post.thumbnail %}
-                <figure class="figure">
-                  <img class="post-image figure-image lazyload"
-                    src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
-                    width="{{ 768 }}"
-                    height="{{ (768 / 3 * 2)|round }}"
-                    srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
-                    data-srcset="
-                      {{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
-                      {{ post.thumbnail.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
-                    data-sizes="auto"
-                    alt="{{ post.title }}">
-                </figure>
-              {% endif %}
-              
-              <div class="content boxPadding">
-              {% set max_length = 100 %}
-                <h2 class="h5">{{ post.title }}</h2>
-                <p>{{ post.content|slice(0, max_length)}}...</p>
+          <li class="post boxBorderNo" data-theme="white">
+            <figure class="figure">
+            {% if post.thumbnail %}
+              <img class="post-image figure-image lazyload"
+                src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
+                width="{{ 768 }}"
+                height="{{ (768 / 3 * 2)|round }}"
+                srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                data-srcset="
+                {{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
+                {{ post.thumbnail.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
+                data-sizes="auto"
+                alt="{{ post.title }}">
+            {% endif %}
+            <div class="post-title">
+                <h4 style="padding: 15px 30px;">{{ post.title|truncate(6, '...', false) }}</h4>
               </div>
-              <footer class="footer">
-                <span class="button button--text">{{ labels.readMore }}</span>
-              </footer>
-            </a>
+            <div class="content boxPaddingNo">
+              <p>{{ post.content|striptags|slice(0, 130) ~ '...' }}</p>
+            </div>
+            </figure>
+            <div class="post-cta">
+              <a class="button cta-button" href="{{post.link}}">{{ labels.readMore }}</a>
+            </div>
           </li>
         {% endfor %}
       </ul>
       {% elseif layoutType == 'hexagons' %}
+      {# used for specials and staff #}
       <ul class="{{gridType}}" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
         {% set position = post.get_field('position') %}
           <li class="{{itemClass}} boxBorder-none" data-theme="reset">
-            {# <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}"> #}
               {% if post.thumbnail %}
                 <figure class="hex-figure">
                  {% if post.thumbnail.post_mime_type == 'image/svg+xml'%}
@@ -84,6 +83,7 @@
                   </figure>
               {% endif %}
               {% if shortDescription %}
+              {# used in specials #}
                 <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
                   <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
                     <h3 class="post-title">{{post.title}}</h3>
@@ -94,6 +94,7 @@
                   </div>
                 </a>
                 {% elseif position %}
+                {# staff title/work position #}
                 <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
                   <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
                     <h3 class="post-title">{{post.title}}</h3>
@@ -112,11 +113,11 @@
                     <a class="button--underline white" href="{{post.ctaUrl}}">Learn More</a>
                 </div>
             {% endif %} #}
-            {# </a> #}
           </li>
         {% endfor %}
       </ul>
       {% elseif layoutType == 'links' %}
+      {# used to pull room numbers for the in page navigation of room types #}
       <ul class="units" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
           <li class="links">
@@ -127,11 +128,11 @@
         {% endfor %}
       </ul>
       {% endif %}
-      {% if queriedPost == 'post' %}
+      {# {% if queriedPost == 'post' %}
       <div data-size="medium" data-align="center" data-text-align="center">
         <a href="{{ postTypeArchiveLink|e('esc_url') }}" class="button button--text">{{ labels.allPosts }}</a>
       </div>
     </div>
-    {% endif %}
+    {% endif %} #}
   </flynt-component>
 {% endif %}

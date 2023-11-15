@@ -47,6 +47,58 @@ flynt-component[name='GridPostsLatest'] {
     inline-size: var(--grid-item-width);
     max-inline-size: var(--grid-item-max-width);
 
+    .figure {
+      backface-visibility: hidden;
+      background-color: $av-light-blue;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      // transform: scale(0.9) translate3d(0, 0, 0);
+      transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      will-change: transform;
+    }
+
+    img {
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+      font-size: 1.5rem;
+      font-weight: 300;
+      padding-block-end: 60px;
+      padding-block-start: 10px;
+      padding-inline: 30px;
+    }
+
+    .post-title {
+      block-size: 90px;
+      overflow: hidden;
+    }
+
+    .post-cta {
+      position: relative;
+    }
+
+    .cta-button {
+      inset-block-end: 15px;
+      inset-inline-end: 50px;
+      position: absolute;
+      z-index: 9999;
+
+      @media (min-width: $breakpoint-tablet) {
+        font-size: var(--font-size-body-small);
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        font-size: var(--font-size-body);
+      }
+    }
+  }
+
+  .specials {
+    inline-size: var(--grid-item-width);
+    max-inline-size: var(--grid-item-max-width);
+
     .hex-figure {
       clip-path: polygon(50% 0%, 100% 18%, 100% 83%, 50% 100%, 0 83%, 0 18%);
       //filter: grayscale(0.20);
