@@ -1,4 +1,16 @@
 flynt-component[name='BlockVideoOembed'] {
+  .frontPage {
+    margin-block-start: 60px;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      margin-block-start: -100px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      margin-block-start: -120px;
+    }
+  }
+
   .video {
     position: relative;
 
@@ -46,22 +58,35 @@ flynt-component[name='BlockVideoOembed'] {
   .clip-path-container {
     background-color: $av-light-blue;
     block-size: 600px;
-    clip-path: polygon(0 73%, 0% 100%, 100% 100%);
+    clip-path: polygon(0 96%, 0% 100%, 100% 100%);
     inline-size: 100%;
-    inset-block-end: 0;
+    inset-block-end: -2px;
     position: absolute;
     z-index: 9;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      clip-path: polygon(0 76%, 0% 100%, 100% 100%);
+      inset-block-end: -2px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+     clip-path: polygon(0 73%, 0% 100%, 100% 100%);
+     inset-block-end: -1px;
+    }
   }
 
   .tag-line-container {
-    // background-color: $av-light-blue;
     block-size: 200px;
-    // clip-path: polygon(0 73%, 0% 100%, 100% 100%);
     inline-size: 100%;
-    inset-block-end: 0;
-    padding-inline-start: 60px;
+    inset-block-end: -150px;
+    padding-inline-start: 10px;
     position: absolute;
     z-index: 99;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      inset-block-end: 0;
+      padding-inline-start: 60px;
+    }
   }
 
   @import 'Partials/figure';
