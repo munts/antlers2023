@@ -31,6 +31,12 @@ flynt-component[name='NavigationBurger'] {
     }
   }
 
+  .mobile-ca-button {
+    font-size: 0.75rem;
+    max-inline-size: 130px;
+    padding-inline: 5px;
+  }
+
   @import 'Partials/logo';
   @import 'Partials/hamburger';
   @import 'Partials/menu';

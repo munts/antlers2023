@@ -1,11 +1,12 @@
-.logo {
+.av-logo {
   block-size: 100%;
   display: block;
   flex-shrink: 0;
   text-decoration: none;
 
-  &-image {
+  img {
     block-size: 100%;
     inline-size: auto;
+    max-inline-size: 138px;
   }
 }
