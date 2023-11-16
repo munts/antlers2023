@@ -28,24 +28,24 @@
         {% for post in posts %}
           <li class="post boxBorderNo" data-theme="white">
             <figure class="figure">
-            {% if post.thumbnail %}
-              <img class="post-image figure-image lazyload"
-                src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
-                width="{{ 768 }}"
-                height="{{ (768 / 3 * 2)|round }}"
-                srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
-                data-srcset="
-                {{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
-                {{ post.thumbnail.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
-                data-sizes="auto"
-                alt="{{ post.title }}">
-            {% endif %}
-            <div class="post-title">
-                <h4 style="padding: 15px 30px;">{{ post.title|truncate(6, '...', false) }}</h4>
+              {% if post.thumbnail %}
+                <img class="post-image figure-image lazyload"
+                  src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
+                  width="{{ 768 }}"
+                  height="{{ (768 / 3 * 2)|round }}"
+                  srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                  data-srcset="
+                  {{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
+                  {{ post.thumbnail.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
+                  data-sizes="auto"
+                  alt="{{ post.title }}">
+              {% endif %}
+              <div class="post-title">
+                  <h4 style="padding: 15px 30px;">{{ post.title|truncate(6, '...', false) }}</h4>
+                </div>
+              <div class="content boxPaddingNo">
+                <p>{{ post.content|striptags|slice(0, 130) ~ '...' }}</p>
               </div>
-            <div class="content boxPaddingNo">
-              <p>{{ post.content|striptags|slice(0, 130) ~ '...' }}</p>
-            </div>
             </figure>
             <div class="post-cta">
               <a class="button cta-button" href="{{post.link}}">{{ labels.readMore }}</a>

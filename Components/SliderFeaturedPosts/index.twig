@@ -17,7 +17,7 @@
             <div data-ref="slider" data-slider class="slider swiper-container">
                 <div class="swiper-wrapper">
                 {% for post in posts %}
-                    <div class="slider-item swiper-slide {{- loop.index == 1 ? ' swiper-slide-active' -}}">
+                <div class="slider-item swiper-slide {{- loop.index == 1 ? ' swiper-slide-active' -}}">
                     <figure class="figure">
                     {% if (post.thumbnail) %}
                         <img class="figure-image lazyload"
@@ -38,8 +38,10 @@
                         <div class="specials-title"><h4 style="padding: 15px 30px;">{{post.title|truncate(6, '...', false)}}</h4></div>
                         <div class="specials-content">{{post.content|truncate(20, '...', false)}}</div>
                     </figure>
-                    <div class="specials-cta"><a class="button specials-button" href="{{post.link}}">Learn More</a></div>
+                    <div class="specials-cta">
+                        <a class="button specials-button" href="{{post.link}}">Learn More</a>
                     </div>
+                </div>
                 {% endfor %}
                 </div>
                 {# <div data-ref="pagination" data-slider-pagination class="slider-pagination"></div> #}

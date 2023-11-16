@@ -74,6 +74,14 @@ flynt-component[name='AccordionMenus'] {
       }
     }
 
+    .figure {
+      display: none;
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        display: flex;
+      }
+    }
+
     .units {
       columns: 2;
 
