@@ -6,7 +6,7 @@
   
     {% if 'heroImageText' not in componentsArray and 'heroSlider' not in componentsArray %}
       {% if not function('is_front_page') %}
-        <img src="/wp-content/uploads/2023/09/hero-photo.jpg" style="max-height:600px;">
+        <img src="/wp-content/uploads/2023/09/hero-photo.jpg" style="min-height:250px;max-height:600px;">
       {% endif %}
     {% endif %}
   
