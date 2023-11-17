@@ -18,5 +18,9 @@ flynt-component[name='NavigationFooterColumns'] {
     }
   }
 
+  a {
+    color: #fff;
+  }
+
   @import 'Partials/menu';
 }
