@@ -27,6 +27,16 @@ function getACFLayout()
                 ]
             ],
             [
+                'label' => __('Reverse the order for mobile:', 'flynt'),
+                'name' => 'mobileOrder',
+                'default' => 'no',
+                'type' => 'button_group',
+                'choices' => [
+                    'no' => sprintf('No', __('No', 'flynt')),
+                    'yes' => sprintf('Yes', __('Yes', 'flynt'))
+                ]
+            ],
+            [
                 'label' => __('Image', 'flynt'),
                 'instructions' => __('Image-Format: JPG, PNG, SVG, WebP.', 'flynt'),
                 'name' => 'image',

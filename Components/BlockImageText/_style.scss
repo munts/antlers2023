@@ -23,4 +23,25 @@ flynt-component[name='BlockImageText'] {
       }
     }
   }
+
+  @media (max-width: $breakpoint-tablet) {
+    .mobileOrderReversed {
+      display: flex;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+    }
+    .bitContent {
+      padding-block-end: 30px;
+      padding-block-start: 30px;
+      inline-size: 100%;
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .figure {
+      inline-size: 100%;
+    }
+  }
 }

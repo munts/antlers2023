@@ -12,6 +12,18 @@ flynt-component[name='NavigationFooterColumns'] {
     padding: 10px;
   }
 
+  @media (max-width: $breakpoint-tablet) {
+    .col-1 {
+      padding-block-end: 60px;
+    }.col-2 {
+      padding-block-end: 30px;
+    }
+
+    .right-menu {
+      inline-size: 90%;
+    }
+  }
+
   @media (min-width: $breakpoint-tablet) {
     .right-menu {
       columns: 2;

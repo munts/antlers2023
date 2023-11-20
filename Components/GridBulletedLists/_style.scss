@@ -5,7 +5,7 @@ flynt-component[name='GridBulletedLists'] {
       gap: none;
       grid-template-columns: repeat(var(--grid-columns), minmax(300px, 1fr));
       list-style: none;
-      padding: 0;
+      padding: 30px;
   
       &[data-max-columns='1'] {
         @media (min-width: $breakpoint-tablet) {
@@ -19,6 +19,7 @@ flynt-component[name='GridBulletedLists'] {
       &[data-max-columns='4'] {
         @media (min-width: $breakpoint-tablet) {
           --grid-columns: 2;
+          padding: 0;
         }
   
         // @media (min-width: $breakpoint-tablet-horizontal) {
@@ -29,12 +30,14 @@ flynt-component[name='GridBulletedLists'] {
       &[data-max-columns='3'] {
         @media (min-width: $breakpoint-tablet-horizontal) {
           --grid-columns: 3;
+          padding: 0;
         }
       }
   
       &[data-max-columns='4'] {
         @media (min-width: $breakpoint-tablet-horizontal) {
           --grid-columns: 4;
+          padding: 0;
         }
       }
 
@@ -74,5 +77,11 @@ flynt-component[name='GridBulletedLists'] {
         font-size: 1.5rem;
         margin-inline-start: 2rem;
         text-transform: capitalize;
+    }
+
+    .preContentHtml {
+      @media (max-width: $breakpoint-tablet) {
+        text-align: center;
+      }
     }
   }

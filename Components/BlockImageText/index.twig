@@ -1,5 +1,9 @@
 <flynt-component name="BlockImageText" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
-  <div class="container" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+{% if mobileOrderReversed == 'yes' %}
+<div class="container" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+{% else %}
+<div class="container mobileOrderReversed" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+{% endif %}
     <figure class="figure" data-size="medium" data-align="center">
       {% if image.post_mime_type == 'image/svg+xml'%}
         <img class="figure-image-svg lazyload"
@@ -29,7 +33,7 @@
         <figcaption>{{ image.caption|e }}</figcaption>
       {% endif %}
     </figure>
-    <div data-size="medium" data-align="center">
+    <div class="bitContent" data-size="medium" data-align="center">
       {{ contentHtml|e('wp_kses_post') }}
     </div>
   </div>
