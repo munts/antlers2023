@@ -39,15 +39,15 @@
                         <div class="specials-content">{{post.content|truncate(20, '...', false)}}</div>
                     </figure>
                     <div class="specials-cta">
-                        <a class="button specials-button" href="{{post.link}}">Learn More</a>
+                        <a class="button specials-button" href="{{post.link}}" title="Learn More">Learn More</a>
                     </div>
                 </div>
                 {% endfor %}
                 </div>
                 {# <div data-ref="pagination" data-slider-pagination class="slider-pagination"></div> #}
             </div>
-            <button type="button" data-ref="prev" class="slider-button slider-button--prev" aria-label="{{ sliderOptions.a11y.prevSlideMessage|e }}"></button>
-            <button type="button" data-ref="next" class="slider-button slider-button--next" aria-label="{{ sliderOptions.a11y.nextSlideMessage|e }}"></button>
+            <button type="button" data-ref="prev" class="slider-button slider-button--prev" aria-label="{{ sliderOptions.a11y.prevSlideMessage|e }} previous"></button>
+            <button type="button" data-ref="next" class="slider-button slider-button--next" aria-label="{{ sliderOptions.a11y.nextSlideMessage|e }} next"></button>
         </div>
     </div>
 </flynt-component>
