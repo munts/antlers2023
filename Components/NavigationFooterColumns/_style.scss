@@ -15,7 +15,9 @@ flynt-component[name='NavigationFooterColumns'] {
   @media (max-width: $breakpoint-tablet) {
     .col-1 {
       padding-block-end: 60px;
-    }.col-2 {
+    }
+    
+    .col-2 {
       padding-block-end: 30px;
     }
 

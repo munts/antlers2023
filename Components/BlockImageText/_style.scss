@@ -30,10 +30,11 @@ flynt-component[name='BlockImageText'] {
       flex-direction: column-reverse;
       flex-wrap: wrap;
     }
+    
     .bitContent {
+      inline-size: 100%;
       padding-block-end: 30px;
       padding-block-start: 30px;
-      inline-size: 100%;
 
       h2 {
         font-size: 2rem;
