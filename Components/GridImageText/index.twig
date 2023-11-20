@@ -8,10 +8,11 @@
     <ul class="grid" {{ options.card ? 'data-card="true"' }} {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
       {% for item in items %}
         {% if item.image or item.contentHtml %}
-        {% if item.url %}
-          <a href="{{item.url}}">
-        {% endif %}
+        
           <li class="item {{- options.card ? ' boxBorder' -}}">
+            {% if item.url %}
+              <a href="{{item.url}}">
+            {% endif %}
               {% if item.image %}
                 <figure class="figure">
                   {% if item.image.post_mime_type == 'image/svg+xml'%}
@@ -47,10 +48,10 @@
                   </div>
                 </div>
               {% endif %}
+            {% if item.url %}
+              </a>
+            {% endif %}
           </li>
-          {% if item.url %}
-            </a>
-          {% endif %}
         {% endif %}
       {% endfor %}
     </ul>

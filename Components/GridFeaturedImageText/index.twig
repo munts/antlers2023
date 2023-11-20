@@ -36,7 +36,7 @@
                 <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
                     <h3 class="post-title">{{item.title}}</h3>
                     <div class="content-featured">{{ item.contentHtml|striptags|slice(0, 100) ~ '...' }}</div>
-                    <a class="button--underline white" href="{{item.url}}">Learn More</a>
+                    <a class="button--underline white" href="{{item.url}}" title="Learn More">Learn More</a>
                 </div>
             {% endif %}
           </li>
