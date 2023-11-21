@@ -7,8 +7,8 @@ flynt-component[name='GridPostsArchive'] {
       //aspect-ratio: 4 / 3;
       block-size: 100%;
       inline-size: 100%;
-      object-fit: cover;
       max-block-size: 450px;
+      object-fit: cover;
 
       @media (min-width: $breakpoint-tablet) {
         aspect-ratio: 32 / 10;
