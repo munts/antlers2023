@@ -1,15 +1,66 @@
 flynt-component[name='GridPostsArchive'] {
   .picture {
+    max-block-size: 350px;
+    min-block-size: 300px;
+
     &-image {
       //aspect-ratio: 4 / 3;
       block-size: 100%;
       inline-size: 100%;
-      min-block-size: 400px;
       object-fit: cover;
+      max-block-size: 450px;
 
       @media (min-width: $breakpoint-tablet) {
         aspect-ratio: 32 / 10;
       }
+    }
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      max-block-size: 450px;
+    }
+  }
+
+  .clip-path-container {
+    background-color: $av-light-blue;
+    // block-size: 300px;
+    block-size: 100px;
+    clip-path: polygon(0 76%, 0% 100%, 100% 100%);
+    // clip-path: polygon(0 73%, 0% 100%, 100% 100%);
+    // clip-path: polygon(0 0%, 0% 100%, 100% 100%);
+    inline-size: 100%;
+    // inset-block-start: -299px;
+    inset-block-start: -99px;
+    position: relative;
+    z-index: 9;
+
+    @media (min-width: $breakpoint-tablet) {
+      clip-path: polygon(0 76%, 0% 100%, 100% 100%);
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+     clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+  }
+
+  .tag-line-container {
+    //background-color: $av-light-blue;
+    // block-size: 250px;
+    block-size: 0;
+    color: $av-dark-blue;
+    // clip-path: polygon(0 73%, 0% 100%, 100% 100%);
+    inline-size: 100%;
+    inset-block-end: 0;
+    //margin-inline-start: 60px;
+    //max-inline-size: 1200px;
+    position: relative;
+    z-index: 99;
+
+    .clipPath {
+      color: $av-dark-blue;
+
+      @media (max-width: $breakpoint-desktop) {
+        max-inline-size: 90%;
+       }
     }
   }
 
