@@ -28,8 +28,6 @@ flynt-component[name='BlockClipPath'] {
 
     background-color: $av-light-blue;
 
-    
-
     .clip-path-container {
       background-color: $av-light-blue;
       // block-size: 300px;
@@ -46,7 +44,7 @@ flynt-component[name='BlockClipPath'] {
       @media (min-width: $breakpoint-tablet) {
         clip-path: polygon(0 76%, 0% 100%, 100% 100%);
       }
-  
+
       @media (min-width: $breakpoint-desktop) {
        clip-path: polygon(0 0, 0% 100%, 100% 100%);
       }
@@ -67,6 +65,10 @@ flynt-component[name='BlockClipPath'] {
 
       .clipPath {
         color: $av-dark-blue;
+
+        @media (max-width: $breakpoint-desktop) {
+          max-inline-size: 90%;
+         }
       }
 
       @media (min-width: $breakpoint-tablet) {
