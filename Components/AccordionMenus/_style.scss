@@ -31,7 +31,11 @@ flynt-component[name='AccordionMenus'] {
 
     .h5 {
       color: $av-dark-blue;
-      font-size: 2rem;
+      font-size: 1.5rem;
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        font-size: 2rem;
+      }
     }
 
     .trigger {
