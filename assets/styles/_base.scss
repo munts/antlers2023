@@ -141,6 +141,10 @@ img {
   }
 }
 
+.size-thumbnail {
+  max-inline-size: 320px;
+}
+
 figcaption {
   color: var(--color-text-muted);
   font-size: var(--font-size-body-small);

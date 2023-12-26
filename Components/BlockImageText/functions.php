@@ -28,7 +28,7 @@ function getACFLayout()
             ],
             [
                 'label' => __('Reverse the order for mobile:', 'flynt'),
-                'name' => 'mobileOrder',
+                'name' => 'mobileOrderReversed',
                 'default' => 'no',
                 'type' => 'button_group',
                 'choices' => [
