@@ -8,8 +8,12 @@
     <section class="wp-block-post-content has-global-padding is-layout-constrained" style="margin:60px auto;">
       <div class="container centerMaxWidthStaffContainer" style="margin:120px auto 30px;">
         {{ post.content }}
+          {% for component in post.meta('pageComponents') %}
+              {{ renderComponent(component) }}
+          {% endfor %}
       </div>
     </section>
+
     <footer>
       {{ renderComponent('BlockPostFooter', { post: post }) }}
     </footer>
