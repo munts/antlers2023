@@ -449,6 +449,13 @@ select {
   background-size: 1.75rem;
   line-height: 1.5;
   padding-inline-end: 54px;
+
+  &.gt_selector {
+    border: 0 !important;
+    color: $av-dark-blue;
+    font-size: var(--font-size-body-xsmall);
+    padding-inline-end: 0;
+  }
 }
 
 textarea {
@@ -658,3 +665,8 @@ flynt-component {
 .wpbdp-field-zip_code {
   display: none;
 }
+
+// .gt_switcher_wrapper {
+//   top: 60px !important;
+//   left: 136px !important;
+// }
