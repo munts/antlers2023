@@ -7,7 +7,7 @@ flynt-component[name='NavigationFooter'] {
 
     @media (min-width: $breakpoint-tablet) {
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: row;
       justify-content: space-between;
       padding-block: 36px;
     }

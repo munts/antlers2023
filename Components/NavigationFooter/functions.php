@@ -4,6 +4,7 @@ namespace Flynt\Components\NavigationFooter;
 
 use Flynt\Utils\Options;
 use Timber\Timber;
+use Flynt\Utils\Asset;
 
 add_action('init', function () {
     register_nav_menus([
@@ -14,6 +15,11 @@ add_action('init', function () {
 add_filter('Flynt/addComponentData?name=NavigationFooter', function ($data) {
     $data['maxLevel'] = 0;
     $data['menu'] = Timber::get_menu('navigation_footer') ?? Timber::get_pages_menu();
+
+    $data['gmcLogo'] = [
+        'src' => Asset::requireUrl('Components/NavigationFooter/Assets/gmc-logo.jpg'),
+        'alt' => 'GMC logo'
+    ];
 
     return $data;
 });
