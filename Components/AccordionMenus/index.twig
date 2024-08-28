@@ -22,47 +22,68 @@
                   <figcaption>{{ panel.image.caption|e }}</figcaption>
                 {% endif %} #}
               </figure>
-                <div class="content-inner" style="flex-grow: 1;">
+                <div class="content-inner" style="flex-grow: 1;position:relative;">
                     {{ panel.contentHtml|e('wp_kses_post') }}
                     {% set currentCat = catToUse[i] %}
-                    {% if currentCat == 'studio' %}
-                        {% set catLabel = 'Studio Suite' %}
+                    {% if currentCat == 'gold-studio-1-bedroom' %}
+                      {% set catLabel = 'Gold Studio 1 Bedroom' %}
 
-                        {% elseif currentCat == '1-bedroom' %}
-                        {% set catLabel = '1 Bedroom' %}
+                    {% elseif currentCat == 'studio' %}
+                      {# {% set catLabel = 'Platinum Studio Suite' %} #}
+                      {% set catLabel = 'Studio Suite' %}
 
-                        {% elseif currentCat == '1-bedroom-bunks' %}
-                        {% set catLabel = '1 Bedroom + Bunk Beds' %}
+                    {% elseif currentCat == 'diamond-studio' %}
+                      {% set catLabel = 'Diamond Studio Suite' %}
 
-                        {% elseif currentCat == '2-bedroom' %}
-                        {% set catLabel = '2 Bedroom + 2 Bath 900' %}
+                    {% elseif currentCat == '1-bedroom' %}
+                      {% set catLabel = 'Platinum 1 Bedroom' %}
 
-                        {% elseif currentCat == '2-bedroom-1000' %}
-                        {% set catLabel = '2 Bedroom + 2 Bath 1000' %}
+                    {% elseif currentCat == 'diamond-1-bedroom' %}
+                      {% set catLabel = 'Diamond 1 Bedroom' %}
 
-                        {% elseif currentCat == '3-bedroom-2-bath' %}
-                        {% set catLabel = '3 Bedroom + 2 Bath' %}
+                    {% elseif currentCat == '1-bedroom-bunks' %}
+                      {% set catLabel = 'Platinum 1 Bedroom + Bunks' %}
 
-                        {% elseif currentCat == '3-bedroom-3-bath' %}
-                        {% set catLabel = '3 Bedroom + 3 Bath' %}
+                    {% elseif currentCat == 'diamond-1-bedroom-bunks' %}
+                      {% set catLabel = 'Diamond 1 Bedroom + Bunks' %}
 
-                        {% else %}
-                        {% set catLabel = '4 Bedroom + 4 Bath' %}
+                    {% elseif currentCat == '2-bedroom-900' %}
+                      {% set catLabel = 'Platinum 2 Bedroom + 2 Bath 900' %}
+
+                    {% elseif currentCat == 'diamond-2-bedroom-900' %}
+                      {% set catLabel = 'Diamond 2 Bedroom + 2 Bath 900' %}
+
+                    {% elseif currentCat == '2-bedroom-1000' %}
+                      {% set catLabel = 'Platinum 2 Bedroom + 2 Bath 1000' %}
+
+                    {% elseif currentCat == 'diamond-2-bedroom-1000' %}
+                      {% set catLabel = 'Diamond 2 Bedroom + 2 Bath 1000' %}
+
+                    {% elseif currentCat == '3-bedroom-2-bath' %}
+                      {% set catLabel = 'Platinum 3 Bedroom + 2 Bath' %}
+
+                      {% elseif currentCat == 'diamond-3-bedroom-2-bath' %}
+                      {% set catLabel = 'Diamond 3 Bedroom + 2 Bath' %}
+
+                    {% elseif currentCat == 'diamond-3-bedroom-3-bath' %}
+                      {% set catLabel = 'Diamond 3 Bedroom + 3 Bath' %}
+
+                    {% else %}
+                      {% set catLabel = 'Diamond 4 Bedroom + 4 Bath' %}
                     {% endif %}
                     {# <b>{{ catLabel }}</b> #}
                   <ul class="units" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
                     {% for post in posts %}
-                    {% if post.category.slug == catToUse[i] %}
-                    <li class="links" data-theme="reset">
-                        <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
-                        {% set originalTitle = post.title %}
-                        {% set trimmedTitle = originalTitle[7:] %}
-                        {# {{post.title}} #}
-                        {{trimmedTitle}}
-                        {# {{post.category.slug}} #}
-                        </a>
-                    </li>
-                    {% endif %}
+                      {% if post.category.slug == catToUse[i] %}
+                      <li class="links" data-theme="reset">
+                          <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
+                          {% set originalTitle = post.title %}
+                          {% set trimmedTitle = originalTitle[7:] %}
+                          {# {{post.title}} #}
+                          {{trimmedTitle}}
+                          </a>
+                      </li>
+                      {% endif %}
                     {% endfor %}
                     {% if currentCat == '3-bedroom-2-bath' %}
                       <li class="links" data-theme="reset">
@@ -72,7 +93,7 @@
                     </li>
                     {% endif %}
                 </ul>
-                  <div class="cta-container">
+                  <div class="cta-container" style="position:absolute;right:10px;bottom:0 ;">
                   {% set buttonLabel = panel.ctaLabel %}
                   {% if buttonLabel is not empty %}
                   {% else %}
