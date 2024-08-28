@@ -25,48 +25,51 @@
                 <div class="content-inner" style="flex-grow: 1;position:relative;">
                     {{ panel.contentHtml|e('wp_kses_post') }}
                     {% set currentCat = catToUse[i] %}
-                    {% if currentCat == 'gold-studio-1-bedroom' %}
-                      {% set catLabel = 'Gold Studio 1 Bedroom' %}
 
                     {% elseif currentCat == 'studio' %}
-                      {# {% set catLabel = 'Platinum Studio Suite' %} #}
                       {% set catLabel = 'Studio Suite' %}
 
                     {% elseif currentCat == 'diamond-studio' %}
                       {% set catLabel = 'Diamond Studio Suite' %}
 
                     {% elseif currentCat == '1-bedroom' %}
-                      {% set catLabel = 'Platinum 1 Bedroom' %}
+                      {% set catLabel = '1 Bedroom' %}
 
                     {% elseif currentCat == 'diamond-1-bedroom' %}
                       {% set catLabel = 'Diamond 1 Bedroom' %}
 
                     {% elseif currentCat == '1-bedroom-bunks' %}
-                      {% set catLabel = 'Platinum 1 Bedroom + Bunks' %}
+                      {% set catLabel = '1 Bedroom + Bunks' %}
 
                     {% elseif currentCat == 'diamond-1-bedroom-bunks' %}
                       {% set catLabel = 'Diamond 1 Bedroom + Bunks' %}
 
                     {% elseif currentCat == '2-bedroom-900' %}
-                      {% set catLabel = 'Platinum 2 Bedroom + 2 Bath 900' %}
+                      {% set catLabel = '2 Bedroom + 2 Bath 900' %}
 
                     {% elseif currentCat == 'diamond-2-bedroom-900' %}
                       {% set catLabel = 'Diamond 2 Bedroom + 2 Bath 900' %}
 
                     {% elseif currentCat == '2-bedroom-1000' %}
-                      {% set catLabel = 'Platinum 2 Bedroom + 2 Bath 1000' %}
+                      {% set catLabel = '2 Bedroom + 2 Bath 1000' %}
 
                     {% elseif currentCat == 'diamond-2-bedroom-1000' %}
                       {% set catLabel = 'Diamond 2 Bedroom + 2 Bath 1000' %}
 
                     {% elseif currentCat == '3-bedroom-2-bath' %}
-                      {% set catLabel = 'Platinum 3 Bedroom + 2 Bath' %}
+                      {% set catLabel = '3 Bedroom + 2 Bath' %}
 
                       {% elseif currentCat == 'diamond-3-bedroom-2-bath' %}
                       {% set catLabel = 'Diamond 3 Bedroom + 2 Bath' %}
 
+                      {% elseif currentCat == '3-bedroom-3-bath' %}
+                      {% set catLabel = '3 Bedroom + 3 Bath' %}
+
                     {% elseif currentCat == 'diamond-3-bedroom-3-bath' %}
                       {% set catLabel = 'Diamond 3 Bedroom + 3 Bath' %}
+
+                      {% elseif currentCat == '4-bedroom-4-bath' %}
+                      {% set catLabel = '4 Bedroom + 4 Bath' %}
 
                     {% else %}
                       {% set catLabel = 'Diamond 4 Bedroom + 4 Bath' %}
