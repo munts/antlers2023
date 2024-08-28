@@ -43,7 +43,7 @@ add_filter('Flynt/addComponentData?name=AccordionMenus', function ($data) {
     }), 0, $postsPerPage);
 
     $data['catToUse'] = [
-        'gold-studio-1-bedroom',
+        //'gold-studio-1-bedroom',
         'studio',
         'diamond-studio',
         '1-bedroom',
