@@ -60,29 +60,25 @@ add_filter('Flynt/addComponentData?name=AccordionMenus', function ($data) {
         'diamond-3-bedroom-3-bath',
         '4-bedroom-4-bath',
         'diamond-4-bedroom-4-bath',
-        'platinum-vail-hotel-rating',
     ];
 
     $data['catAssocArray'] = [
-        'Gold Studio 1 Bedroom' => 'gold-studio-1-bedroom',
-        //'Platinum Studio Suite' => 'studio',
         'Studio Suite' => 'studio',
         'Diamond Studio Suite' => 'diamond-studio',
-        'Platinum 1 Bedroom' => '1-bedroom',
+        '1 Bedroom' => '1-bedroom',
         'Diamond 1 Bedroom' => 'diamond-1-bedroom',
-        'Platinum 1 Bedroom + Bunk Beds' => '1-bedroom-bunks',
+        '1 Bedroom + Bunk Beds' => '1-bedroom-bunks',
         'Diamond 1 Bedroom Bunks' => 'diamond-1-bedroom-bunks',
-        'Platinum 2 Bedroom 900' => '2-bedroom',
+        '2 Bedroom 900' => '2-bedroom',
         'Diamond 2 Bedroom 900' => 'diamond-2-bedroom-900',
-        'Platinum 2 Bedroom 1000' => '2-bedroom-1000',
+        '2 Bedroom 1000' => '2-bedroom-1000',
         'Diamond 2 Bedroom 1000' => 'diamond-2-bedroom-1000',
-        'Platinum 3 Bedroom 2 Bath' => '3-bedroom-2-bath',
+        '3 Bedroom 2 Bath' => '3-bedroom-2-bath',
         'Diamond 3 Bedroom 2 Bath' => 'diamond-3-bedroom-2-bath',
-        'Platinum 3 Bedroom 3 Bath' => '3-bedroom-3-bath',
+        '3 Bedroom 3 Bath' => '3-bedroom-3-bath',
         'Diamond 3 Bedroom 3 Bath' => 'diamond-3-bedroom-3-bath',
-        'Platinum 4 Bedroom 4 Bath' => '4-bedroom-4-bath',
+        '4 Bedroom 4 Bath' => '4-bedroom-4-bath',
         'Diamond 4 Bedroom 4 Bath' => 'diamond-4-bedroom-4-bath',
-        'Platinum Vail Hotel Rating' => 'platinum-vail-hotel-rating',
     ];
 
     // $data['accordionPanels']['ctaLabel'] = $data['accordionPanels']['ctaLabel'];
