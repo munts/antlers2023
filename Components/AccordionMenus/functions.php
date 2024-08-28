@@ -76,10 +76,8 @@ add_filter('Flynt/addComponentData?name=AccordionMenus', function ($data) {
         'Diamond 2 Bedroom 900' => 'diamond-2-bedroom-900',
         'Platinum 2 Bedroom 1000' => '2-bedroom-1000',
         'Diamond 2 Bedroom 1000' => 'diamond-2-bedroom-1000',
-        
         'Platinum 3 Bedroom 2 Bath' => '3-bedroom-2-bath',
         'Diamond 3 Bedroom 2 Bath' => 'diamond-3-bedroom-2-bath',
-
         'Platinum 3 Bedroom 3 Bath' => '3-bedroom-3-bath',
         'Diamond 3 Bedroom 3 Bath' => 'diamond-3-bedroom-3-bath',
         'Platinum 4 Bedroom 4 Bath' => '4-bedroom-4-bath',
