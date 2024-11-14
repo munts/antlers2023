@@ -128,11 +128,11 @@
         {% endfor %}
       </ul>
       {% endif %}
-      {# {% if queriedPost == 'post' %}
+      {% if queriedPost == 'post' %}
       <div data-size="medium" data-align="center" data-text-align="center">
-        <a href="{{ postTypeArchiveLink|e('esc_url') }}" class="button button--text">{{ labels.allPosts }}</a>
+        <a href="{{ postTypeArchiveLink|e('esc_url') }}" class="button cta-button">{{ labels.allPosts }}</a>
       </div>
     </div>
-    {% endif %} #}
+    {% endif %}
   </flynt-component>
 {% endif %}

@@ -9,31 +9,25 @@ use Timber\Timber;
 const POST_TYPE = 'post';
 const FILTER_BY_TAXONOMY = 'category';
 
-add_filter('Flynt/addComponentData?name=GridPostsArchive', function ($data) {
+add_filter('Flynt/addComponentData?name=GridPostsArchive', function (array $data): array {
+    $data['uuid'] ??= wp_generate_uuid4();
     $postType = POST_TYPE;
     $taxonomy = FILTER_BY_TAXONOMY;
     $terms = get_terms([
         'taxonomy' => $taxonomy,
         'hide_empty' => true,
     ]);
-
-    if (function_exists('acf_add_options_page')) {
-        $data['introOptions'] = get_fields('options');
-    }
-
     $queriedObject = get_queried_object();
-
-    $data['queriedObject'] = $queriedObject;
-
-    $data['type'] = $postType;
     if (count($terms) > 1) {
         $data['terms'] = array_map(function ($term) use ($queriedObject) {
             $timberTerm = Timber::get_term($term);
             if ($queriedObject->taxonomy ?? null) {
                 $timberTerm->isActive = $queriedObject->taxonomy === $term->taxonomy && $queriedObject->term_id === $term->term_id;
             }
+
             return $timberTerm;
         }, $terms);
+
         // Add item for all posts
         array_unshift($data['terms'], [
             'link' => get_post_type_archive_link($postType),
@@ -66,7 +60,7 @@ Options::addGlobal('GridPostsArchive', [
 Options::addTranslatable('GridPostsArchive', [
     [
         'label' => __('Content', 'flynt'),
-        'name' => 'general',
+        'name' => 'contentTab',
         'type' => 'tab',
         'placement' => 'top',
         'endpoint' => 0,

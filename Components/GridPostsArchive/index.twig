@@ -32,9 +32,9 @@
     </div>
   </div>
 
-    {# {% if terms %}
+    {% if terms %}
       {% include 'Partials/_filter.twig' %}
-    {% endif %} #}
+    {% endif %}
 <div class="container" data-flow="layout">
     {% if posts|length > 0 %}
       <ul data-ref="posts" class="{{gridType}}">
