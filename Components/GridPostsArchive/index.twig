@@ -24,17 +24,19 @@
         src="{{ heroImg }}">
         <div class="clip-path-container"></div>
   </picture>
-
   {% endif %}
+
   <div class="container" data-size="full" data-flow="layout" data-theme="fade">
     <div data-size="wide" data-align="center" data-text-align="center" style="padding-bottom:60px;">
     {{ intro }}
     </div>
   </div>
 
+  {% if title != 'Archives: <span>Specials</span>' %}
     {% if terms %}
       {% include 'Partials/_filter.twig' %}
     {% endif %}
+  {% endif %}
 <div class="container" data-flow="layout">
     {% if posts|length > 0 %}
       <ul data-ref="posts" class="{{gridType}}">
