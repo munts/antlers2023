@@ -62,3 +62,126 @@ add_action('admin_head', function () {
         }
         </style>';
 });
+
+add_action('gform_after_submit_1', function ($entry) {
+    // Group RFP
+    $api_url = 'https://contact-api.inguest.com/api/add-contacts-to-lists';
+    $guid = '6936b499-e5a7-4405-87b8-cc82be76814e';
+
+    // Map Gravity Form fields to the API payload
+    $data = [
+        'tokens' => [$guid],
+        'contacts' => [
+            [
+                'first_name' => rgar($entry, '1.3'), // Replace '1' with the Gravity Form field ID for first name
+                'last_name' => rgar($entry, '1.6'),  // Replace '2' with the field ID for last name
+                //'address_1' => rgar($entry, '3'), // Replace '3' with the field ID for address line 1
+                //'address_2' => rgar($entry, '4'), // Replace '4' with the field ID for address line 2
+                //'city' => rgar($entry, '5'),      // Replace '5' with the field ID for city
+                //'state' => rgar($entry, '3'),     // Replace '6' with the field ID for state
+                //'country' => rgar($entry, '4'),   // Replace '7' with the field ID for country
+                //'zip' => rgar($entry, '8'),       // Replace '8' with the field ID for ZIP code
+                'phone' => rgar($entry, '5'),     // Replace '9' with the field ID for phone
+                'email' => rgar($entry, '2')     // Replace '10' with the field ID for email
+            ]
+        ]
+    ];
+
+    // Send the POST request
+    $response = wp_remote_post($api_url, [
+        'method' => 'POST',
+        'headers' => [
+            'Content-Type' => 'text/plain',
+        ],
+        'body' => json_encode($data),
+    ]);
+
+    // Check for errors
+    if (is_wp_error($response)) {
+        error_log('Error posting to API: ' . $response->get_error_message());
+    } else {
+        error_log('API response: ' . wp_remote_retrieve_body($response));
+    }
+}, 10, 2);
+
+add_action('gform_after_submit_2', function ($entry) {
+    // Wifi Request
+    $api_url = 'https://contact-api.inguest.com/api/add-contacts-to-lists';
+    $guid = '79d3ad2b-c443-4e07-9089-971da3b0d7f1';
+
+    // Map Gravity Form fields to the API payload
+    $data = [
+        'tokens' => [$guid],
+        'contacts' => [
+            [
+                'first_name' => rgar($entry, '1.3'), // Replace '1' with the Gravity Form field ID for first name
+                'last_name' => rgar($entry, '1.6'),  // Replace '2' with the field ID for last name
+                //'address_1' => rgar($entry, '3'), // Replace '3' with the field ID for address line 1
+                //'address_2' => rgar($entry, '4'), // Replace '4' with the field ID for address line 2
+                //'city' => rgar($entry, '5'),      // Replace '5' with the field ID for city
+                'state' => rgar($entry, '3'),     // Replace '6' with the field ID for state
+                'country' => rgar($entry, '4'),   // Replace '7' with the field ID for country
+                //'zip' => rgar($entry, '8'),       // Replace '8' with the field ID for ZIP code
+                //'phone' => rgar($entry, '9'),     // Replace '9' with the field ID for phone
+                'email' => rgar($entry, '5')     // Replace '10' with the field ID for email
+            ]
+        ]
+    ];
+
+    // Send the POST request
+    $response = wp_remote_post($api_url, [
+        'method' => 'POST',
+        'headers' => [
+            'Content-Type' => 'text/plain',
+        ],
+        'body' => json_encode($data),
+    ]);
+
+    // Check for errors
+    if (is_wp_error($response)) {
+        error_log('Error posting to API: ' . $response->get_error_message());
+    } else {
+        error_log('API response: ' . wp_remote_retrieve_body($response));
+    }
+}, 10, 2);
+
+add_action('gform_after_submit_3', function ($entry) {
+    // Ownership Opportunities
+    $api_url = 'https://contact-api.inguest.com/api/add-contacts-to-lists';
+    $guid = '3b2a3411-8544-4133-ac55-30cee9ddef1c';
+
+    // Map Gravity Form fields to the API payload
+    $data = [
+        'tokens' => [$guid],
+        'contacts' => [
+            [
+                'first_name' => rgar($entry, '1.3'), // Replace '1' with the Gravity Form field ID for first name
+                'last_name' => rgar($entry, '1.6'),  // Replace '2' with the field ID for last name
+                //'address_1' => rgar($entry, '3'), // Replace '3' with the field ID for address line 1
+                //'address_2' => rgar($entry, '4'), // Replace '4' with the field ID for address line 2
+                //'city' => rgar($entry, '5'),      // Replace '5' with the field ID for city
+                'state' => rgar($entry, '3'),     // Replace '6' with the field ID for state
+                'country' => rgar($entry, '4'),   // Replace '7' with the field ID for country
+                //'zip' => rgar($entry, '8'),       // Replace '8' with the field ID for ZIP code
+                'phone' => rgar($entry, '5'),     // Replace '9' with the field ID for phone
+                'email' => rgar($entry, '6')     // Replace '10' with the field ID for email
+            ]
+        ]
+    ];
+
+    // Send the POST request
+    $response = wp_remote_post($api_url, [
+        'method' => 'POST',
+        'headers' => [
+            'Content-Type' => 'text/plain',
+        ],
+        'body' => json_encode($data),
+    ]);
+
+    // Check for errors
+    if (is_wp_error($response)) {
+        error_log('Error posting to API: ' . $response->get_error_message());
+    } else {
+        error_log('API response: ' . wp_remote_retrieve_body($response));
+    }
+}, 10, 2);
