@@ -63,7 +63,7 @@ add_action('admin_head', function () {
         </style>';
 });
 
-add_action('gform_after_submit_1', function ($entry) {
+add_action('gform_after_submission_1', function ($entry) {
     // Group RFP
     $api_url = 'https://contact-api.inguest.com/api/add-contacts-to-lists';
     $guid = '6936b499-e5a7-4405-87b8-cc82be76814e';
@@ -104,7 +104,7 @@ add_action('gform_after_submit_1', function ($entry) {
     }
 }, 10, 2);
 
-add_action('gform_after_submit_2', function ($entry) {
+add_action('gform_after_submission_2', function ($entry) {
     // Wifi Request
     $api_url = 'https://contact-api.inguest.com/api/add-contacts-to-lists';
     $guid = '79d3ad2b-c443-4e07-9089-971da3b0d7f1';
@@ -145,7 +145,7 @@ add_action('gform_after_submit_2', function ($entry) {
     }
 }, 10, 2);
 
-add_action('gform_after_submit_3', function ($entry) {
+add_action('gform_after_submission_3', function ($entry) {
     // Ownership Opportunities
     $api_url = 'https://contact-api.inguest.com/api/add-contacts-to-lists';
     $guid = '3b2a3411-8544-4133-ac55-30cee9ddef1c';
