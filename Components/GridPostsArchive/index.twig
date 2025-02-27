@@ -96,6 +96,17 @@
                 {% if currentPostType == 'specials-packages' or currentPostType == 'staff' %}
                   </figure>
                 {% endif %}
+            {% else %}
+                {% set placeHolderImg = 'https://antlersvail.com/wp-content/uploads/2023/11/Antlers-Logo-Google.png' %}
+                <figure class="{{figureType}}">
+                  <img class="figure-image lazyload"
+                  src="{{ placeHolderImg }}"
+                        width="{{ ingWidth }}"
+                        height="{{ (imgHeight)|round }}"
+                  alt="{{ post.thumbnail.alt|e }}">
+                {% if currentPostType == 'specials-packages' or currentPostType == 'staff' %}
+                  </figure>
+                {% endif %}
             {% endif %}
             {% set max_length = 100 %}
             {% if currentPostType == 'specials-packages' %}
