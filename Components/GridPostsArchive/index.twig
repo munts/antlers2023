@@ -1,75 +1,105 @@
 <flynt-component name="GridPostsArchive" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
-{# {{dump(introOptions.specials_hero.src)}} #}
-{% if queriedObject.name == 'specials-packages' %}
+
+{% if posts %}
+      {# Determine the current post type based on the archive #}
+      {% set currentPostType = '' %}
+      {# Check the body_class for post type information - using a simpler string-based approach #}
+      {% if 'post-type-archive-specials-packages' in body_class %}
+        {% set currentPostType = 'specials-packages' %}
+      {% elseif 'post-type-archive-staff' in body_class %}
+        {% set currentPostType = 'staff' %}
+      {% elseif 'post-type-archive' in body_class %}
+        {# Default to regular posts if it's another archive type #}
+        {% set currentPostType = 'post' %}
+      {% endif %}
+      {# Create a custom queriedObject with the post type information #}
+      {% set customQueriedObject = {
+        'name': currentPostType
+      } %}
+{% endif %}
+
+{% if currentPostType == 'specials-packages' %}
   {% set intro = introOptions.specials_intro %}
   {% set heroImg = introOptions.specials_hero.src %}
-{% elseif queriedObject.name == 'staff' %}
-   {% set intro = introOptions.staff_intro %}
-{% endif %}
-{% if queriedObject.name == 'staff' %}
+  {% set gridType = 'specials-packages' %}
+  {% set itemType = 'specials-packages-item' %}
+  {% set figureType = 'hex-figure' %}
+  {% set imgFigureType = 'hex-figure-image-svg' %}
+  {% set imgWidth = 768 %}
+  {% set imgHeight = '768 / 2 * 3' %}
+{% elseif currentPostType == 'staff' %}
+{% set postType = currentPostType %}
+  {% set intro = introOptions.staff_intro %}
   {% set heroImg = introOptions.staff_hero %}
   {% set gridType = 'staff' %}
   {% set itemType = 'staff-item' %}
+  {% set figureType = 'hex-figure' %}
+  {% set imgFigureType = 'hex-figure-image-svg' %}
   {% set imgWidth = 384 %}
   {% set imgHeight = 330 %}
 {% else %}
+  {% set postType = 'posts' %}
   {% set gridType = 'posts' %}
-  {% set itemType = 'post' %}
+  {% set itemType = 'post-item' %}
+  {% set figureType = 'figure' %}
+  {% set imgFigureType = 'figure-image-svg' %}
   {% set imgWidth = 768 %}
   {% set imgHeight = '768 / 2 * 3' %}
 {% endif %}
+
 {% if heroImg %}
   <picture class="picture" style="" data-theme="light">
       <img class="picture-image"
         src="{{ heroImg }}">
         <div class="clip-path-container"></div>
   </picture>
-  {% endif %}
+{% endif %}
 
-  <div class="container" data-size="full" data-flow="layout" data-theme="fade">
-    <div data-size="wide" data-align="center" data-text-align="center" style="padding-bottom:60px;">
-    {{ intro }}
-    </div>
+<div class="container" data-size="full" data-flow="layout" data-theme="none">
+  <div data-size="wide" data-align="center" data-text-align="center" style="padding-bottom:60px;">
+  {# post type = {{currentPostType}} #}
+  {{ intro }}
   </div>
+</div>
 
-  {% if title != 'Archives: <span>Specials</span>' %}
-    {% if terms %}
-      {% include 'Partials/_filter.twig' %}
-    {% endif %}
-  {% endif %}
 <div class="container" data-flow="layout">
+
     {% if posts|length > 0 %}
-      <ul data-ref="posts" class="{{gridType}}">
+      {# <ul data-ref="posts" class="{{gridType}}"> #}
+      <ul data-ref="posts" class="posts">
         {% for post in posts %}
         {% set title = post.title %}
         {% set shortDescription = post.get_field('short_description') %}
         {% set position = post.get_field('position') %}
           <li class="{{itemType}} boxBorder-none" data-theme="reset">
-              {% if post.thumbnail %}
-                <figure class="hex-figure">
-                 {% if post.thumbnail.post_mime_type == 'image/svg+xml'%}
-                    <img class="hex-figure-image-svg lazyload"
-                     src="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
-                      width="{{ 768 }}"
-                      height="{{ (768 / 3 * 2)|round }}"
-                      data-src="{{ post.thumbnail.src }}"
-                      alt="{{ post.thumbnail.alt|e }}">
-                  {% else %}
-                        <img class="figure-image lazyload"
-                        src="{{ post.thumbnail.src|resizeDynamic(imgWidth, (imgHeight)|round, 'center') }}"
+            {% if post.thumbnail %}
+              <figure class="{{figureType}}">
+                {% if post.thumbnail.post_mime_type == 'image/svg+xml'%}
+                  <img class="figure-image lazyload"
+                  src="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                  width="{{ 768 }}"
+                  height="{{ (768 / 3 * 2)|round }}"
+                  data-src="{{ post.thumbnail.src }}"
+                  alt="{{ post.thumbnail.alt|e }}">
+                {% else %}
+                  <img class="figure-image lazyload"
+                  src="{{ post.thumbnail.src|resizeDynamic(imgWidth, (imgHeight)|round, 'center') }}"
                         {# width="{{ ingWidth }}"
                         height="{{ (imgHeight)|round }}"
                         srcset="{{ placeholderImage(imgWidth, (imgHeight)|round, 'rgba(125, 125, 125, 0.1)') }}"
                         data-srcset="
                         {{ post.thumbnail.src|resizeDynamic(768, (768 / 2 * 3)|round, 'center') }} 768w,
-                        {{ post.thumbnail.src|resizeDynamic(640, (640 / 2 * 3)|round, 'center') }} 640w" 
+                        {{ post.thumbnail.src|resizeDynamic(640, (640 / 2 * 3)|round, 'center') }} 640w"
                         data-sizes="auto" #}
-                        alt="{{ post.thumbnail.alt|e }}">
-                  {% endif %}
+                  alt="{{ post.thumbnail.alt|e }}">
+                {% endif %}
+                {% if currentPostType == 'specials-packages' or currentPostType == 'staff' %}
                   </figure>
-              {% endif %}
-              {% set max_length = 100 %}
-                {% if shortDescription %}
+                {% endif %}
+            {% endif %}
+            {% set max_length = 100 %}
+            {% if currentPostType == 'specials-packages' %}
+              {% if shortDescription %}
                 <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
                   <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
                     <h3 class="post-title">{{post.title}}</h3>
@@ -79,7 +109,9 @@
                     </div>
                   </div>
                 </a>
-                {% elseif position %}
+              {% endif %}
+            {% elseif currentPostType == 'staff' %}
+              {% if position %}
                 <a class="link" href="{{ post.link|e('esc_url') }}" aria-label="{{ post.title }}">
                   <div class="content {{ options.amenities ? 'amenities' }} {{ options.card ? 'boxPadding' }}">
                     <h3 class="post-title">{{post.title}}</h3>
@@ -90,7 +122,21 @@
                     </div>
                   </div>
                 </a>
+              {% endif %}
+            {% else %}
+                <div class="post-title">
+                  <h4 style="padding: 15px 30px;">{{ post.title|truncate(6, '...', false) }}</h4>
+                </div>
+                <div class="content boxPaddingNo">
+                  <p>{{ post.content|striptags|slice(0, 130) ~ '...' }}</p>
+                </div>
+                {% if currentPostType != 'specials-packages' %}
+                  </figure>
                 {% endif %}
+                <div class="post-cta">
+                  <a class="button cta-button" href="{{post.link}}" title"Learn More">{{ labels.readMore }}</a>
+                </div>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>

@@ -1,8 +1,15 @@
 {% extends 'templates/_document.twig' %}
 
 {% block content %}
-  {{ renderComponent('GridPostsArchive', { posts: posts }) }}
+{% set componentsArray = post.meta.pageComponents|join(', ')%}
+  
+    {% if 'heroImageText' not in componentsArray and 'heroSlider' not in componentsArray %}
+      {% if not function('is_front_page') %}
+        <img src="/wp-content/uploads/2023/09/hero-photo.jpg" style="min-height:250px;max-height:600px;">
+      {% endif %}
+    {% endif %}
   {% for component in post.meta('pageComponents') %}
     {{ renderComponent(component) }}
   {% endfor %}
+  {{ renderComponent('GridPostsArchive', { posts: posts }) }}
 {% endblock %}
